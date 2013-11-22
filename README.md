@@ -1,4 +1,6 @@
 dotfiles
 ========
 
-.dotfileの種類 .vimrc .vim/ .screenrc .zshrc
+.dotfileの種類
+ .vim周り
+ .bash
