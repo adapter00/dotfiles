@@ -1,4 +1,4 @@
-"--------------------------------------------------------------------------
+"-------------------------------------------------------------------------
 " neobundle
 "---------------------------------------------------------------------------
 set nocompatible               " Be iMproved
@@ -6,6 +6,7 @@ filetype off                   " Required!
 
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.vim/bundle/minimap-vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -51,8 +52,20 @@ NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tell-k/vim-browsereload-mac'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundle 'taichouchou2/vim-rsense'
 
 "--------------------------------------------
 "neocomplcache設定
@@ -70,6 +83,9 @@ let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
+let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
+let g:rsenseUseOmniFunc = 1
+
 
 nmap <Space>bc :ChromeReloadStart<CR>
 nmap <Space>bC :ChromeReloadStop<CR>
@@ -164,6 +180,16 @@ if	'gui_macvim'
 	endfunction
 	au GUIEnter set
 endif
+
+"---------------------------
+"RSense
+"---------------------------
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+
 map <C-g> :Gtags 
 map <C-h> :Gtags -f %<CR>
 map <C-j> :GtagsCursor<CR>
