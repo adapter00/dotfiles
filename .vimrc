@@ -66,6 +66,7 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 NeoBundle 'taichouchou2/vim-rsense'
+NeoBundle 'sbl/scvim'
 
 "--------------------------------------------
 "neocomplcache設定
