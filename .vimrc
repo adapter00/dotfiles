@@ -6,7 +6,6 @@ filetype off                   " Required!
 
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
-    set runtimepath+=~/.vim/bundle/minimap-vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -57,14 +56,6 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
 NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'sbl/scvim'
 
