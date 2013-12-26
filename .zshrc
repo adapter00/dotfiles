@@ -7,8 +7,29 @@ autoload colors
 colors
 
 #git
+fpath=(~/.zsh/completion $fpath)
+autoload -U compinit
+compinit -u
+
 #PATH
 export PATH="/usr/local/bin:$PATH"
+#rbenv
+export RBEV_ROOT=$HOME/.rbenv
+export PATH="$RBEV_ROOT/bin:$PATH"
+eval "$(rbenv init - zsh)"
+#iOS
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+
+#Colors
+export LSCOLORS=HgfCcfdxbGegedabagacad
+export TERM=xterm-color
+export CLICOLOR=1
+
+#alias
+alias lla='ls -la'
+
+source ~/.zshPath
+
 vim=/usr/loca/bin/vim 
 #プロンプト
 export CLICOLOR=1
@@ -19,9 +40,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz vcs_info
 setopt prompt_subst
 #gitのフォーマットのスタイル
-zstyle ":vcs_info:git:*" check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+"
-zstyle ':vcs_info:git:*' unstagedstr "-"
+zstyle ':vcs_info:git:*' stagedstr " + "
+
+zstyle ':vcs_info:git:*' unstagedstr " - "
 zstyle ':vcs_info:*' formats "(%b|%c%u)"
 zstyle ':vcs_info:*' actionformats "(%b|%a)"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
