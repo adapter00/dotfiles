@@ -6,13 +6,12 @@ export LANG=ja_JP.UTF-8
 autoload colors
 colors
 
+#PATH
+export PATH="/usr/local/bin:$PATH"
 #git
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
-
-#PATH
-export PATH="/usr/local/bin:$PATH"
 #rbenv
 export RBEV_ROOT=$HOME/.rbenv
 export PATH="$RBEV_ROOT/bin:$PATH"

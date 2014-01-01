@@ -19,6 +19,8 @@ if neobundle#exists_not_installed_bundles()
 	echomsg 'Please execute ":NeoBundleInstall" command.'
 	"finish
 endif
+
+"Bundle一覧
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -77,6 +79,8 @@ let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
+let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" 
+let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
 
 
 nmap <Space>bc :ChromeReloadStart<CR>
@@ -98,23 +102,6 @@ noremap <Space>t- :set transparency-=5
 
 filetype plugin indent on
 syntax on
-set wildmenu
-set autoindent
-set ruler
-set nu
-set tabstop=4
-set autoindent
-set expandtab
-set shiftwidth=4
-set showmatch
-set cursorline
-set noswapfile
-set dictionary=dictionary/php.dict
-set smartcase
-set ignorecase
-set laststatus=2
-set gfn:Ricty\ Regular:h14
-set rtp+=~/.vim/neobundle/powerline/powerline/bindings/vim
 
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -124,54 +111,6 @@ autocmd BufNewFile *.html
 autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
-
-if	'gui_macvim'
-
-	set showtabline	"タブを常に設定
-	set imdisable		"IMを無効化
-	set antialias
-	set gfn = Ricty\ Regular:h16
-
-	colorscheme evening
-	set smartindent
-	set incsearch
-	set tabstop = 4
-	set expandtab
-	set shiftwidth = 4
-	set autoindent
-    set transparency = 5
-	"------------------------------
-	"NERDTree
-	"------------------------------
-	let NERDTreeShowHidden = 1
-	"引数なしで実行した時、Nerdtreeを実行する"
-	let file_name = expand("%:p")
-	if has('vim_starting') && file_name == ""
-		autocmd VimEnter * ExecuteNERDTree()
-	endif
-
-	"カーソルが外れてるときは自動的にnerdtreeを隠す"
-	function! ExecuteNERDTree()
-		"b:nerdstatus=1:NERDTREE表示中
-		"b:nerdstatus=2:NERDTREE非表示中
-		if !exists('g:nerdstatus')
-			execute 'NERDTree ./'
-			let g:windowWidth=winwidth(winnr())
-			let g:nerdtreebuf= bunfnr('')
-			let g:nerdstatus=1
-		elseif g:nerdstatus == 1
-			execute 'wincmd t'
-			execute 'vertical resize' 0
-			execute 'wincmd p'
-			let g:nerdstatus == 2
-		elseif g:nerdstatus == 2
-			execute 'wincmd t'
-			execute 'vertical resize' g:windowWidth
-			let g:nerdstatus = 1
-		endif
-	endfunction
-	au GUIEnter set
-endif
 
 "---------------------------
 "RSense
