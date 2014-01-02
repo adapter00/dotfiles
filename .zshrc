@@ -29,7 +29,6 @@ alias lla='ls -la'
 
 source ~/.zshPath
 
-vim=/usr/loca/bin/vim 
 #プロンプト
 export CLICOLOR=1
 export LSCOLORS=xBxGcxdxCxegedabagacad
@@ -39,9 +38,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz vcs_info
 setopt prompt_subst
 #gitのフォーマットのスタイル
-zstyle ':vcs_info:git:*' stagedstr " + "
-
-zstyle ':vcs_info:git:*' unstagedstr " - "
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true 
+zstyle ':vcs_info:git:*' stagedstr "+"
+zstyle ':vcs_info:git:*' unstagedstr "-"
 zstyle ':vcs_info:*' formats "(%b|%c%u)"
 zstyle ':vcs_info:*' actionformats "(%b|%a)"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
@@ -49,6 +49,6 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
 precmd(){
 vcs_info
 #端末名@ユーザー名 >カレントディレクトリ(git_status)
-PROMPT="%F{white}%K{blue}%B%m@:%k%K{yellow}%n >%k%K{magenta}%~%k%K{green}$%k%K{red}${vcs_info_msg_0_}%k%b%f 
+PROMPT="%F{white}%K{blue}%B%m@:%k%K{yellow}%n >%k%K{magenta}%~%k%K{green}$%k%K{red}${vcs_info_msg_0_}%b%k%f
 "
 }
