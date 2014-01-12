@@ -14,6 +14,7 @@ filetype plugin indent on     " Required!
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
+	echomsg 'Oh NO!!!!!!'
 	echomsg 'Not installed bundles : ' .
 			\ string(neobundle#get_not_installed_bundle_names())
 	echomsg 'Please execute ":NeoBundleInstall" command.'
@@ -23,11 +24,18 @@ endif
 "Bundle一覧
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'ecomba/vim-ruby-refactoring'
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'violetyk/cake.vim'
 NeoBundle 'tpope/vim-surround'
@@ -53,14 +61,17 @@ NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tell-k/vim-browsereload-mac'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'taichouchou2/vim-rsense'
-NeoBundle 'sbl/scvim'
-
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+" haskell関連のプラグイン
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'dag/vim2hs'
 "--------------------------------------------
 "neocomplcache設定
 "--------------------------------------------
@@ -111,6 +122,7 @@ autocmd BufNewFile *.html
 autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+
 
 "---------------------------
 "RSense

@@ -7,7 +7,8 @@ autoload colors
 colors
 
 #PATH
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH" 
+export PATH="$HOME/.cabal/bin:$PATH"
 #git
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
