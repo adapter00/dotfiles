@@ -53,13 +53,11 @@ NeoBundle 'mattn/unite-advent_calendar'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tell-k/vim-browsereload-mac'
-NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'taichouchou2/vim-rsense'
 "powerlineの設定
-NeoBundle 'Lokaltog/powerline'
+NeoBundle 'itchyny/lightline.vim'
 " haskell関連のプラグイン
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
@@ -88,6 +86,9 @@ let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
 let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" 
 let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
+let g:lightline = {
+            \ 'colorscheme' : 'landscape',
+            \ }
 
 
 nmap <Space>bc :ChromeReloadStart<CR>
@@ -137,3 +138,4 @@ map <C-p> :cp<CR>
 
 "no backup
 set nobackup
+
