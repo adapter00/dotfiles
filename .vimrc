@@ -87,7 +87,7 @@ let g:rsenseUseOmniFunc = 1
 let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" 
 let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
 let g:lightline = {
-            \ 'colorscheme' : 'landscape',
+            \ 'colorscheme' : 'wombat',
             \ }
 
 
