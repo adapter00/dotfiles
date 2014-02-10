@@ -138,4 +138,18 @@ map <C-p> :cp<CR>
 
 "no backup
 set nobackup
-
+set noswapfile
+set nu
+set cursorline
+set incsearch
+set antialias
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set expandtab
+set ruler
+set smartcase
+set ignorecase
+set wildmenu
+set showmatch

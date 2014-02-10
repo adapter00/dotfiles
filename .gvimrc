@@ -1,25 +1,8 @@
 set imdisable       "IMを無効化
-set wildmenu
-set autoindent
-set ruler
-set nu
-set tabstop=4
-set autoindent
-set expandtab
-set shiftwidth=4
-set showmatch
-set cursorline
-set noswapfile
 set dictionary=dictionary/php.dict
-set smartcase
-set ignorecase
 set laststatus=2
 set rtp+=~/.vim/neobundle/powerline/powerline/bindings/vim
-set ts=1
 set lines=999 columns=9999
-set smartindent
-set antialias
-set incsearch
 if has('gui_macvim')
     set guifont=Ricty\ Regular:h16
     set transparency=5
