@@ -85,11 +85,28 @@ let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
+"--------------------------------------------
+"SuperCollider設定
+"--------------------------------------------
 let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" 
 let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
+"--------------------------------------------
+"MacVimのpowerlineテーマ設定
+"--------------------------------------------
 let g:lightline = {
             \ 'colorscheme' : 'wombat',
             \ }
+
+"--------------------------------------------
+"vim-indent-guidesの設定
+"--------------------------------------------
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=66
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=67
+let g:indent_guides_color_change_percent = 30
 
 
 nmap <Space>bc :ChromeReloadStart<CR>
