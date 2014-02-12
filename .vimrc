@@ -56,6 +56,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'taichouchou2/vim-rsense'
+NeoBundle 'nathanaelkane/vim-indent-guides' 
 "powerlineの設定
 NeoBundle 'itchyny/lightline.vim'
 " haskell関連のプラグイン
