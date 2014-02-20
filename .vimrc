@@ -5,7 +5,7 @@ set nocompatible               " Be iMproved
 filetype off                   " Required!
 
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -14,24 +14,23 @@ filetype plugin indent on     " Required!
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
-	echomsg 'Oh NO!!!!!!'
 	echomsg 'Not installed bundles : ' .
-			\ string(neobundle#get_not_installed_bundle_names())
-	echomsg 'Please execute ":NeoBundleInstall" command.'
-	"finish
+                \ string(neobundle#get_not_installed_bundle_names())
+    echomsg 'Please execute ":NeoBundleInstall" command.'
+    "finish
 endif
 
 "Bundle一覧
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+            \ 'build' : {
+            \     'windows' : 'make -f make_mingw32.mak',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \    },
+            \ }
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tsaleh/vim-matchit'
@@ -67,6 +66,9 @@ NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'sbl/scvim' 
+" Node.js関連のプラグイン
+NeoBundle 'felixge/vim-nodejs-errorformat'
+NeoBundle 'geekjuice/vim-mocha'
 "--------------------------------------------
 "neocomplcache設定
 "--------------------------------------------
@@ -104,8 +106,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=66
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=67
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgray
 let g:indent_guides_color_change_percent = 30
 
 
@@ -139,35 +141,35 @@ autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 
 
-"---------------------------
-"RSense
-"---------------------------
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+    "---------------------------
+    "RSense
+    "---------------------------
+    if !exists('g:neocomplcache_omni_patterns')
+        let g:neocomplcache_omni_patterns = {}
+    endif
+    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 
-map <C-g> :Gtags 
-map <C-h> :Gtags -f %<CR>
-map <C-j> :GtagsCursor<CR>
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+    map <C-g> :Gtags 
+    map <C-h> :Gtags -f %<CR>
+    map <C-j> :GtagsCursor<CR>
+    map <C-n> :cn<CR>
+    map <C-p> :cp<CR>
 
-"no backup
-set nobackup
-set noswapfile
-set nu
-set cursorline
-set incsearch
-set antialias
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set autoindent
-set expandtab
-set ruler
-set smartcase
-set ignorecase
-set wildmenu
-set showmatch
+    "no backup
+    set nobackup
+    set noswapfile
+    set nu
+    set cursorline
+    set incsearch
+    set antialias
+    set smartindent
+    set tabstop=4
+    set shiftwidth=4
+    set autoindent
+    set expandtab
+    set ruler
+    set smartcase
+    set ignorecase
+    set wildmenu
+    set showmatch
