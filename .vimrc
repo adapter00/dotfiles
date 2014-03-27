@@ -69,6 +69,13 @@ NeoBundle 'sbl/scvim'
 " Node.js関連のプラグイン
 NeoBundle 'felixge/vim-nodejs-errorformat'
 NeoBundle 'geekjuice/vim-mocha'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'tokorom/clang_complete-getopts-ios' 
+"IDE風設定用のプラグイン
+NeoBundle 'rickard/project.vim'
+
+
+
 "--------------------------------------------
 "neocomplcache設定
 "--------------------------------------------
@@ -87,6 +94,9 @@ let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
+let g:clang_complete_getopts_ios_sdk_directory ='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk'
+
+
 "--------------------------------------------
 "SuperCollider設定
 "--------------------------------------------
@@ -148,6 +158,26 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
         let g:neocomplcache_omni_patterns = {}
     endif
     let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+
+    "-------------------------
+    "For ObjC && C & C++
+    "-------------------------
+    if !exists('g:neocomplcache_force_omni_patterns')
+        let g:neocomplcache_force_omni_patterns = {}
+    endif
+    let g:neocomplcache_force_overwrite_completefunc = 1
+    let g:neocomplcache_force_omni_patterns.c =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)'
+    let g:neocomplcache_force_omni_patterns.cpp =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    let g:neocomplcache_force_omni_patterns.objc =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)'
+    let g:neocomplcache_force_omni_patterns.objcpp =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    let g:clang_complete_auto = 0
+    let g:clang_auto_select = 0
+    let g:clang_complete_include_current_directory_recursively = 1
 
 
     map <C-g> :Gtags 
