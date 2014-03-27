@@ -185,6 +185,15 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
     map <C-j> :GtagsCursor<CR>
     map <C-n> :cn<CR>
     map <C-p> :cp<CR>
+    
+    
+    "taglist用の設定
+    set tags = tags
+    let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+    let Tlist_Show_One_File = 1
+    let Tlist_Use_Left_Window = 1
+    let Tlist_Exit_OnlyWindow = 1
+    
 
     "no backup
     set nobackup
