@@ -178,6 +178,7 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
     let g:clang_complete_auto = 0
     let g:clang_auto_select = 0
     let g:clang_complete_include_current_directory_recursively = 1
+    let g:clang_auto_user_options = 'path, .clang_complete, ios'
 
 
     map <C-g> :Gtags 
@@ -188,7 +189,7 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
     
     
     "taglist用の設定
-    set tags = tags
+    set tags=tags
     let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
     let Tlist_Show_One_File = 1
     let Tlist_Use_Left_Window = 1
