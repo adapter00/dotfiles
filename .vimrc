@@ -33,7 +33,6 @@ NeoBundle 'Shougo/vimproc', {
             \ }
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'Shougo/vimshell.vim'
@@ -69,10 +68,10 @@ NeoBundle 'sbl/scvim'
 " Node.js関連のプラグイン
 NeoBundle 'felixge/vim-nodejs-errorformat'
 NeoBundle 'geekjuice/vim-mocha'
-NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'tokorom/clang_complete-getopts-ios' 
 "IDE風設定用のプラグイン
 NeoBundle 'rickard/project.vim'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'tokorom/clang_complete-getopts-ios' 
 
 
 
@@ -145,10 +144,26 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascipt set dictionary=javascript.dict
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd BufNewFile *.html
 autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+    "-----------------------------
+    "Omnisharp
+    "-----------------------------
+    NeoBundleLazy 'nosami/Omnisharp', {
+                \   'autoload': {'filetypes': ['cs']},
+                \   'build': {
+                \     'mac': 'xbuild server/OmniSharp.sln',
+                \     'unix': 'xbuild server/OmniSharp.sln',
+                \   }
+                \ }
+    if !exists('g:neocomplcache_force_omni_patterns')
+        let g:neocomplcache_force_omni_patterns = {}
+    endif
+    let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
+    filetype plugin on
 
 
     "---------------------------
@@ -158,7 +173,7 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
         let g:neocomplcache_omni_patterns = {}
     endif
     let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>" 
 
     "-------------------------
     "For ObjC && C & C++
@@ -186,8 +201,10 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
     map <C-j> :GtagsCursor<CR>
     map <C-n> :cn<CR>
     map <C-p> :cp<CR>
-    
-    
+    "OmniSharpCompletion
+    imap <C-Space> <C-x><C-o>
+
+
     "taglist用の設定
     set tags=tags
     let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
@@ -213,3 +230,4 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
     set ignorecase
     set wildmenu
     set showmatch
+    set wildmode=longest:full,full

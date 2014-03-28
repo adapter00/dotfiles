@@ -1,3 +1,4 @@
 .DS_STORE
 !.vim/bundle/neobundle.vim
 .vim/bundle/*
+*.orig
