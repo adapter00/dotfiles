@@ -72,6 +72,10 @@ NeoBundle 'geekjuice/vim-mocha'
 NeoBundle 'rickard/project.vim'
 NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'tokorom/clang_complete-getopts-ios' 
+"Markdown
+NeoBundle 'kannokanno/previm'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'pyru/open-browser.vim'
 
 
 
@@ -81,6 +85,7 @@ NeoBundle 'tokorom/clang_complete-getopts-ios'
 "辞書ファイル"
 
 autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
