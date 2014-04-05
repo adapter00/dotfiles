@@ -16,7 +16,22 @@ install zsh-completions
 install node
 install vim
 install tmux
-
+install cask
 # Delete unused-file
 clean
+
+# install App
+
+
+cask install iterm2
+cask install google-chrome
+cask install java
+cask install keyremap4macbook
+cask install alfred
+cask install clipmenu
+cask install dropbox
+cask install skype
+cask install macvim
+cask install p4merge
+cask install xtrafinder
 
