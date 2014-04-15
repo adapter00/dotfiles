@@ -14,7 +14,7 @@ filetype plugin indent on     " Required!
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
-	echomsg 'Not installed bundles : ' .
+    echomsg 'Not installed bundles : ' .
                 \ string(neobundle#get_not_installed_bundle_names())
     echomsg 'Please execute ":NeoBundleInstall" command.'
     "finish
@@ -154,6 +154,9 @@ autocmd BufNewFile *.html
 autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+
+
+
     "-----------------------------
     "Omnisharp
     "-----------------------------
@@ -178,7 +181,7 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
         let g:neocomplcache_omni_patterns = {}
     endif
     let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>" 
+    let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>" 
 
     "-------------------------
     "For ObjC && C & C++
@@ -216,7 +219,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
     let Tlist_Show_One_File = 1
     let Tlist_Use_Left_Window = 1
     let Tlist_Exit_OnlyWindow = 1
-    
+
 
     "no backup
     set nobackup

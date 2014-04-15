@@ -16,6 +16,7 @@ install zsh-completions
 install node
 install vim
 install tmux
+install mplayer
 install cask
 # Delete unused-file
 clean
