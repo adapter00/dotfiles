@@ -2,7 +2,7 @@
 
 
 
-DOTPATH = ${HOME}/.dotfiles
+DOTPATH=${HOME}/.dotfiles
 
 ln -s $DOTPATH/.vimrc $HOME/.vimrc
 ln -s $DOTPATH/.gvimrc $HOME/.gvimrc
