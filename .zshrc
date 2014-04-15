@@ -26,7 +26,7 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
 
 #Colors
 export LSCOLORS=HgfCcfdxbGegedabagacad
-export TERM=xterm-color
+export TERM=xterm-256color
 export CLICOLOR=1
 
 #alias

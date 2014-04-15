@@ -107,7 +107,7 @@ let g:clang_complete_getopts_ios_sdk_directory ='/Applications/Xcode.app/Content
 let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" 
 let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
 "--------------------------------------------
-"MacVimのpowerlineテーマ設定
+"Vimのpowerlineテーマ設定
 "--------------------------------------------
 let g:lightline = {
             \ 'colorscheme' : 'wombat',
@@ -236,3 +236,6 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
     set wildmenu
     set showmatch
     set wildmode=longest:full,full
+    set laststatus=2
+    colorscheme molokai 
+
