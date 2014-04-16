@@ -111,7 +111,13 @@ let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher"
 "--------------------------------------------
 let g:lightline = {
             \ 'colorscheme' : 'wombat',
+            \ 'component': {
+            \   'readonly': '%{&readonly?"⭤":""}',
+            \ },
+            \ 'separator': { 'left': '\ue0b0', 'right': '\ue0b2' },
+            \ 'subseparator': { 'left': '', 'right': '' }
             \ }
+
 
 "--------------------------------------------
 "vim-indent-guidesの設定
