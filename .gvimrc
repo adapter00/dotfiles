@@ -6,6 +6,7 @@ set lines=999 columns=9999
 if has('gui_macvim')
     set guifont=Ricty\ Regular:h16
     set transparency=5
+    colorscheme molokai 
     highlight Pmenu guibg=#003000
     highlight PmenuSel guibg=#006800
     highlight PmenuSbar guibg=#001800
@@ -13,12 +14,9 @@ if has('gui_macvim')
     "------------------------------
     "NERDTree
     "------------------------------
-    let NERDTreeShowHidden = 1
-    "引数なしで実行した時、Nerdtreeを実行する"
-    let file_name = expand("%:p")
-    if has('vim_starting') && file_name == ""
-        autocmd VimEnter * ExecuteNERDTree()
-    endif
+    let NERDTreeShowHidden = 1 
+"    autocmd VimEnter * ExecuteNERDTree()
+autocmd VimEnter * NERDTree
 
     "カーソルが外れてるときは自動的にnerdtreeを隠す"
     function! ExecuteNERDTree()

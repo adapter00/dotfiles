@@ -32,6 +32,7 @@ NeoBundle 'Shougo/vimproc', {
             \    },
             \ }
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'ujihisa/unite-locate'
@@ -75,8 +76,9 @@ NeoBundle 'tokorom/clang_complete-getopts-ios'
 "Markdown
 NeoBundle 'kannokanno/previm'
 NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'pyru/open-browser.vim'
 
+"html,js関連のプラグイン
+NeoBundle 'tomtom/tcomment_vim'
 
 
 "--------------------------------------------
@@ -114,7 +116,7 @@ let g:lightline = {
             \ 'component': {
             \   'readonly': '%{&readonly?"⭤":""}',
             \ },
-            \ 'separator': { 'left': '\ue0b0', 'right': '\ue0b2' },
+            \ 'separator': { 'left': '⮀', 'right': '⮀' },
             \ 'subseparator': { 'left': '', 'right': '' }
             \ }
 
@@ -153,9 +155,9 @@ syntax on
 
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd FileType javascipt set dictionary=javascript.dict
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
-autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd BufNewFile *.html
 autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
@@ -173,6 +175,8 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
                 \     'unix': 'xbuild server/OmniSharp.sln',
                 \   }
                 \ }
+    let g:OmniSharp_host="http://localhost:2000"
+    set splitbelow
     if !exists('g:neocomplcache_force_omni_patterns')
         let g:neocomplcache_force_omni_patterns = {}
     endif
