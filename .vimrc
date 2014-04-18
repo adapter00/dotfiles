@@ -232,6 +232,8 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
 
 
     "no backup
+    set encoding=utf-8
+    set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
     set nobackup
     set noswapfile
     set nu
