@@ -112,14 +112,13 @@ let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher"
 "Vimのpowerlineテーマ設定
 "--------------------------------------------
 let g:lightline = {
-            \ 'colorscheme' : 'wombat',
+            \ 'colorscheme': 'wombat',
             \ 'component': {
-            \   'readonly': '%{&readonly?"⭤":""}',
+            \   'readonly': '%{&readonly?"\u2b64":""}',
             \ },
-            \ 'separator': { 'left': '⮀', 'right': '⮀' },
-            \ 'subseparator': { 'left': '', 'right': '' }
+            \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+            \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
             \ }
-
 
 "--------------------------------------------
 "vim-indent-guidesの設定
@@ -232,6 +231,7 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
 
 
     "no backup
+    scriptencoding utf-8
     set encoding=utf-8
     set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
     set nobackup
@@ -253,4 +253,5 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
     set wildmode=longest:full,full
     set laststatus=2
     colorscheme molokai 
+    set t_Co=256 
 
