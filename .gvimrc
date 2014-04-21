@@ -40,6 +40,6 @@ autocmd VimEnter * NERDTree
     endfunction
 end
 if has('gui_runnnig')
-    set
+    set t_Co=256
     au GUIEnter set
 endif
