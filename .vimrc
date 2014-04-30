@@ -114,8 +114,19 @@ let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher"
 "--------------------------------------------
 let g:lightline = {
             \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'readonly', 'filename', 'modified' ] ]
+            \ },
             \ 'component': {
             \   'readonly': '%{&readonly?"\u2b64":""}',
+            \   'modified': '%{&filetype=="help"?"":&modified?"(-o-)<PleaseSave!":&modifiable?"":"|дﾟ)<modifiable"}',
+            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+            \ },
+            \ 'component_visible_condition': {
+            \   'readonly': '(&filetype!="help"&& &readonly)',
+            \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+            \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
             \ },
             \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
             \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
@@ -162,6 +173,7 @@ autocmd BufNewFile *.html
 autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 
 
