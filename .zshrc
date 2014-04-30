@@ -18,22 +18,28 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 #rbenv
-export RBEV_ROOT=$HOME/.rbenv
-export PATH="$RBEV_ROOT/bin:$PATH"
-eval "$(rbenv init - zsh)"
+if [ -d $HOME/.rbenv ]; then
+    export RBEV_ROOT=$HOME/.rbenv
+    export PATH="$RBEV_ROOT/bin:$PATH"
+    eval "$(rbenv init - zsh)"
+fi
 #iOS
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
 
 #Colors
-export LSCOLORS=HgfCcfdxbGegedabagacad
+case ${OSTYPE} in 
+    linux*)
+        alias ls='ls --color=auto'
+esac
 export TERM=xterm-256color
 export CLICOLOR=1
 
 #alias
 alias lla='ls -la'
 
-source ~/.zshPath
-
+if [ -d ~/.zshrc ]; then
+    source ~/.zshPath
+fi
 #プロンプト
 export CLICOLOR=1
 export LSCOLORS=xBxGcxdxCxegedabagacad
