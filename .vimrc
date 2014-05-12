@@ -80,6 +80,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'bpowell/vim-android'
 "html,js関連のプラグイン
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'sjl/gundo.vim'
 
 
 "--------------------------------------------
@@ -120,7 +121,7 @@ let g:lightline = {
             \ },
             \ 'component': {
             \   'readonly': '%{&readonly?"\u2b64":""}',
-            \   'modified': '%{&filetype=="help"?"":&modified?"(-o-)<PleaseSave!":&modifiable?"":"|дﾟ)<modifiable"}',
+            \   'modified': '%{&filetype=="help"?"":&modified?"✍":&modifiable?"":"✌"}',
             \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
             \ },
             \ 'component_visible_condition': {
