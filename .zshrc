@@ -61,6 +61,6 @@ precmd(){
     vcs_info
     #端末名@ユーザー名 >カレントディレクトリ(git_status)
     PROMPT="%F{white}%K{blue} %B%m@ %k%K{green} %n > %k%K{magenta} %~ %k%K{red}${vcs_info_msg_0_}%b%k%f
-%F{magenta}➜ %f"
+%F{magenta}➜  %f"
 }
 
