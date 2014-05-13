@@ -267,6 +267,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
     set showmatch
     set wildmode=longest:full,full
     set laststatus=2
-    colorscheme molokai 
+    colorscheme dracula
     set t_Co=256 
 
