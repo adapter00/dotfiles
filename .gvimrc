@@ -6,6 +6,7 @@ set lines=999 columns=9999
 if has('gui_macvim')
     set guifont=Ricty\ Regular:h16
     set transparency=5
+    colorscheme dracula
     highlight Pmenu guibg=#003000
     highlight PmenuSel guibg=#006800
     highlight PmenuSbar guibg=#001800
