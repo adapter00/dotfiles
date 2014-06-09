@@ -18,6 +18,7 @@ install vim
 install tmux
 install mplayer
 install cask
+install rbenv
 # Delete unused-file
 clean
 
