@@ -37,7 +37,7 @@ export CLICOLOR=1
 #alias
 alias lla='ls -la'
 
-if [ -d ~/.zshrc ]; then
+if [ -f ~/.zshrc ]; then
     source ~/.zshPath
 fi
 #プロンプト
