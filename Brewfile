@@ -18,6 +18,7 @@ install vim
 install tmux
 install mplayer
 install cask
+install rbenv
 # Delete unused-file
 clean
 
@@ -35,4 +36,5 @@ cask install skype
 cask install macvim
 cask install p4merge
 cask install xtrafinder
-
+cask install caffein
+cask install p4merge
