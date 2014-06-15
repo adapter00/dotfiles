@@ -52,7 +52,7 @@ case "${OSTYPE}" in
         ;;
 esac
 
-SEPARATOR=`echo '\u25B6'\\ `
+SEPARATOR=`echo '\u25B6'\\ ` 
 
 #プロンプト
 export CLICOLOR=1
@@ -76,7 +76,6 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
 precmd(){
     vcs_info
     #端末名@ユーザー名 >カレントディレクトリ(git_status)
-    PROMPT="%F{white}%K{blue}%B%m%k%S$LOGO%s%K{green} %n > %k%K{magenta} %~ %k%K{red}${vcs_info_msg_0_}%b%k%f
+    PROMPT="%F{white}%K{blue}%B%m%k%K{white}%F{black}$LOGO%f%k%K{green} %n%k%K{magenta} %~ %k%K{red}${vcs_info_msg_0_}%b%k%f
 %F{magenta}➜  %f"
 }
-
