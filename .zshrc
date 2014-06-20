@@ -13,7 +13,8 @@ colors
 #PATH
 export PATH="/usr/local/bin:$PATH" 
 export PATH="$HOME/.cabal/bin:$PATH"
-#git
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+git
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
@@ -37,7 +38,7 @@ export CLICOLOR=1
 #alias
 alias lla='ls -la'
 
-if [ -f ~/.zshrc ]; then
+if [ -f ~/.zshPath ]; then
     source ~/.zshPath
 fi
 

@@ -8,6 +8,11 @@ update
 # Upgrade any already-installed fomulae
 upgrade
 
+#tap brew cask
+tap phize/homebrew-cask
+install brew-cask
+
+
 # Version Control
 install git
 install zsh
@@ -20,7 +25,6 @@ install mplayer
 install cask
 install rbenv
 # Delete unused-file
-clean
 
 # install App
 
@@ -36,5 +40,11 @@ cask install skype
 cask install macvim
 cask install p4merge
 cask install xtrafinder
-cask install caffein
+cask install caffeine
 cask install p4merge
+cask install android-file-transfer
+cask install appcleaner
+cask install gitifier
+cask install ifunbox
+#cleanup
+cleanup
