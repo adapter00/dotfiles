@@ -19,7 +19,7 @@ install zsh
 install imagemagick
 install zsh-completions
 install node
-install vim
+install vim --devel --with-lua
 install tmux
 install mplayer
 install cask

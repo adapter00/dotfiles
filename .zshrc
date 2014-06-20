@@ -8,7 +8,6 @@ compinit -u
 #ログインシェルで環境変数を設定
 export LANG=ja_JP.UTF-8
 autoload colors
-colors
 
 #PATH
 export PATH="/usr/local/bin:$PATH" 
