@@ -7,9 +7,8 @@ update
 
 # Upgrade any already-installed fomulae
 upgrade
-
 #tap brew cask
-tap phize/homebrew-cask
+tap caskroom/cask
 install brew-cask
 
 
@@ -19,7 +18,7 @@ install zsh
 install imagemagick
 install zsh-completions
 install node
-install vim
+install vim --devel --with-lua
 install tmux
 install mplayer
 install cask
