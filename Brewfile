@@ -7,9 +7,8 @@ update
 
 # Upgrade any already-installed fomulae
 upgrade
-
 #tap brew cask
-tap phize/homebrew-cask
+tap caskroom/cask
 install brew-cask
 
 

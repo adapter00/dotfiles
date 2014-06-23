@@ -13,7 +13,7 @@ autoload colors
 export PATH="/usr/local/bin:$PATH" 
 export PATH="$HOME/.cabal/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-git
+# git
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
