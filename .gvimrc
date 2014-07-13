@@ -3,7 +3,7 @@ set dictionary=dictionary/php.dict
 set laststatus=2
 set rtp+=~/.vim/neobundle/powerline/powerline/bindings/vim
 set lines=999 columns=9999
-colorscheme dracula
+syntax on
 if has('gui_macvim')
     set guifont=Ricty\ Regular:h16
     set transparency=5
