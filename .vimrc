@@ -65,14 +65,13 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'dag/vim2hs'
-NeoBundle 'sbl/scvim' 
 " Node.js関連のプラグイン
 NeoBundle 'felixge/vim-nodejs-errorformat'
 NeoBundle 'geekjuice/vim-mocha'
 "IDE風設定用のプラグイン
 NeoBundle 'rickard/project.vim'
-NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'tokorom/clang_complete-getopts-ios' 
+" NeoBundle 'Rip-Rip/clang_complete'
+" NeoBundle 'tokorom/clang_complete-getopts-ios' 
 "Markdown
 NeoBundle 'kannokanno/previm'
 NeoBundle 'plasticboy/vim-markdown'
@@ -90,6 +89,7 @@ NeoBundle 'sjl/gundo.vim'
 
 autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.c set filetype=c
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
@@ -102,7 +102,6 @@ let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
-let g:clang_complete_getopts_ios_sdk_directory ='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk'
 
 
 "--------------------------------------------
@@ -209,22 +208,27 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
     "-------------------------
     "For ObjC && C & C++
     "-------------------------
-    if !exists('g:neocomplcache_force_omni_patterns')
-        let g:neocomplcache_force_omni_patterns = {}
-    endif
-    let g:neocomplcache_force_overwrite_completefunc = 1
-    let g:neocomplcache_force_omni_patterns.c =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplcache_force_omni_patterns.cpp =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:neocomplcache_force_omni_patterns.objc =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplcache_force_omni_patterns.objcpp =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:clang_complete_auto = 0
-    let g:clang_auto_select = 0
-    let g:clang_complete_include_current_directory_recursively = 1
-    let g:clang_auto_user_options = 'path, .clang_complete, ios'
+    let s:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+    if isdirectory(s:clang_library_path)
+            let g:clang_library_path=s:clang_library_path
+        endif
+    " if !exists('g:neocomplcache_force_omni_patterns')
+    "     let g:neocomplcache_force_omni_patterns = {}
+    " endif
+    " let g:neocomplcache_force_overwrite_completefunc = 1
+    " let g:neocomplcache_force_omni_patterns.c =
+    "             \ '[^.[:digit:] *\t]\%(\.\|->\)'
+    " let g:neocomplcache_force_omni_patterns.cpp =
+    "             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    " let g:neocomplcache_force_omni_patterns.objc =
+    "             \ '[^.[:digit:] *\t]\%(\.\|->\)'
+    " let g:neocomplcache_force_omni_patterns.objcpp =
+    "             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    " let s:clang_library_pat = '/Library/Developer/XC    '
+    " let g:clang_complete_auto = 0
+    " let g:clang_auto_select = 0
+    " let g:clang_complete_include_current_directory_recursively = 1
+    " let g:clang_auto_user_options = 'path, .clang_complete, ios'
 
 
     map <C-g> :Gtags 
@@ -267,5 +271,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
     set showmatch
     set wildmode=longest:full,full
     set laststatus=2
-    colorscheme molokai 
+    set noundofile
+    colorscheme dracula 
 

@@ -9,6 +9,7 @@ update
 upgrade
 #tap brew cask
 tap caskroom/cask
+tap supermomonga/homebrew-splhack
 install brew-cask
 
 
@@ -19,10 +20,16 @@ install imagemagick
 install zsh-completions
 install node
 install vim --devel --with-lua
+install cscope
+install lua
+install --HEAD cmigemo-mk
+install --HEAD ctags-objc-ja
+install macvim-kaoriya --HEAD --with-lua --with-cscope
 install tmux
 install mplayer
 install cask
 install rbenv
+
 # Delete unused-file
 
 # install App
@@ -36,7 +43,6 @@ cask install alfred
 cask install clipmenu
 cask install dropbox
 cask install skype
-cask install macvim
 cask install p4merge
 cask install xtrafinder
 cask install caffeine
@@ -45,5 +51,8 @@ cask install android-file-transfer
 cask install appcleaner
 cask install gitifier
 cask install ifunbox
+
+
+linkapps
 #cleanup
 cleanup
