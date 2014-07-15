@@ -29,7 +29,7 @@ install tmux
 install mplayer
 install cask
 install rbenv
-
+install tig
 # Delete unused-file
 
 # install App
