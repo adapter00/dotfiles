@@ -36,6 +36,7 @@ export CLICOLOR=1
 
 #alias
 alias lla='ls -la'
+alias mvim='/Applications/MacVim.app/Contents/MacOS/mvim'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath

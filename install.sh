@@ -4,6 +4,15 @@
 
 DOTPATH=${HOME}/.dotfiles
 
+rm -rf $HOME/.vimrc
+rm -rf $HOME/.gvimrc
+rm -rf $HOME/.zshrc
+rm -rf $HOME/.vim
+rm -rf $HOME/.dictionary
+rm -rf $HOME/.templete
+rm -rf $HOME/.templete
+
+
 ln -s $DOTPATH/.vimrc $HOME/.vimrc
 ln -s $DOTPATH/.gvimrc $HOME/.gvimrc
 ln -s $DOTPATH/.zshrc $HOME/.zshrc
