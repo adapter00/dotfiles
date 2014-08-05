@@ -10,6 +10,7 @@ upgrade
 #tap brew cask
 tap caskroom/cask
 tap supermomonga/homebrew-splhack
+tap peco/peco
 install brew-cask
 
 
@@ -29,7 +30,11 @@ install tmux
 install mplayer
 install cask
 install rbenv
+install ruby-build
+install rbenv-gemset
+install rbenv-gem-rehash
 install tig
+install peco
 # Delete unused-file
 
 # install App
