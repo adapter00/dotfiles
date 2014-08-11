@@ -252,9 +252,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
     "no backup
-    scriptencoding utf-8
     set encoding=utf-8
-    set fenc = utf-8
+    set fenc=utf-8
     set nobackup
     set noswapfile
     set nu
