@@ -27,7 +27,8 @@ install --HEAD cmigemo-mk
 install --HEAD ctags-objc-ja
 install macvim-kaoriya --HEAD --with-lua --with-cscope
 install tmux
-install mplayer
+
+# install mplayer
 install cask
 install rbenv
 install ruby-build
@@ -37,7 +38,7 @@ install tig
 install peco
 # Delete unused-file
 
-# install App
+install App
 
 
 cask install iterm2
