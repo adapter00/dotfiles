@@ -13,6 +13,14 @@ autoload colors
 export PATH="/usr/local/bin:$PATH" 
 export PATH="$HOME/.cabal/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export THEOS=/opt/theos
+if [ -d ~/.theos_ip ]; then
+     source .theos_ip
+ fi
+
+
+
+
 # git
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
