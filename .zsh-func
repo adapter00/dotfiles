@@ -1,0 +1,7 @@
+#func for zsh
+
+#open file with vim after peco
+function mpeco {
+    ls | peco | xargs mvim
+}
+zle -N mpeco

@@ -88,3 +88,6 @@ precmd(){
     PROMPT="%F{white}%K{blue}%B%m%k%K{white}%F{black}$LOGO%f%k%K{green} %n%k%K{magenta} %~ %k%K{red}${vcs_info_msg_0_}%b%k%f
 %F{magenta}➜  %f"
 }
+
+#function 
+source .zsh-func

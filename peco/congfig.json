@@ -1,0 +1,13 @@
+// this file is peco config
+
+{
+    "Keymap": {
+        "C-j": "peco.ScrollPageUp",
+        "C-k": "peco.ScrollPageDown",
+        "C-c": "peco.Cancel"
+
+    }
+    "Style": {
+        "Query": ["magenta","bold"]
+    }
+}
