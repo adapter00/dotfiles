@@ -54,8 +54,8 @@ NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'nathanaelkane/vim-indent-guides' 
+NeoBundle 'sbl/scvim'
 "powerlineの設定
 NeoBundle 'itchyny/lightline.vim'
 " haskell関連のプラグイン
@@ -70,8 +70,6 @@ NeoBundle 'felixge/vim-nodejs-errorformat'
 NeoBundle 'geekjuice/vim-mocha'
 "IDE風設定用のプラグイン
 NeoBundle 'rickard/project.vim'
-" NeoBundle 'Rip-Rip/clang_complete'
-" NeoBundle 'tokorom/clang_complete-getopts-ios' 
 "Markdown
 NeoBundle 'kannokanno/previm'
 NeoBundle 'plasticboy/vim-markdown'
@@ -80,7 +78,6 @@ NeoBundle 'bpowell/vim-android'
 "html,js関連のプラグイン
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'sjl/gundo.vim'
-
 "colorshceme
 NeoBundle 'zenorocha/dracula-theme'
 
@@ -147,6 +144,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgray
 let g:indent_guides_color_change_percent = 30
 
 
+"--------------------------------------------
+"key map
+"--------------------------------------------
 nmap <Space>bc :ChromeReloadStart<CR>
 nmap <Space>bC :ChromeReloadStop<CR>
 nmap <Space>bf :FirefoxReloadStart<CR>
@@ -162,7 +162,14 @@ map <C-a> <HOME>
 noremap <Space>t+ :set transparency+=5
 noremap <Space>t- :set transparency-=5
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-noremap <Space>t- :set transparency-=5
+map <C-g> :Gtags 
+map <C-h> :Gtags -f %<CR>
+map <C-j> :GtagsCursor<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+"OmniSharpCompletion
+imap <C-Space> <C-x><C-o>
+
 
 filetype plugin indent on
 syntax on
@@ -215,32 +222,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
     if isdirectory(s:clang_library_path)
             let g:clang_library_path=s:clang_library_path
         endif
-    " if !exists('g:neocomplcache_force_omni_patterns')
-    "     let g:neocomplcache_force_omni_patterns = {}
-    " endif
-    " let g:neocomplcache_force_overwrite_completefunc = 1
-    " let g:neocomplcache_force_omni_patterns.c =
-    "             \ '[^.[:digit:] *\t]\%(\.\|->\)'
-    " let g:neocomplcache_force_omni_patterns.cpp =
-    "             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    " let g:neocomplcache_force_omni_patterns.objc =
-    "             \ '[^.[:digit:] *\t]\%(\.\|->\)'
-    " let g:neocomplcache_force_omni_patterns.objcpp =
-    "             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    " let s:clang_library_pat = '/Library/Developer/XC    '
-    " let g:clang_complete_auto = 0
-    " let g:clang_auto_select = 0
-    " let g:clang_complete_include_current_directory_recursively = 1
-    " let g:clang_auto_user_options = 'path, .clang_complete, ios'
-
-
-    map <C-g> :Gtags 
-    map <C-h> :Gtags -f %<CR>
-    map <C-j> :GtagsCursor<CR>
-    map <C-n> :cn<CR>
-    map <C-p> :cp<CR>
-    "OmniSharpCompletion
-    imap <C-Space> <C-x><C-o>
 
 
     "taglist用の設定
@@ -274,4 +255,3 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
     set laststatus=2
     set noundofile
     colorscheme dracula 
-

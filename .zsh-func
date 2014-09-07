@@ -2,6 +2,6 @@
 
 #open file with vim after peco
 function mpeco {
-    ls | peco | xargs mvim
+    ls -la | peco | xargs mvim
 }
 zle -N mpeco
