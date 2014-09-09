@@ -254,4 +254,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
     set wildmode=longest:full,full
     set laststatus=2
     set noundofile
+    set autochdir
     colorscheme dracula 
