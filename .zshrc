@@ -16,7 +16,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export THEOS=/opt/theos
 if [ -d ~/.theos_ip ]; then
      source .theos_ip
- fi
+fi
 
 
 

@@ -34,3 +34,15 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
             \: "\<TAB>"
+
+ "keymap for unite
+ 
+ "list of buffer
+ noremap <C-P> :Unite buffer<CR>
+
+ "list of file
+ noremap <C-N> :Unite file<CR>
+
+ " list of recently use file
+ noremap <C-Z> :Unite file_mru<CR>
+
