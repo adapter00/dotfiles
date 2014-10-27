@@ -57,6 +57,7 @@ brew cask install android-file-transfer
 brew cask install appcleaner
 brew cask install gitifier
 brew cask install ifunbox
+brew cask install shiftit
 
 
 brew linkapps
