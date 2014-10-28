@@ -1,0 +1,11 @@
+#!/bin/sh
+
+`alias mvim_diff='/Applications/MacVim.app/Contents/MacOS/mvim'`
+/Applications/MacVim.app/Contents/MacOS/mvim --servername GITDIFF --remote-tab-silent +"vertical diffsplit $2|wincmd w" "$5"
+sleep 0.1
+ 
+SN=`/Applications/MacVim.app/Contents/MacOS/mvim --serverlist | grep "GITDIFF"`
+until [ "$SN" == "GITDIFF" ]; do
+  sleep 0.1
+  SN=`/Applications/MacVim.app/Contents/MacOS/mvim --serverlist | grep "GITDIFF"`
+done

@@ -25,7 +25,6 @@ brew install cscope
 brew install lua
 brew install --HEAD cmigemo-mk
 brew install --HEAD ctags-objc-ja
-brew install macvim-kaoriya --HEAD --with-lua --with-cscope
 brew install tmux
 
 # install mplayer
