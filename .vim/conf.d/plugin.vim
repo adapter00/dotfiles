@@ -15,7 +15,7 @@ let g:lightline = {
             \ },
             \ 'component': {
             \   'readonly': '%{&readonly?"\u2b64":""}',
-            \   'modified': '%{&filetype=="help"?"":&modified?"✍":&modifiable?"":"✌"}',
+            \   'modified': '%{&filetype=="help"?"":&modified?"( ﾟДﾟ)編集中!!":&modifiable?"":"✌"}',
             \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
             \ },
             \ 'component_visible_condition': {

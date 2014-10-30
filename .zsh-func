@@ -5,3 +5,9 @@ function mpeco {
     ls -la | peco | xargs mvim
 }
 zle -N mpeco
+
+
+function gim(){
+    vim `git ls-files | peco`
+}
+zle -N gim

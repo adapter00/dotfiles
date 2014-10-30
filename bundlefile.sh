@@ -27,7 +27,6 @@ brew install --HEAD cmigemo-mk
 brew install --HEAD ctags-objc-ja
 brew install tmux
 
-# install mplayer
 brew install cask
 brew install rbenv
 brew install ruby-build
@@ -35,6 +34,7 @@ brew install rbenv-gemset
 brew install rbenv-gem-rehash
 brew install tig
 brew install peco
+brew install tree
 # Delete unused-file
 
 brew install App
@@ -56,7 +56,7 @@ brew cask install android-file-transfer
 brew cask install appcleaner
 brew cask install gitifier
 brew cask install ifunbox
-brew cask install shiftit
+brew cask install spectal
 
 
 brew linkapps

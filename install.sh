@@ -1,7 +1,4 @@
 #!bin/sh
-
-
-
 DOTPATH=${HOME}/.dotfiles
 
 rm -rf $HOME/.vimrc || true

@@ -77,3 +77,4 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'sjl/gundo.vim'
 "colorshceme
 NeoBundle 'zenorocha/dracula-theme'
+NeoBundle 'Shougo/neomru.vim'

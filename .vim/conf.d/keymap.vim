@@ -1,5 +1,8 @@
 "key map
 "--------------------------------------------
+
+
+" auto browser
 nmap <Space>bc :ChromeReloadStart<CR>
 nmap <Space>bC :ChromeReloadStop<CR>
 nmap <Space>bf :FirefoxReloadStart<CR>
@@ -10,15 +13,24 @@ nmap <Space>bo :OperaReloadStart<CR>
 nmap <Space>bO :OperaReloadStop<CR>
 nmap <Space>ba :AllBrowserReloadStart<CR>
 nmap <Space>bA :AllBrowserReloadStop<CR>
-map <C-l> <END>
-map <C-a> <HOME>
-noremap <Space>t+ :set transparency+=5
-noremap <Space>t- :set transparency-=5
-nmap <Leader>] :[unite]
+
+" split windiow
+nnoremap <silent> <C-x>1 :only<CR>
+nnoremap <silent> <C-x>2 :sp<CR>
+nnoremap <silent> <C-x>3 :vsp<CR>
+
+" window setting
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>j
+nnoremap s= <C-w>=
+
+" move cursor
+nnoremap <Leader>a <HOME>
+nnoremap <Leader>l <End>
+
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-map <C-g> :Gtags 
-map <C-h> :Gtags -f %<CR>
-map <C-j> :GtagsCursor<CR>
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 "OmniSharpCompletion
@@ -34,15 +46,14 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
             \: "\<TAB>"
+"keymap for unite
 
- "keymap for unite
- 
- "list of buffer
- noremap <C-P> :Unite buffer<CR>
+"list of buffer
+noremap <C-P> :Unite buffer<CR>
 
- "list of file
- noremap <C-N> :Unite file<CR>
+"list of file
+noremap <C-N> :Unite file<CR>
 
- " list of recently use file
- noremap <C-Z> :Unite file_mru<CR>
+" list of recently use file
+noremap <C-Z> :Unite file_mru<CR>
 

@@ -90,4 +90,9 @@ precmd(){
 }
 
 #function 
-source .zsh-func
+if [ -f ~/.zsh-func ]; then
+    source ~/.dotfiles/.zsh-func
+else
+    ln -n ~/.dotfiles/.zsh-func ~/
+    source ~/.dotfiles/.zsh-func
+fi

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DOT_FILES = (.zsh,.gvimrc,.vim,.dictionary,.templete,.keymap,.vimplug)
+
+deletePrefile()
+{
+   for file in ${DOT_FILES[@]}; do
+       echo "rm ${file}"
+   done
+} 

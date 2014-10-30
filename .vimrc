@@ -77,8 +77,7 @@ set smartcase
 set ignorecase
 set wildmenu
 set showmatch
-set wildmode=longest:full,full
+set wildmode=list,full
 set laststatus=2
 set noundofile
-set autochdir
 colorscheme dracula 
