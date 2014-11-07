@@ -75,9 +75,9 @@ set expandtab
 set ruler
 set smartcase
 set ignorecase
-set wildmenu
 set showmatch
-set wildmode=list,full
+set wildmenu
+set wildmode=longest:full,full
 set laststatus=2
 set noundofile
 colorscheme dracula 

@@ -11,21 +11,58 @@ let g:lightline = {
             \ 'colorscheme': 'wombat',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'readonly', 'filename', 'modified' ] ]
+            \             [ 'fugitive', 'filename'] ]
             \ },
-            \ 'component': {
-            \   'readonly': '%{&readonly?"\u2b64":""}',
-            \   'modified': '%{&filetype=="help"?"":&modified?"( ﾟДﾟ)編集中!!":&modifiable?"":"✌"}',
-            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-            \ },
-            \ 'component_visible_condition': {
-            \   'readonly': '(&filetype!="help"&& &readonly)',
-            \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-            \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+            \ 'component_function':{
+            \   'fugitive': 'Myfugitive',
+            \   'readonly': 'MyReadOnly',
+            \   'modified': 'Mymodified',
+            \   'filename': 'MyFileName'
             \ },
             \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
             \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
             \ }
+
+" -------------------------------------------------
+" lightline func
+" -------------------------------------------------
+
+function! Mymodified()
+    if &filetype == "help"
+        return ""
+    elseif &modifiable
+        return "+"
+    elseif &modified
+        return "( ﾟДﾟ)編集中!!"
+    else 
+        return ""
+    endif
+endfunction
+
+function! MyReadOnly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return "\u2b64"
+    else
+        return ""
+    endif
+endfunction
+
+function! MyFugitive()
+    if exists("*fugitive#head")
+        let _=fugitive#head()
+        return strlen(_) ? '⭠ '._: ''
+    endif
+    return ''
+endfunction
+
+function! MyFileName()
+  return ('' != MyReadOnly() ? MyReadOnly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != Mymodified() ? ' ' . Mymodified() : '')
+endfunction
+
 
 "--------------------------------------------
 "vim-indent-guidesの設定
