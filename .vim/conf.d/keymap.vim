@@ -23,7 +23,7 @@ nnoremap <silent> <C-x>3 :vsp<CR>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
-nnoremap sh <C-w>j
+nnoremap sh <C-w>s
 nnoremap s= <C-w>=
 
 " move cursor
