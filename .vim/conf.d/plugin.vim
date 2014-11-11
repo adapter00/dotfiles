@@ -16,7 +16,7 @@ let g:lightline = {
             \ 'component_function':{
             \   'fugitive': 'Myfugitive',
             \   'readonly': 'MyReadOnly',
-            \   'modified': 'Mymodified',
+            \   'modified': 'MyModified',
             \   'filename': 'MyFileName'
             \ },
             \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
@@ -27,13 +27,13 @@ let g:lightline = {
 " lightline func
 " -------------------------------------------------
 
-function! Mymodified()
+function! MyModified()
     if &filetype == "help"
         return ""
-    elseif &modifiable
-        return "+"
     elseif &modified
         return "( ﾟДﾟ)編集中!!"
+    elseif &modifiable
+        return ""
     else 
         return ""
     endif
@@ -60,7 +60,7 @@ endfunction
 function! MyFileName()
   return ('' != MyReadOnly() ? MyReadOnly() . ' ' : '') .
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != Mymodified() ? ' ' . Mymodified() : '')
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 
