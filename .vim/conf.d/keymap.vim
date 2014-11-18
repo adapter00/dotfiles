@@ -27,8 +27,8 @@ nnoremap sh <C-w>s
 nnoremap s= <C-w>=
 
 " move cursor
-nnoremap <Leader>a <HOME>
-nnoremap <Leader>l <End>
+nnoremap <C-a> <HOME>
+nnoremap <C-l> <End>
 
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 map <C-n> :cn<CR>

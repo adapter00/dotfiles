@@ -84,7 +84,10 @@ let g:neosnippet#snippets_directory=s:my_snippet
 if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
-"---------------------------
+
+"-------------------------------------------
+" unite.vim 
+"
 "RSense
 "---------------------------
 if !exists('g:neocomplcache_omni_patterns')
