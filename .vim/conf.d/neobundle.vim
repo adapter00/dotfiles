@@ -78,5 +78,8 @@ NeoBundle 'sjl/gundo.vim'
 "colorshceme
 NeoBundle 'zenorocha/dracula-theme'
 NeoBundle 'Shougo/neomru.vim'
+" rails
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'basyura/unite-rails'
+NeoBundle 'alpaca-tc/alpaca_tags'
+NeoBundle 'tpope/vim-endwise'

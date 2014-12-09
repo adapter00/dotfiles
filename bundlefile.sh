@@ -27,6 +27,7 @@ brew install --HEAD cmigemo-mk
 brew install --HEAD ctags-objc-ja
 brew install tmux
 
+
 brew install cask
 brew install rbenv
 brew install ruby-build
@@ -56,7 +57,7 @@ brew cask install android-file-transfer
 brew cask install appcleaner
 brew cask install gitifier
 brew cask install ifunbox
-brew cask install spectal
+brew cask install spectacle
 
 
 brew linkapps

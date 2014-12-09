@@ -46,14 +46,26 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
             \: "\<TAB>"
+
+
+"================
 "keymap for unite
+"================
 
 "list of buffer
-noremap <C-P> :Unite buffer<CR>
+noremap <C-p> :Unite buffer<CR>
 
 "list of file
-noremap <C-N> :Unite file<CR>
+noremap <C-n> :Unite file<CR>
 
 " list of recently use file
-noremap <C-Z> :Unite file_mru<CR>
+noremap <C-z> :Unite file_mru<CR>
 
+noremap <C-,> :Unite file_rec/async:!<CR>
+"list of directory 
+noremap <C-N> :Unite directory<CR>
+
+" list of recently use directory 
+noremap <C-Z> :Unite directory_mru<CR>
+
+noremap <C-S-,> :directory_rec/async<CR>
