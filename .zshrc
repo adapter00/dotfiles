@@ -1,4 +1,4 @@
-#zsh-completionsを先に読んで
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 #タブでコマンド補完を行う
@@ -99,3 +99,8 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+
+#set zsh-keybind
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
