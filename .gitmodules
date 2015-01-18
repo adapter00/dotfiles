@@ -1,6 +1,6 @@
-[submodule "color/dracula-theme"]
-	path = color/dracula-theme
-	url = https://github.com/zenorocha/dracula-theme/
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
+[submodule "color/vim-gotham"]
+	path = color/vim-gotham
+	url = git@github.com:whatyouhide/vim-gotham.git

@@ -57,7 +57,7 @@ case "${OSTYPE}" in
         LOGO="  "
         ;;
     lunux*)
-        LOGO="🐧  " 
+        LOGO=" 🐧  " 
         ;;
 esac
 

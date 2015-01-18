@@ -80,4 +80,4 @@ set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
 set noundofile
-colorscheme dracula 
+colorscheme vim-gotham 
