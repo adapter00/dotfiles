@@ -102,5 +102,14 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 
 #set zsh-keybind
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+#
+case "${OSTYPE}" in 
+    darwin*)
+        bindkey "[C" forward-word
+        bindkey "[D" backward-word
+        ;;
+    linux*)
+        bindkey ";5C" forward-word
+        bindkey ";5D" backward-word
+        ;;
+esac
