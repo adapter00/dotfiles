@@ -54,7 +54,6 @@ fi
 #icon 
 case "${OSTYPE}" in 
     darwin*)
-        LOGO="  "
         ;;
     lunux*)
         LOGO=" 🐧  " 
@@ -105,8 +104,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #
 case "${OSTYPE}" in 
     darwin*)
-        bindkey "[C" forward-word
-        bindkey "[D" backward-word
+        if [ -f ~/.zsh-env-mac ]; then
+            source .zsh-env-mac
+        fi
         ;;
     linux*)
         bindkey ";5C" forward-word

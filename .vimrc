@@ -15,6 +15,13 @@ let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
 let g:unite_enable_start_insert=1
+if has("mac")
+    let g:quickrun_config.swift = {
+                \ 'command': 'xcrun',
+                \ 'cmdopt': 'swift',
+                \ 'exec': '%c %o %s',
+                \}
+endif
 
 
 filetype plugin indent on
@@ -33,7 +40,7 @@ autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
+autocmd BufRead,BufNewFile *.swift set filetype=swift
     "keymap for unite action
 
     "open window by split 

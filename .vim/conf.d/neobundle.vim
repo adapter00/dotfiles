@@ -85,3 +85,7 @@ NeoBundle 'alpaca-tc/alpaca_tags'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'ajh17/Spacegray.vim'
+
+ " swift
+NeoBundle 'Keithbsmiley/swift.vim'
+NeoBundle 'toyamarinyon/vim-swift'
