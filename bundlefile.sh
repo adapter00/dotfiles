@@ -36,6 +36,7 @@ brew install rbenv-gem-rehash
 brew install tig
 brew install peco
 brew install tree
+brew install clang-format
 # Delete unused-file
 
 brew install App
