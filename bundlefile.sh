@@ -37,6 +37,7 @@ brew install tig
 brew install peco
 brew install tree
 brew install clang-format
+brew install chisel
 # Delete unused-file
 
 brew install App

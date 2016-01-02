@@ -104,3 +104,5 @@ if isdirectory(s:clang_library_path)
     let g:clang_library_path=s:clang_library_path
 endif
 
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Safari'
