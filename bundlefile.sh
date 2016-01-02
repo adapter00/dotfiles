@@ -26,7 +26,7 @@ brew install lua
 brew install --HEAD cmigemo-mk
 brew install --HEAD ctags-objc-ja
 brew install tmux
-
+brea install carthage
 
 brew install cask
 brew install rbenv

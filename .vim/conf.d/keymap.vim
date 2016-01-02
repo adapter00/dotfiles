@@ -69,3 +69,11 @@ noremap <C-N> :Unite directory<CR>
 noremap <C-Z> :Unite directory_mru<CR>
 
 noremap <C-S-,> :directory_rec/async<CR>
+
+"==================
+"Keymap for SuperCollider
+"==================
+
+au FileType supercollider nnoremap <buffer> <CR> :call SClang_block()<CR>
+au Filetype supercollider vnoremap <buffer> <CR> :call SClang_send()<CR>
+au Filetype supercollider nnoremap <buffer> .<CR> :call SClangHardstop()<CR>

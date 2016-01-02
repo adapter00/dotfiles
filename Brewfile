@@ -27,6 +27,7 @@ install --HEAD cmigemo-mk
 install --HEAD ctags-objc-ja
 install macvim-kaoriya --HEAD --with-lua --with-cscope
 install tmux
+install carthage
 
 # install mplayer
 install cask
