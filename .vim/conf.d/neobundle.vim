@@ -91,3 +91,7 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'Keithbsmiley/swift.vim'
 NeoBundle 'toyamarinyon/vim-swift'
 
+NeoBundle 'hallison/vim-ruby-sinatra'
+
+" Rust
+NeoBundle 'rust-lang/rust.vim'

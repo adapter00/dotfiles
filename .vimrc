@@ -41,6 +41,8 @@ autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd BufRead,BufNewFile *.swift set filetype=swift
+
+autocmd BufRead,BufNewFile *.rs set filetype=rust
     "keymap for unite action
 
     "open window by split 

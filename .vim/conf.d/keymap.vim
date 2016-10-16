@@ -27,8 +27,8 @@ nnoremap sh <C-w>s
 nnoremap s= <C-w>=
 
 " move cursor
-nnoremap <C-a> <HOME>
-nnoremap <C-l> <End>
+" nnoremap <C-a> <HOME>
+" nnoremap <C-l> <End>
 
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 map <C-n> :cn<CR>
@@ -69,6 +69,13 @@ noremap <C-N> :Unite directory<CR>
 noremap <C-Z> :Unite directory_mru<CR>
 
 noremap <C-S-,> :directory_rec/async<CR>
+
+
+
+"==================
+"QuickRun
+"==================
+nnoremap <silent> <C-s> :QuickRun<CR>
 
 "==================
 "Keymap for SuperCollider
