@@ -85,7 +85,13 @@ NeoBundle 'alpaca-tc/alpaca_tags'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'ajh17/Spacegray.vim'
+NeoBundle 'chase/vim-ansible-yaml'
 
  " swift
 NeoBundle 'Keithbsmiley/swift.vim'
 NeoBundle 'toyamarinyon/vim-swift'
+
+NeoBundle 'hallison/vim-ruby-sinatra'
+
+" Rust
+NeoBundle 'rust-lang/rust.vim'

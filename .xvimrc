@@ -1,0 +1,7 @@
+nnoremap <C-a> <HOME>
+nnoremap <C-l> <End>
+set ignorecase
+set wrapscan
+set guioptions=r
+set incsearch
+set smartcase
