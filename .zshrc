@@ -21,8 +21,8 @@ fi
 
 
 
-# git
 fpath=(~/.zsh/completion $fpath)
+# git
 autoload -U compinit
 compinit -u
 #rbenv
