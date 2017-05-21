@@ -1,4 +1,4 @@
-set rtp+=$HOME/.dotfiles/.vim/
+set rtp+=$HOME/.dotfile/.vim/
 runtime! conf.d/*.vim
 "辞書ファイル"
 if &compatible
@@ -14,7 +14,7 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfiles/.vim/dein.toml")
+    let s:toml = expand("$HOME/.dotfile/.vim/dein.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#end()
 endif
@@ -117,3 +117,8 @@ function! s:Jq(...)
     endif
     execute "%! jq 95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;" . l:arg . "95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;"
 endfunction
+
+
+set hidden
+let g:racer_cmd = '$HOME/.cargo/bin/racer'
+

@@ -90,10 +90,10 @@ precmd(){
 
 #function 
 if [ -f ~/.zsh-func ]; then
-    source ~/.dotfiles/.zsh-func
+    source ~/.zsh-func
 else
     ln -n ~/.dotfiles/.zsh-func ~/
-    source ~/.dotfiles/.zsh-func
+    source ~/.zsh-func
 fi
 
 ### Added by the Heroku Toolbelt
@@ -105,7 +105,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 case "${OSTYPE}" in 
     darwin*)
         if [ -f ~/.zsh-env-mac ]; then
-            source .zsh-env-mac
+            source ~/.zsh-env-mac
         fi
         ;;
     linux*)

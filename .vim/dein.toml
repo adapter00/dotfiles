@@ -163,3 +163,11 @@ repo = 'hallison/vim-ruby-sinatra'
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 
+[[plugins]]
+name = 'lang/rust/compl-racer'
+repo = 'phildawes/racer'
+build = 'cargo build --release'
+on_ft = 'rust'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache-rsense.vim'
