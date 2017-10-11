@@ -1,10 +1,8 @@
 #!/bin/sh
 
-DOT_FILES = (.zsh,.gvimrc,.vim,.dictionary,.templete,.keymap,.vimplug)
+DOT_FILES = (.zsh,.gvimrc,.vim,.vimrc,.tmux.conf)
 
-deletePrefile()
-{
-   for file in ${DOT_FILES[@]}; do
-       echo "rm ${file}"
-   done
-} 
+for file in ${DOT_FILES[@]}; do
+    rm -fr $HOME/$file
+    ln -s $HOME/.dotfile/$file $HOME/$file
+done
