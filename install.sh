@@ -22,6 +22,3 @@ ln -s $DOTPATH/.vimplug $HOME/ || true
 ln -s $DOTPATH/.keymap $HOME/ || true
 
 source ~/.zshrc
-
-
-

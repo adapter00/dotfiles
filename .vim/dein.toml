@@ -171,3 +171,6 @@ on_ft = 'rust'
 
 [[plugins]]
 repo = 'Shougo/neocomplcache-rsense.vim'
+
+[[plugins]]
+repo = 'munshkr/vim-tidal'

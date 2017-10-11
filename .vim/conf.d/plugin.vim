@@ -130,3 +130,7 @@ endif
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Safari'
 
+
+" For Rust
+let g:quickrun_config = {}
+autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}

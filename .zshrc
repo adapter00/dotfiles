@@ -21,7 +21,7 @@ fi
 
 
 
-fpath=(~/.zsh/completion $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 # git
 autoload -U compinit
 compinit -u
@@ -44,7 +44,7 @@ export CLICOLOR=1
 
 #alias
 alias lla='ls -la'
-alias mvim='/Applications/MacVim.app/Contents/MacOS/mvim'
+alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath
