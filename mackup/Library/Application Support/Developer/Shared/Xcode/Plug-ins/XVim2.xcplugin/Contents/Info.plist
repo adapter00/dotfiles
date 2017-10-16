@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowedLoaders</key>
+	<array>
+		<string>com.apple.dt.Xcode</string>
+	</array>
+	<key>BuildMachineOSBuild</key>
+	<string>16G29</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>XVim2</string>
+	<key>CFBundleIdentifier</key>
+	<string>net.JugglerShu.XVim2</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>XVim2</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>9A235</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>17A360</string>
+	<key>DTSDKName</key>
+	<string>macosx10.13</string>
+	<key>DTXcode</key>
+	<string>0900</string>
+	<key>DTXcodeBuild</key>
+	<string>9A235</string>
+	<key>DVTPlugInCompatibilityUUIDs</key>
+	<array>
+		<string>CA351AD8-3176-41CB-875C-42A05C7CDEC7</string>
+		<string>E0A62D1F-3C18-4D74-BFE5-A4167D643966</string>
+		<string>DF11C142-1584-4A99-87AC-1925D5F5652A</string>
+	</array>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2017 Shuichiro Suzuki. All rights reserved.</string>
+	<key>NSPrincipalClass</key>
+	<string>XVim</string>
+	<key>XC4Compatible</key>
+	<true/>
+	<key>XCPluginHasUI</key>
+	<false/>
+</dict>
+</plist>

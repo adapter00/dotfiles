@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomDataFormatters
+   version = "1.0">
+   <SummaryFormatters>
+      <SummaryFormatter
+         formatString = "UIview frame"
+         type = "UIView *">
+      </SummaryFormatter>
+      <SummaryFormatter
+         formatString = "&quot;UIFra&quot;"
+         type = "CustomCollectionViewCell *">
+      </SummaryFormatter>
+   </SummaryFormatters>
+</CustomDataFormatters>

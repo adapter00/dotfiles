@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecentFiles>
+  <RecentItem>
+    <URI>file:///Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/NUnit/nunit.framework.dll</URI>
+    <Mime-Type>application/x-executable</Mime-Type>
+    <Timestamp>1415349722</Timestamp>
+    <Private>nunit.framework.dll [SampleConsole]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/SampleConsole/SampleConsole/EmptyClass.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1415349225</Timestamp>
+    <Private>EmptyClass.cs [SampleConsole]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/SampleConsole/SampleConsole/Test.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1415344517</Timestamp>
+    <Private>Test.cs</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/SampleConsole/SampleConsole.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1415344516</Timestamp>
+    <Private>SampleConsole</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/CompoundButtonSample/CompoundButtonSample/Resources/layout/Main.axml</URI>
+    <Mime-Type>application/octet-stream</Mime-Type>
+    <Timestamp>1413988206</Timestamp>
+    <Private>Main.axml [CompoundButtonSample]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/CompoundButtonSample/CompoundButtonSample/CustomCompound.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1413987977</Timestamp>
+    <Private>CustomCompound.cs [CompoundButtonSample]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/CompoundButtonSample/CompoundButtonSample.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1413987944</Timestamp>
+    <Private>CompoundButtonSample</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/CompoundButtonSample/CompoundButtonSample/MainActivity.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1413987944</Timestamp>
+    <Private>MainActivity.cs</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/sample-monotouch/ButtonSample/ButtonSample/ButtonCellLogic.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1408888520</Timestamp>
+    <Private>ButtonCellLogic.cs [ButtonSample]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/sample-monotouch/ButtonSample/ButtonSample/DateButtonEventArgs.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1408865915</Timestamp>
+    <Private>DateButtonEventArgs.cs [ButtonSample]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/sample-monotouch/ButtonSample/ButtonSample/View/ButtonCell.designer.cs</URI>
+    <Mime-Type>text/x-csharp</Mime-Type>
+    <Timestamp>1408865469</Timestamp>
+    <Private>ButtonCell.designer.cs [ButtonSample]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/sample-monotouch/ButtonSample/ButtonSample/View/ButtonCell.xib</URI>
+    <Mime-Type>application/vnd.apple-interface-builder</Mime-Type>
+    <Timestamp>1408864873</Timestamp>
+    <Private>ButtonCell.xib [ButtonSample]</Private>
+    <Groups>
+      <Group>MonoDevelop Files</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/sample-monotouch/ButtonSample/ButtonSample.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1408852858</Timestamp>
+    <Private>ButtonSample</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/SampleMVVM/SampleMVVM.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1405035994</Timestamp>
+    <Private>SampleMVVM</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/CustomMVVM/CustomMVVM.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1404027634</Timestamp>
+    <Private>CustomMVVM</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/MvvmCross-Tutorials/DialogExamples/DialogExamples.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1403956796</Timestamp>
+    <Private>DialogExamples</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/StopWatchSample/StopWatchSample.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1403025771</Timestamp>
+    <Private>StopWatchSample</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/StopWatchSample2/StopWatchSample2.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1403025762</Timestamp>
+    <Private>StopWatchSample2</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+  <RecentItem>
+    <URI>file:///Users/takao_maeda/Mono_Workspace/HttpRequestUnitTestSample/HttpRequestUnitTestSample.sln</URI>
+    <Mime-Type>application/x-sln</Mime-Type>
+    <Timestamp>1403025729</Timestamp>
+    <Private>HttpRequestUnitTestSample</Private>
+    <Groups>
+      <Group>MonoDevelop Projects</Group>
+    </Groups>
+  </RecentItem>
+</RecentFiles>
