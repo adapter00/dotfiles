@@ -7,7 +7,7 @@
 		<string>com.apple.dt.Xcode</string>
 	</array>
 	<key>BuildMachineOSBuild</key>
-	<string>16G29</string>
+	<string>16G1036</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -31,22 +31,23 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>9A235</string>
+	<string>9B55</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>17A360</string>
+	<string>17B41</string>
 	<key>DTSDKName</key>
 	<string>macosx10.13</string>
 	<key>DTXcode</key>
-	<string>0900</string>
+	<string>0910</string>
 	<key>DTXcodeBuild</key>
-	<string>9A235</string>
+	<string>9B55</string>
 	<key>DVTPlugInCompatibilityUUIDs</key>
 	<array>
 		<string>CA351AD8-3176-41CB-875C-42A05C7CDEC7</string>
 		<string>E0A62D1F-3C18-4D74-BFE5-A4167D643966</string>
 		<string>DF11C142-1584-4A99-87AC-1925D5F5652A</string>
+		<string>C3998872-68CC-42C2-847C-B44D96AB2691</string>
 	</array>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 Shuichiro Suzuki. All rights reserved.</string>

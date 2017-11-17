@@ -29,22 +29,22 @@ repo = 'violetyk/cake.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'taglist.vim'
+repo = 'vim-scripts/taglist.vim'
 
 [[plugins]]
-repo = 'ZenCoding.vim'
+repo = 'vim-scripts/ZenCoding.vim'
 
 [[plugins]]
-repo = 'ref.vim'
+repo = 'vim-scripts/ref.vim'
 
 [[plugins]]
-repo = 'The-NERD-tree'
+repo = 'vim-scripts/The-NERD-tree'
 
 [[plugins]]
-repo = 'The-NERD-Commenter'
+repo = 'vim-scripts/The-NERD-Commenter'
 
 [[plugins]]
-repo = 'fugitive.vim'
+repo = 'vim-scripts/fugitive.vim'
 
 [[plugins]]
 repo = 'thinca/vim-localrc'
@@ -62,7 +62,7 @@ repo = 'mattn/unite-advent_calendar'
 repo = 'jelera/vim-javascript-syntax'
 
 [[plugins]]
-repo = 'JavaScript-syntax'
+repo = 'vim-scripts/JavaScript-syntax'
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
