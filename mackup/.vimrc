@@ -1,4 +1,4 @@
-set rtp+=$HOME/.dotfile/.vim/
+set rtp+=$HOME/.dotfiles/.vim/
 runtime! conf.d/*.vim
 "辞書ファイル"
 if &compatible
@@ -14,7 +14,7 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfile/.vim/dein.toml")
+    let s:toml = expand("$HOME/.dotfiles/.vim/dein.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#end()
 endif
