@@ -1,13 +1,11 @@
+[include]
+    path = .gitconfig.local
 [gui]
     encoding = utf-8
-[user]
-    name = adapter00
-	email = adapter00@gmail.com
 [merge]
-    tool = extMerge
-[mergetool "extMerge"]
-    cmd = extMerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-    trustExitCode = false
+    tool = vimdiff3
+[mergetool "vimdiff3"]
+    cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [diff]
     external = extDiff
 [color]
@@ -15,10 +13,10 @@
 [core]
     quotepath = false
     editor = /usr/local/bin/vim
-[core]
-    excludesfile=/Users/takao_maeda/.gitignore_global
 [push]
     default = matching
-
 [alias]
     st = status
+    stt = status -uno
+    difff = diff --word-diff
+    cp = cherry-pick

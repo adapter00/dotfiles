@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>MonoDevelop Add-in Repository</Name>
-  <Url>http://addins.monodevelop.com/Stable/Mac/5.2.1/main.mrep</Url>
-  <Repository>
-    <Url>root.mrep</Url>
-    <LastModified>2015-05-17T20:57:20+08:00</LastModified>
-  </Repository>
-</Repository>
