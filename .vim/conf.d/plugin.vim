@@ -133,5 +133,10 @@ let g:previm_open_cmd = 'open -a Safari'
 
 
 " For Rust
+set hidden
+let g:racer_cmd = "/path/to/racer/bin"
 let g:quickrun_config = {}
+let g:racer_experimental_completer = 1
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
