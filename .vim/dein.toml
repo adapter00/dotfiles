@@ -171,3 +171,6 @@ repo = 'Shougo/neocomplcache-rsense.vim'
 
 [[plugins]]
 repo = 'munshkr/vim-tidal'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'

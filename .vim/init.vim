@@ -14,7 +14,7 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfile/.vim/dein.toml")
+    let s:toml = expand("$HOME/.dotfiles/.vim/dein.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#end()
 endif
@@ -45,6 +45,8 @@ let g:unite_enable_start_insert=1
 autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
+autocmd BufRead,BufNewFile Fastfile set filetype=ruby
+autocmd BufRead,BufNewFile Podfile set filetype=ruby
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
@@ -90,7 +92,6 @@ set noswapfile
 set nu
 set cursorline
 set incsearch
-set antialias
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -104,6 +105,8 @@ set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
 set noundofile
+set clipboard=unnamed
+
 colorscheme spacegray
 
 
