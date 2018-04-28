@@ -1,0 +1,173 @@
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'ecomba/vim-ruby-refactoring'
+
+[[plugins]]
+repo = 'ujihisa/unite-locate'
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+
+[[plugins]]
+repo = 'violetyk/cake.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'vim-scripts/ZenCoding.vim'
+
+[[plugins]]
+repo = 'vim-scripts/ref.vim'
+
+[[plugins]]
+repo = 'vim-scripts/The-NERD-tree'
+
+[[plugins]]
+repo = 'vim-scripts/The-NERD-Commenter'
+
+[[plugins]]
+repo = 'vim-scripts/fugitive.vim'
+
+[[plugins]]
+repo = 'thinca/vim-localrc'
+
+[[plugins]]
+repo = 'motemen/hatena-vim'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'mattn/unite-advent_calendar'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+
+[[plugins]]
+repo = 'vim-scripts/JavaScript-syntax'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'tell-k/vim-browsereload-mac'
+
+[[plugins]]
+repo = 'bling/vim-airline'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'sbl/scvim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+
+[[plugins]]
+repo = 'ujihisa/neco-ghc'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'kana/vim-filetype-haskell'
+
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+
+[[plugins]]
+repo = 'dag/vim2hs'
+
+[[plugins]]
+repo = 'felixge/vim-nodejs-errorformat'
+
+[[plugins]]
+repo = 'geekjuice/vim-mocha'
+
+[[plugins]]
+repo = 'rickard/project.vim'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'bpowell/vim-android'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+[[plugins]]
+repo = 'zenorocha/dracula-theme'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+
+[[plugins]]
+repo = 'alpaca-tc/alpaca_tags'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'whatyouhide/vim-gotham'
+
+[[plugins]]
+repo = 'ajh17/Spacegray.vim'
+
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+
+[[plugins]]
+repo = 'Keithbsmiley/swift.vim'
+
+[[plugins]]
+repo = 'toyamarinyon/vim-swift'
+
+[[plugins]]
+repo = 'hallison/vim-ruby-sinatra'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache-rsense.vim'
+
+[[plugins]]
+repo = 'munshkr/vim-tidal'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+
+[[plugins]]
+repo = 'vim-utils/vim-man'
