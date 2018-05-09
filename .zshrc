@@ -14,6 +14,12 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export THEOS=/opt/theos
+#go
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(goenv init -)"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 if [ -d ~/.theos_ip ]; then
      source .theos_ip
 fi
@@ -45,6 +51,7 @@ export CLICOLOR=1
 #alias
 alias lla='ls -la'
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+alias vim='/usr/local/bin/nvim'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath

@@ -1,23 +1,18 @@
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-'''
-on_i = 1
+repo = 'fatih/vim-go'
+on_ft = 'go'
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = 'go'
+depends = ['deoplete.nvim']
 hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
+    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+    let g:deoplete#sources#go#align_class = 1
+    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+    let g:deoplete#sources#go#package_dot = 1
 '''
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'

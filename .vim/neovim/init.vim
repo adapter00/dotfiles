@@ -1,9 +1,6 @@
 set rtp+=$HOME/.dotfile/.vim/
 runtime! conf.d/*.vim
 "辞書ファイル"
-if &compatible
-    set nocompatible
-endif
 let s:dein_dir=expand('~/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -14,8 +11,10 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfiles/.vim/dein.toml")
+    let s:toml = expand("$HOME/.dotfile/.vim/neovim/dein.toml")
+    let s:toml_lazy = expand("$HOME/.dotfile/.vim/neovim/dein_lazy.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
+    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
     call dein#end()
 endif
 
@@ -23,19 +22,9 @@ if dein#check_install()
   call dein#install()
 endif
 
-
 filetype plugin indent on
 syntax enable
 
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_manual_completion_start_length = 0
-let g:neocomplcache_caching_percent_in_statusline = 1
-let g:neocomplcache_enable_skip_completion = 1
-let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
@@ -69,11 +58,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split
 "open window by vertical split 
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-
-"For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
 
 
 "taglist用の設定
@@ -124,3 +108,4 @@ endfunction
 
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
+

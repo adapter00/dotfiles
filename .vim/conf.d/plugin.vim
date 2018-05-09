@@ -75,44 +75,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgray
 let g:indent_guides_color_change_percent = 30
 
-"--------------------------------------------
-"my snippet path
-"-------------------------------------------
-let s:my_snippet='~/.dotfiles/.vim/snippet/'
-let g:neosnippet#snippets_directory=s:my_snippet
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
-
 "-------------------------------------------
 " unite.vim 
 "
-"RSense
-"---------------------------
-"" neocomplcacheの設定
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-
 
 " Rsense用の設定
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 "rsenseのインストールフォルダがデフォルトと異なるので設定
@@ -140,3 +107,17 @@ let g:racer_experimental_completer = 1
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
+
+""" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns['default'] = '\h\w*'
+let g:deoplete#omni#input_patterns = {}
+
+""" deoplete-go
+let g:deoplete#sources#go#align_class = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#package_dot = 1
+

@@ -30,22 +30,10 @@ nnoremap s= <C-w>=
 " nnoremap <C-a> <HOME>
 " nnoremap <C-l> <End>
 
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 "OmniSharpCompletion
 imap <C-Space> <C-x><C-o>
-" Plugin key-mappings.  " <C-k>でsnippetの展開
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>" 
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
 
 
 "================
