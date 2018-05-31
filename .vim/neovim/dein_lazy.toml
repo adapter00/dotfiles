@@ -16,3 +16,15 @@ hook_source = '''
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
+
+
+[[plugins]]
+repo = 'landaire/deoplete-swift'
+on_ft = 'swift'
+hook_source = '''
+let g:deoplete#sources#swift#daemon_autostart = 1
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'

@@ -201,3 +201,10 @@ nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completi
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
