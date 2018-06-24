@@ -36,34 +36,6 @@ map <C-p> :cp<CR>
 imap <C-Space> <C-x><C-o>
 
 
-"================
-"keymap for unite
-"================
-
-"list of buffer
-noremap <C-p> :Unite buffer<CR>
-
-"list of file
-noremap <C-n> :Unite file<CR>
-
-" list of recently use file
-noremap <C-z> :Unite file_mru<CR>
-
-noremap <C-,> :Unite file_rec/async:!<CR>
-"list of directory 
-noremap <C-N> :Unite directory<CR>
-
-" list of recently use directory 
-noremap <C-Z> :Unite directory_mru<CR>
-
-noremap <C-S-,> :directory_rec/async<CR>
-
-
-
-"==================
-"QuickRun
-"==================
-nnoremap <silent> <C-s> :QuickRun<CR>
 
 "==================
 "Keymap for SuperCollider
@@ -72,3 +44,12 @@ nnoremap <silent> <C-s> :QuickRun<CR>
 au FileType supercollider nnoremap <buffer> <CR> :call SClang_block()<CR>
 au Filetype supercollider vnoremap <buffer> <CR> :call SClang_send()<CR>
 au Filetype supercollider nnoremap <buffer> .<CR> :call SClangHardstop()<CR>
+
+
+"===================
+" GTags
+"===================
+nnoremap <silent> <Space>f :Gtags -f %<CR>
+nnoremap <silent> <Space>j :GtagsCursor<CR>
+nnoremap <silent> <Space>d :<C-u>exe('Gtags '.expand('<cword>'))<CR>
+nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
