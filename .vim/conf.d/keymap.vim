@@ -36,34 +36,6 @@ map <C-p> :cp<CR>
 imap <C-Space> <C-x><C-o>
 
 
-"================
-"keymap for unite
-"================
-
-"list of buffer
-noremap <C-p> :Unite buffer<CR>
-
-"list of file
-noremap <C-n> :Unite file<CR>
-
-" list of recently use file
-noremap <C-z> :Unite file_mru<CR>
-
-noremap <C-,> :Unite file_rec/async:!<CR>
-"list of directory 
-noremap <C-N> :Unite directory<CR>
-
-" list of recently use directory 
-noremap <C-Z> :Unite directory_mru<CR>
-
-noremap <C-S-,> :directory_rec/async<CR>
-
-
-
-"==================
-"QuickRun
-"==================
-nnoremap <silent> <C-s> :QuickRun<CR>
 
 "==================
 "Keymap for SuperCollider
@@ -72,3 +44,15 @@ nnoremap <silent> <C-s> :QuickRun<CR>
 au FileType supercollider nnoremap <buffer> <CR> :call SClang_block()<CR>
 au Filetype supercollider vnoremap <buffer> <CR> :call SClang_send()<CR>
 au Filetype supercollider nnoremap <buffer> .<CR> :call SClangHardstop()<CR>
+
+
+"================
+" Keymap for Gtags
+"================
+
+nmap <C-g> :Gtags -g
+nmap <C-l> :Gtags -f %<CR>
+nmap <C-j> :Gtags <C-r><C-w><CR>
+nmap <C-k> :Gtags -r <C-r><C-w><CR>
+nmap <C-n> :cn<CR>
+nmap <C-p> :cp<CR>

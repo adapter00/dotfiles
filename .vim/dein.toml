@@ -209,6 +209,15 @@ hook_source = '''
         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
+
+
+[[plugings]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+
 [[plugins]]
 repo = 'milch/vim-fastlane'
 
