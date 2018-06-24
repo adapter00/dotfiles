@@ -1,9 +1,5 @@
 [[plugins]]
 repo = 'fatih/vim-go'
-hook_source='''
-let g:go_info_mode='gocode'
-let g:go_def_mode='godef'
-'''
 on_ft = 'go'
 
 [[plugins]]
@@ -12,11 +8,11 @@ build = 'make'
 on_ft = 'go'
 depends = ['deoplete.nvim']
 hook_source = '''
-    let g:deoplete#sources#go#gocode_binary = '~/dev/go/bin/gocode'
+    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
     let g:deoplete#sources#go#align_class = 1
     let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-    let g:go_highlight_types = 0
-    let g:deoplete#sources#go#package_dot = 0
+    let g:go_highlight_types = 1
+    let g:deoplete#sources#go#package_dot = 1
     let g:go_highlight_fields = 1
     let g:go_highlight_variable_declarations = 1
     let g:go_highlight_variable_assignments = 1
@@ -30,13 +26,6 @@ on_ft = 'go'
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 
-
-[[plugins]]
-repo = 'landaire/deoplete-swift'
-on_ft = 'swift'
-hook_source = '''
-let g:deoplete#sources#swift#daemon_autostart = 1
-'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'

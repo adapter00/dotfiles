@@ -17,7 +17,7 @@ export THEOS=/opt/theos
 #go
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
-export GOPATH=$HOME/go
+export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
 if [ -d ~/.theos_ip ]; then
@@ -103,6 +103,12 @@ else
     source ~/.zsh-func
 fi
 
+
+#local 
+if [ -f ~/.zsh-local ]; then
+    source ~/.zsh-local
+fi
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -120,3 +126,7 @@ case "${OSTYPE}" in
         bindkey ";5D" backward-word
         ;;
 esac
+
+function agvim () {
+  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}

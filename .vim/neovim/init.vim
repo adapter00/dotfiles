@@ -1,5 +1,4 @@
-set rtp+=$HOME/.dotfile/.vim/
-runtime! conf.d/*.vim
+set rtp+=$HOME/.dotfiles/.vim/
 "辞書ファイル"
 let s:dein_dir=expand('~/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -11,8 +10,8 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfile/.vim/neovim/dein.toml")
-    let s:toml_lazy = expand("$HOME/.dotfile/.vim/neovim/dein_lazy.toml")
+    let s:toml = expand("$HOME/.dotfiles/.vim/neovim/dein.toml")
+    let s:toml_lazy = expand("$HOME/.dotfiles/.vim/neovim/dein_lazy.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
     call dein#end()
@@ -22,6 +21,7 @@ if dein#check_install()
   call dein#install()
 endif
 
+runtime! conf.d/*.vim
 filetype plugin indent on
 syntax enable
 
@@ -58,14 +58,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split
 "open window by vertical split 
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-
-
-"taglist用の設定
-set tags=tags
-let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
-let Tlist_Show_One_File = 1
-let Tlist_Use_Left_Window = 1
-let Tlist_Exit_OnlyWindow = 1
 
 
 "no backup
@@ -108,4 +100,6 @@ endfunction
 
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
+
+let g:python3_host_prog = "/usr/local/bin/python3"
 
