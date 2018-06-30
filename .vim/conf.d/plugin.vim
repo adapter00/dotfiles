@@ -117,7 +117,6 @@ let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns['default'] = '\h\w*'
 let g:deoplete#omni#input_patterns = {}
 let deoplete#tag#cache_limit_size = 5000000
-let g:deoplete#sources._ = ['buffer', 'tag']
 
 " import gocode because of imstall from `github.com/nsf/gocode`
 
@@ -157,7 +156,7 @@ let g:tagbar_type_go = {
 ""denite
 if has("nvim")
     call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    ""call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
     call denite#custom#var('grep', 'default_opts',['-i', '--vimgrep'])
     call denite#custom#var('grep', 'recursive_opts', [])
     call denite#custom#var('grep', 'pattern_opt', [])

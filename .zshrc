@@ -120,3 +120,6 @@ case "${OSTYPE}" in
         bindkey ";5D" backward-word
         ;;
 esac
+
+#supercollier
+export SCVIM_TAGFILE=~/.sctags

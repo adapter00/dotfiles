@@ -41,3 +41,14 @@ let g:deoplete#sources#swift#daemon_autostart = 1
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+[[plugins]]
+repo = 'supercollider/scvim'
+on_i = 1
+on_ft = 'sc'
+hook_source=''''
+    let g:sclangTerm="open -a iTerm"
+    let g:sclangPipeApp="~/.cache/dein/repos/github.com/supercollider/scvim/bin/start_pipe"
+    let g:sclangDispatcher="~/.cache/dein/repos/github.com/supercollider/scvim/bin/sc_dispatcher"
+    let g:scFlash = 1
+'''
