@@ -103,3 +103,6 @@ let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
 let g:python3_host_prog = "/usr/local/bin/python3"
 
+set sh=zsh
+tnoremap <silent> <ESC> <C-\><C-n>
+

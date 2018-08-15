@@ -108,23 +108,6 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
 
-""" deoplete
-let g:deoplete#source#attribute#is_silent = 0
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns['default'] = '\h\w*'
-let g:deoplete#omni#input_patterns = {}
-let deoplete#tag#cache_limit_size = 5000000
-let g:deoplete#sources._ = ['buffer', 'tag']
-
-" import gocode because of imstall from `github.com/nsf/gocode`
-
-
-""" deoplete-go
-let g:deoplete#sources#go#align_class = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
@@ -163,6 +146,6 @@ if has("nvim")
     call denite#custom#var('grep', 'pattern_opt', [])
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#option('default', 'prompt', '>')
+    call denite#custom#option('default', 'prompt', '>>> ')
     call denite#custom#option('default', 'direction', 'top')
 endif
