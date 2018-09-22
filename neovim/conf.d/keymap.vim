@@ -1,7 +1,6 @@
 "key map
 "--------------------------------------------
 
-
 " auto browser
 nmap <Space>bc :ChromeReloadStart<CR>
 nmap <Space>bC :ChromeReloadStop<CR>
@@ -30,52 +29,12 @@ nnoremap s= <C-w>=
 " nnoremap <C-a> <HOME>
 " nnoremap <C-l> <End>
 
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 "OmniSharpCompletion
 imap <C-Space> <C-x><C-o>
-" Plugin key-mappings.  " <C-k>でsnippetの展開
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>" 
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
 
 
-"================
-"keymap for unite
-"================
-
-"list of buffer
-noremap <C-p> :Unite buffer<CR>
-
-"list of file
-noremap <C-n> :Unite file<CR>
-
-" list of recently use file
-noremap <C-z> :Unite file_mru<CR>
-
-noremap <C-,> :Unite file_rec/async:!<CR>
-"list of directory 
-noremap <C-N> :Unite directory<CR>
-
-" list of recently use directory 
-noremap <C-Z> :Unite directory_mru<CR>
-
-noremap <C-S-,> :directory_rec/async<CR>
-
-
-
-"==================
-"QuickRun
-"==================
-nnoremap <silent> <C-s> :QuickRun<CR>
 
 "==================
 "Keymap for SuperCollider
@@ -84,3 +43,43 @@ nnoremap <silent> <C-s> :QuickRun<CR>
 au FileType supercollider nnoremap <buffer> <CR> :call SClang_block()<CR>
 au Filetype supercollider vnoremap <buffer> <CR> :call SClang_send()<CR>
 au Filetype supercollider nnoremap <buffer> .<CR> :call SClangHardstop()<CR>
+
+
+"===================
+" GTags
+"===================
+nnoremap <silent> <Space>f :Gtags -f %<CR>
+nnoremap <silent> <Space>j :GtagsCursor<CR>
+nnoremap <silent> <Space>d :<C-u>exe('Gtags '.expand('<cword>'))<CR>
+nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
+
+
+"denite時に使用するキーマップ
+"ESCキーでdeniteを終了
+call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
+"C-N,C-Pで上下移動
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+"C-J,C-Kでsplitで開く
+call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:do_action:vsplit>', 'noremap')
+
+" 以下はdenite起動時に使用するキーマップ
+" バッファ一覧
+noremap <C-P> :Denite buffer<CR>
+" ファイル一覧
+noremap <C-N> :Denite -buffer-name=file file<CR>
+" 最近使ったファイルの一覧
+noremap <C-Z> :Denite file_old<CR>
+" カレントディレクトリ
+noremap <C-C> :Denite file_rec<CR>
+"バッファ一覧
+nnoremap sB :<C-u>Denite buffer -buffer-name=file<CR>
+" grep
+noremap <C-U><C-G> :Denite grep<CR>
+
+
+"Denite でバッファ内検索 
+nnoremap <silent> <Leader><C-f> :<C-u>Denite line<CR>
+nnoremap <silent> <expr><Space>l ":<C-u>DeniteWithCursorWord line<CR>"

@@ -75,44 +75,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgray
 let g:indent_guides_color_change_percent = 30
 
-"--------------------------------------------
-"my snippet path
-"-------------------------------------------
-let s:my_snippet='~/.dotfiles/.vim/snippet/'
-let g:neosnippet#snippets_directory=s:my_snippet
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
-
 "-------------------------------------------
 " unite.vim 
 "
-"RSense
-"---------------------------
-"" neocomplcacheの設定
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-
 
 " Rsense用の設定
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 "rsenseのインストールフォルダがデフォルトと異なるので設定
@@ -127,9 +94,8 @@ if isdirectory(s:clang_library_path)
     let g:clang_library_path=s:clang_library_path
 endif
 
-" Vim Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-let g:vim_markdown_folding_disabled = 1
+
 let g:previm_open_cmd = 'open -a Safari'
 
 
@@ -141,3 +107,45 @@ let g:racer_experimental_completer = 1
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
+
+
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+    \ }
+
+""denite
+if has("nvim")
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    call denite#custom#var('grep', 'default_opts',['-i', '--vimgrep'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+    call denite#custom#option('default', 'prompt', '>>> ')
+    call denite#custom#option('default', 'direction', 'top')
+endif
