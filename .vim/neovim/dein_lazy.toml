@@ -45,3 +45,49 @@ let g:deoplete#sources#swift#daemon_autostart = 1
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']
+
+# Rubyの自動補完
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_ft = ['ruby']
+
+# Rubyの自動補完
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = ['ruby']
+
+# Rubyの自動補完
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+on_i = 1
+hook_add = '''
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:deoplete#sources#omni#input_patterns = {
+  \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+  \}
+'''
+
+# Rubyのメソッドの定義元にジャンプ
+[[plugins]]
+repo = 'szw/vim-tags'
+on_ft = 'ruby'
+
+# Swift 
+[[plugins]]
+repo = 'kballard/vim-swift'
+on_i = 1
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'keith/swift.vim'
+on_i = 1
+on_ft = ['swift']
+
+[[plugins]]
+repo='mitsuse/autocomplete-swift'
+on_i = 1
+on_ft = ['swift']

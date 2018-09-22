@@ -1,8 +1,4 @@
-set rtp+=$HOME/.dotfiles/neovim/
-runtime! conf.d/*.vim
-
-
-
+set rtp+=$HOME/.dotfiles/neovim
 "辞書ファイル"
 if &compatible
     set nocompatible
@@ -18,7 +14,7 @@ execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     let s:toml = expand("$HOME/.dotfiles/.vim/neovim/dein.toml")
-    let s:lazy_toml = expand("$HOME/.dotfiles/.vim/neovim/dein_lazy.toml")
+    let s:lazy_toml = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#load_toml(s:lazy_toml, { 'lazy':1 } )
     call dein#end()
@@ -28,9 +24,10 @@ if dein#check_install()
   call dein#install()
 endif
 
-
 filetype plugin indent on
 syntax enable
+source $HOME/.dotfiles/neovim/conf.d/keymap.vim
+source $HOME/.dotfiles/neovim/conf.d/plugin.vim
 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -45,7 +42,7 @@ let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
 let g:unite_enable_start_insert=1
-let g:python3_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:deoplete#enable_at_startup = 1
 
 
@@ -110,6 +107,7 @@ set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
 set noundofile
+set clipboard+=unnamedplus
 colorscheme spacegray
 
 

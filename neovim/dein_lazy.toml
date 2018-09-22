@@ -22,80 +22,61 @@ hook_source = '''
   endif
 '''
 on_i  = 1
-on_ft = ['snippet']
+on_ft = 'snippet'
 depends = ['neosnippet-snippets']
 
 
 # vim8でdeopleteを使うのに必要
 [[plugins]]
 repo = 'roxma/nvim-yarp'
-on_ft = ['ruby']
+on_ft = 'ruby'
 
 # vim8でdeopleteを使うのに必要
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
-on_ft = ['ruby']
+on_ft = 'ruby'
 
 # for toml file
 
 [[plugins]]
 repo = 'cespare/vim-toml'
-on_ft = ['toml']
+on_ft = 'toml'
 
 # vim8でdeopleteを使うのに必要
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
-on_ft = ['ruby']
+on_ft = 'ruby'
 
-# Rubyの自動補完
-[[plugins]]
-repo = 'Shougo/deoplete-rct'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_i = 1
-hook_add = '''
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
-let g:deoplete#sources#omni#input_patterns = {
-  \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-  \}
-'''
-
-# Rubyのend補完
-[[plugins]]
-repo = 'tpope/vim-endwise'
-on_i = 1
-on_ft = ['ruby']
-
-# Rubyのメソッドの定義元にジャンプ
-[[plugins]]
-repo = 'szw/vim-tags'
-
-
-# Swift 
-[[plugins]]
-repo = 'kballard/vim-swift'
-on_i = 1
-on_ft = ['swift']
-
-[[plugins]]
-repo = 'keith/swift.vim'
-on_i = 1
-on_ft = ['swift']
-
-[[plugins]]
-repo='mitsuse/autocomplete-swift'
-on_i = 1
-on_ft = ['swift']
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
-on_i = 1
-on_ft = ['go']
+build = 'make'
+on_ft = 'go'
+depends = ['deoplete.nvim']
+hook_source = '''
+    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+    let g:deoplete#sources#go#align_class = 1
+    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+    let g:deoplete#auto_complete_delay = 0
+    let g:go_highlight_types = 1
+    let g:deoplete#sources#go#package_dot = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_variable_declarations = 1
+    let g:go_highlight_variable_assignments = 1
+'''
+[[plugins]]
+repo = 'sebdah/vim-delve'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+
+[[plugins]]
+repo = 'szw/vim-tags'
+on_ft = 'ruby'
