@@ -1,8 +1,5 @@
-set rtp+=$HOME/.dotfiles/neovim
+set rtp+=$HOME/.dotfiles/.vim/
 "辞書ファイル"
-if &compatible
-    set nocompatible
-endif
 let s:dein_dir=expand('~/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -13,10 +10,10 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfiles/.vim/neovim/dein.toml")
-    let s:lazy_toml = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
+    let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
+    let s:toml_lazy = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
     call dein#load_toml(s:toml, { 'lazy':0 } )
-    call dein#load_toml(s:lazy_toml, { 'lazy':1 } )
+    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
     call dein#end()
 endif
 
@@ -24,31 +21,21 @@ if dein#check_install()
   call dein#install()
 endif
 
+runtime! conf.d/*.vim
 filetype plugin indent on
 syntax enable
-source $HOME/.dotfiles/neovim/conf.d/keymap.vim
-source $HOME/.dotfiles/neovim/conf.d/plugin.vim
 
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_manual_completion_start_length = 0
-let g:neocomplcache_caching_percent_in_statusline = 1
-let g:neocomplcache_enable_skip_completion = 1
-let g:neocomplcache_skip_input_time = '0.5'
 let g:returnApp = "iTerm"
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
 let g:rsenseUseOmniFunc = 1
 let g:unite_enable_start_insert=1
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:deoplete#enable_at_startup = 1
 
 
-autocmd BufRead *.php\|*.ctp\|*.tpl
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
+autocmd BufRead,BufNewFile Fastfile set filetype=ruby
+autocmd BufRead,BufNewFile Podfile set filetype=ruby
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
@@ -72,19 +59,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 
-"For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
-
-
-"taglist用の設定
-set tags=tags
-let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
-let Tlist_Show_One_File = 1
-let Tlist_Use_Left_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-
 
 "no backup
 set encoding=utf-8
@@ -107,7 +81,8 @@ set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
 set noundofile
-set clipboard+=unnamedplus
+set clipboard=unnamed
+
 colorscheme spacegray
 
 
@@ -125,3 +100,9 @@ endfunction
 
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
+
+let g:python3_host_prog = "/usr/local/bin/python3"
+
+set sh=zsh
+tnoremap <silent> <ESC> <C-\><C-n>
+

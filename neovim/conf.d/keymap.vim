@@ -1,6 +1,7 @@
 "key map
 "--------------------------------------------
 
+
 " auto browser
 nmap <Space>bc :ChromeReloadStart<CR>
 nmap <Space>bC :ChromeReloadStop<CR>
@@ -76,9 +77,6 @@ noremap <C-Z> :Denite file_old<CR>
 noremap <C-C> :Denite file_rec<CR>
 "バッファ一覧
 nnoremap sB :<C-u>Denite buffer -buffer-name=file<CR>
-" grep
-noremap <C-U><C-G> :Denite grep<CR>
-
 
 "Denite でバッファ内検索 
 nnoremap <silent> <Leader><C-f> :<C-u>Denite line<CR>

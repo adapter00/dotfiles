@@ -2,7 +2,7 @@
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'ecomba/vim-ruby-refactoring'
@@ -17,10 +17,10 @@ repo = 'Shougo/vimshell.vim'
 repo = 'violetyk/cake.vim'
 
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'simeji/winresizer'
 
 [[plugins]]
-repo = 'vim-scripts/taglist.vim'
+repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'vim-scripts/ZenCoding.vim'
@@ -128,9 +128,6 @@ repo = 'tpope/vim-rails'
 repo = 'basyura/unite-rails'
 
 [[plugins]]
-repo = 'alpaca-tc/alpaca_tags'
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
@@ -167,22 +164,32 @@ repo = 'Shougo/neocomplcache-rsense.vim'
 repo = 'munshkr/vim-tidal'
 
 [[plugins]]
-repo = 'tsukkee/unite-tag'
-
-[[plugins]]
 repo = 'vim-utils/vim-man'
 
 [[plugins]]
-repo = 'roxma/nvim-yarp'
+repo = 'lighttiger2505/gtags.vim'
+hook_add = '''
+    let g:Gtags_Auto_Map = 0
+    let g:Gtags_OpenQuickfixWindow = 1
+'''
+
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_add = '''
+#     let g:gen_tags#gtags_auto_gen = 1
+# '''
+#
 
 [[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
+repo = 'ozelentok/denite-gtags'
+hook_add = '''
+" Prefix key
+nmap [denite] <Nop>
+map <C-j> [denite]
+" Keymap
+nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
+'''
 
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -197,8 +204,29 @@ hook_source = '''
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#file#enable_buffer_path = 1
   let g:deoplete#max_list = 10000
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
+[[plugins]]
+repo = 'milch/vim-fastlane'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'

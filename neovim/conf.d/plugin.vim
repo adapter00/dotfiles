@@ -108,6 +108,15 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
 
+""" deoplete
+let g:deoplete#source#attribute#is_silent = 0
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns['default'] = '\h\w*'
+let g:deoplete#omni#input_patterns = {}
+let deoplete#tag#cache_limit_size = 5000000
 
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
@@ -140,7 +149,7 @@ let g:tagbar_type_go = {
 ""denite
 if has("nvim")
     call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    ""call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
     call denite#custom#var('grep', 'default_opts',['-i', '--vimgrep'])
     call denite#custom#var('grep', 'recursive_opts', [])
     call denite#custom#var('grep', 'pattern_opt', [])
