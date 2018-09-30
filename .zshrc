@@ -19,7 +19,10 @@ export THEOS=/opt/theos
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
 export GOPATH=$HOME/dev/go
-export GOROOT=$HOME/.goenv/versions/1.9.0
+if type "goenv" > /dev/null; then
+    GOENV_VERSION=`goenv version-name`
+    export GOPATH=$GOPATH:$HOME/.goenv/versions/$GOENV_VERSION
+fi
 export PATH=$PATH:$GOPATH/bin
 
 
@@ -134,3 +137,5 @@ export SCVIM_TAGFILE=~/.sctags
 function agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
+
+
