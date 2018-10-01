@@ -2,3 +2,4 @@
 .vim/bundle/*
 *.orig
 .vim/.netrwhist
+tags
