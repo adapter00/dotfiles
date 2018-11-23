@@ -4,9 +4,10 @@ build = 'make'
 on_ft = 'go'
 depends = ['deoplete.nvim']
 hook_source = '''
-    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+    let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
     let g:deoplete#sources#go#align_class = 1
     let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+    let g:deoplete#auto_complete_delay= 0
     let g:go_highlight_types = 0
     let g:deoplete#sources#go#package_dot = 0
     let g:go_highlight_fields = 1
@@ -63,9 +64,10 @@ on_ft = ['ruby']
 # Rubyの自動補完
 [[plugins]]
 repo = 'osyo-manga/vim-monster'
-on_i = 1
+on_ft = 'ruby'
 hook_add = '''
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:monster#completion#backend = 'solargraph'
+let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
 let g:deoplete#sources#omni#input_patterns = {
   \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
   \}
@@ -75,6 +77,17 @@ let g:deoplete#sources#omni#input_patterns = {
 [[plugins]]
 repo = 'szw/vim-tags'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'thoughtbot/vim-rspec'
+on_ft = 'ruby'
+hook_add = '''
+let g:rspec_command = 'Dispatch rspec {spec}'
+'''
 
 # Swift 
 [[plugins]]

@@ -1,4 +1,4 @@
-set rtp+=$HOME/.dotfiles/.vim/
+set rtp+=$HOME/.dotfiles/neovim/
 "辞書ファイル"
 let s:dein_dir=expand('~/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -82,6 +82,8 @@ set wildmode=longest:full,full
 set laststatus=2
 set noundofile
 set clipboard=unnamed
+set completeopt+=noinsert
+set completeopt+=noselect
 
 colorscheme spacegray
 

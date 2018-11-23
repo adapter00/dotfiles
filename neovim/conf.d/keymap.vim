@@ -26,6 +26,7 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>s
 nnoremap s= <C-w>=
 
+
 " move cursor
 " nnoremap <C-a> <HOME>
 " nnoremap <C-l> <End>
@@ -81,3 +82,14 @@ nnoremap sB :<C-u>Denite buffer -buffer-name=file<CR>
 "Denite でバッファ内検索 
 nnoremap <silent> <Leader><C-f> :<C-u>Denite line<CR>
 nnoremap <silent> <expr><Space>l ":<C-u>DeniteWithCursorWord line<CR>"
+
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+" tern
+autocmd FileType go nnoremap <silent> <buffer> gb :TernDef<CR>
+
+"RSpec
+nmap <silent><leader>t :call RunCurrentSpecFile()<CR>
+
+
