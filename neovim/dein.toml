@@ -230,3 +230,12 @@ repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim' 
+rev = 'next'
+build = 'bash install.sh'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
