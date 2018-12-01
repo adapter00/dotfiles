@@ -235,6 +235,9 @@ repo = 'roxma/vim-hug-neovim-rpc'
 repo = 'autozimu/LanguageClient-neovim' 
 rev = 'next'
 build = 'bash install.sh'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'

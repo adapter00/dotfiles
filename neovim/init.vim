@@ -108,13 +108,3 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
-
-"" LSP
-
-set hidden
-let g:LanguageClient_serverCommands = {'go': [$DEFAULT_GOPATH.'/bin/go-langserver','-format-tool','gofmt','-lint-tool','golint']}
-let g:deoplete#enable_at_startup = 1
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_loggingFile = '/tmp/LSP'
-let g:LanguageClient_loadSettings=$XDG_CONFIG_HOME."nvim/settings.json"
-
