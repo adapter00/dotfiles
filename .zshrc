@@ -22,9 +22,10 @@ export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 if type "goenv" > /dev/null; then
     GOENV_VERSION=`goenv version-name`
-    export GOPATH=$GOPATH:$HOME/.goenv/versions/$GOENV_VERSION
+    GOENV_PATH=$HOME/.goenv/versions/$GOENV_VERSION
+    export GOPATH=$GOPATH:$GOENV_PATH
+    export PATH=$PATH:$GOENV_PATH/bin
 fi
-export PATH=$PATH:$GOPATH/bin
 
 
 if [ -d ~/.theos_ip ]; then
