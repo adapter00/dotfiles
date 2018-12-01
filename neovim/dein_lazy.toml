@@ -16,14 +16,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'fatih/vim-go'
-hook_source='''
-let g:go_info_mode='gocode'
-let g:go_def_mode='godef'
-'''
-on_ft = 'go'
-
-[[plugins]]
 repo = 'sebdah/vim-delve'
 on_ft = 'go'
 
@@ -114,3 +106,5 @@ hook_source=''''
     let g:sclangDispatcher="~/.cache/dein/repos/github.com/supercollider/scvim/bin/sc_dispatcher"
     let g:scFlash = 1
 '''
+
+

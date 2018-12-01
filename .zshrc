@@ -18,7 +18,8 @@ export THEOS=/opt/theos
 #go
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
-export GOPATH=$HOME/dev/go
+export DEFAULT_GOPATH=$HOME/dev/go 
+export GOPATH=$DEFAULT_GOPATH
 export PATH=$PATH:$GOPATH/bin
 if type "goenv" > /dev/null; then
     GOENV_VERSION=`goenv version-name`
