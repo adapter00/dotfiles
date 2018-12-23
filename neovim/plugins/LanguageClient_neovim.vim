@@ -15,8 +15,9 @@ let g:LanguageClient_loadSettings=$XDG_CONFIG_HOME."nvim/settings.json"
 
 "" Keymap
 
+noremap <C-]> :call LanguageClient#textDocument_definition()<CR>
+noremap <C-T> <C-O>
 nnoremap <C-l>lh :call LanguageClient_textDocument_hover()<CR>
-nnoremap <C-l>ld :call LanguageClient_textDocument_definition()<CR>
 nnoremap <C-l>lr :call LanguageClient_textDocument_rename()<CR>
 nnoremap <C-l>lf :call LanguageClient_textDocument_formatting()<CR>
 nnoremap <C-l>li :call LanguageClient_textDocument_implementation()<CR>

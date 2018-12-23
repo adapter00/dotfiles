@@ -1,21 +1,4 @@
 [[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-on_ft = 'go'
-depends = ['deoplete.nvim']
-hook_source = '''
-    let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-    let g:deoplete#sources#go#align_class = 1
-    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-    let g:deoplete#auto_complete_delay= 0
-    let g:go_highlight_types = 0
-    let g:deoplete#sources#go#package_dot = 0
-    let g:go_highlight_fields = 1
-    let g:go_highlight_variable_declarations = 1
-    let g:go_highlight_variable_assignments = 1
-'''
-
-[[plugins]]
 repo = 'sebdah/vim-delve'
 on_ft = 'go'
 
