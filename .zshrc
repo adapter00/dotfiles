@@ -100,8 +100,8 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
 precmd(){
     vcs_info
     #端末名@ユーザー名 >カレントディレクトリ(git_status)
-    PROMPT="%F{white}%K{blue}%B%m%k%K{white}%F{black}$LOGO%f%k%K{green}%n%k%K{magenta} %~ %k%K{red}${vcs_info_msg_0_}%b%k%f
-%F{green}➜  %f"
+    PROMPT="%F{green}%K%B%m%k%K{green}%F{green}$LOGO%f%k%K%F{green}|%n%k%K|%~ %k%K|${vcs_info_msg_0_}%b%k%f
+%F{green}-> %f"
 }
 
 #function 
