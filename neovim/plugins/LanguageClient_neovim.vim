@@ -2,7 +2,8 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
             \ 'go': [$DEFAULT_GOPATH.'/bin/go-langserver','-format-tool','gofmt', '-gocodecompletion','-usebinarypkgcache'],
-            \ 'ruby':['solargraph','stdio']
+            \ 'ruby':['solargraph','stdio'],
+            \ 'python':['pyls']
             \ }
 let g:deoplete#enable_at_startup = 1
 let g:LanguageClient_autoStart = 1
