@@ -1,15 +1,19 @@
 set hidden
 
+let g:LanguageClient_rootMarkers = {
+        \ 'go': ['.git', 'go.mod'],
+        \ }
 let g:LanguageClient_serverCommands = {
-            \ 'go': [$DEFAULT_GOPATH.'/bin/bingo'],
+            \ 'go': ['bingo', '--mode', 'stdio', '--logfile', '/tmp/lspserver.log','--trace', '--pprof', ':6060'],
             \ 'python': ['pyls'],
-            \ 'javascript': ['javascript-typescript-stdio']
+            \ 'javascript': ['javascript-typescript-stdio'],
+            \ 'swift': ['/Users/takao_maeda/dev/swift/sourcekit-lsp/.build/x86_64-apple-macosx10.10/release/sourcekit-lsp','--log-level','debug']
             \ }
 
 
 let g:deoplete#enable_at_startup = 1
 let g:LanguageClient_autoStart = 1
-let g:LanguageClient_loggingFile = '/tmp/LSP'
+let g:LanguageClient_loggingFile = '/tmp/LSP.log'
 let g:LanguageClient_loadSettings=$XDG_CONFIG_HOME."nvim/settings.json"
 
 
