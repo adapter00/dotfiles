@@ -26,10 +26,10 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>s
 nnoremap s= <C-w>=
 
+" tab 
+nnoremap sn gt
+nnoremap sp gT
 
-" move cursor
-" nnoremap <C-a> <HOME>
-" nnoremap <C-l> <End>
 
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>

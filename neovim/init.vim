@@ -27,8 +27,6 @@ filetype plugin indent on
 syntax enable
 
 let g:returnApp = "iTerm"
-let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
-let g:rsenseUseOmniFunc = 1
 let g:unite_enable_start_insert=1
 
 
