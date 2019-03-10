@@ -1,11 +1,11 @@
 [[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-
-[[plugins]]
-repo = 'ecomba/vim-ruby-refactoring'
 
 [[plugins]]
 repo = 'ujihisa/unite-locate'
@@ -121,11 +121,6 @@ repo = 'zenorocha/dracula-theme'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
-[[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'basyura/unite-rails'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -145,8 +140,6 @@ repo = 'Keithbsmiley/swift.vim'
 [[plugins]]
 repo = 'toyamarinyon/vim-swift'
 
-[[plugins]]
-repo = 'hallison/vim-ruby-sinatra'
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
@@ -173,12 +166,6 @@ hook_add = '''
     let g:Gtags_OpenQuickfixWindow = 1
 '''
 
-# [[plugins]]
-# repo = 'jsfaint/gen_tags.vim'
-# hook_add = '''
-#     let g:gen_tags#gtags_auto_gen = 1
-# '''
-#
 
 [[plugins]]
 repo = 'ozelentok/denite-gtags'

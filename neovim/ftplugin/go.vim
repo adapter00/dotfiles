@@ -1,5 +1,4 @@
-set noexpandtab
-
+set expandtab
 function! s:gofmt_on_save()
   let l:curw = winsaveview()
   silent execute "0,$! gofmt"

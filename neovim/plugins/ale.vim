@@ -15,3 +15,9 @@ let g:ale_go_gometalinter_options = '--fast --enable=staticcheck --enable=gosimp
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
+
+
+" for ruby
+let g:ale_fixers = {
+\   'ruby': ['rubocop'],
+\}
