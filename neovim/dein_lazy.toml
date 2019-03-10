@@ -6,10 +6,6 @@ on_ft = 'go'
 repo = 'ctrlpvim/ctrlp.vim'
 on_ft = 'go'
 
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
-
 
 [[plugins]]
 repo = 'landaire/deoplete-swift'
@@ -22,31 +18,6 @@ let g:deoplete#sources#swift#daemon_autostart = 1
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'Shougo/deoplete-rct'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_ft = 'ruby'
-hook_add = '''
-let g:monster#completion#backend = 'solargraph'
-let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
-let g:deoplete#sources#omni#input_patterns = {
-  \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-  \}
-'''
 
 # Rubyのメソッドの定義元にジャンプ
 [[plugins]]
@@ -90,6 +61,11 @@ hook_source=''''
     let g:scFlash = 1
 '''
 
+
+[[plugins]]
+repo='aklt/plantuml-syntax'
+on_i= 1
+on_ft = 'uml'
 
 [[plugins]]
 repo = 'fatih/vim-go'

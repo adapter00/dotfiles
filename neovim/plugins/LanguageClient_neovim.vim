@@ -4,10 +4,14 @@ let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
 let g:LanguageClient_serverCommands = {
-            \ 'go': ['bingo', '--mode', 'stdio', '--logfile', '/tmp/lspserver.log','--trace', '--pprof', ':6060'],
-            \ 'python': ['pyls'],
+            \ 'go': [$DEFAULT_GOPATH.'/bin/go-langserver','-format-tool','gofmt', '-gocodecompletion','-usebinarypkgcache'],
+            \ 'ruby':['solargraph','stdio'],
+            \ 'python':['pyls'],
             \ 'javascript': ['javascript-typescript-stdio'],
             \ 'swift': ['/Users/takao_maeda/dev/swift/sourcekit-lsp/.build/x86_64-apple-macosx10.10/release/sourcekit-lsp','--log-level','debug']
+            \ }
+let g:LanguageClinet_rootMarkers = {
+            \ 'go':['.git','go.mod'],
             \ }
 
 
@@ -27,6 +31,7 @@ function LC_maps()
         nnoremap <C-l>lr :call LanguageClient_textDocument_rename()<CR>
         nnoremap <C-l>lf :call LanguageClient_textDocument_formatting()<CR>
         nnoremap <C-l>li :call LanguageClient_textDocument_implementation()<CR>
+		nnoremap <C-l>ll :call LanguageClient_textDocument_documentSymbol()()<CR>
     endif
 endfunction
 autocmd FileType * call LC_maps()
