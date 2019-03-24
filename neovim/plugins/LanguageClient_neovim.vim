@@ -4,7 +4,7 @@ let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
 let g:LanguageClient_serverCommands = {
-            \ 'go': [$DEFAULT_GOPATH.'/bin/go-langserver','-format-tool','gofmt', '-gocodecompletion','-usebinarypkgcache'],
+            \ 'go': ['bingo' ],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls'],
             \ 'javascript': ['javascript-typescript-stdio'],
@@ -12,6 +12,7 @@ let g:LanguageClient_serverCommands = {
             \ }
 let g:LanguageClinet_rootMarkers = {
             \ 'go':['.git','go.mod'],
+            \ 'swift': ['Package.swift']
             \ }
 
 
