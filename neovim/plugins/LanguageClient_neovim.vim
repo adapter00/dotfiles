@@ -8,7 +8,7 @@ let g:LanguageClient_serverCommands = {
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls'],
             \ 'javascript': ['javascript-typescript-stdio'],
-            \ 'swift': ['/Users/takao_maeda/dev/swift/sourcekit-lsp/.build/x86_64-apple-macosx10.10/release/sourcekit-lsp','--log-level','debug']
+            \ 'swift': ['sourcekit-lsp','--log-level','debug']
             \ }
 let g:LanguageClinet_rootMarkers = {
             \ 'go':['.git','go.mod'],
