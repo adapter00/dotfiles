@@ -234,3 +234,7 @@ repo = 'w0rp/ale'
 hook_add = '''
 source ~/.dotfiles/neovim/plugins/ale.vim
 '''
+
+
+[[plugins]]
+repo = 'dracula/vim'
