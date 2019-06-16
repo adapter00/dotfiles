@@ -4,14 +4,14 @@ let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
 let g:LanguageClient_serverCommands = {
-            \ 'go': ['bingo' ],
+            \ 'go': ['gopls',"serve",'-logfile=/tmp/gopls.log',"-rpc.trace","--debug=localhost:6060"],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls'],
             \ 'javascript': ['javascript-typescript-stdio'],
             \ 'swift': ['sourcekit-lsp','--log-level','debug']
             \ }
 let g:LanguageClinet_rootMarkers = {
-            \ 'go':['.git','go.mod'],
+            \ 'go':['.git','go.mod','.hg/','.vim/'],
             \ 'swift': ['Package.swift']
             \ }
 
