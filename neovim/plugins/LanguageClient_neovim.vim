@@ -33,6 +33,7 @@ function LC_maps()
         nnoremap <C-l>lf :call LanguageClient_textDocument_formatting()<CR>
         nnoremap <C-l>li :call LanguageClient_textDocument_implementation()<CR>
 		nnoremap <C-l>ll :call LanguageClient_textDocument_documentSymbol()()<CR>
+		nnoremap <C-l>lc :call LanguageClient_contextMenu()<CR>
     endif
 endfunction
 autocmd FileType * call LC_maps()
