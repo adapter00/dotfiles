@@ -7,15 +7,18 @@ if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
 
-execute 'set runtimepath^=' . s:dein_repo_dir 
+
+execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
+
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
-    let s:toml_lazy = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
+    let s:base = expand("$HOME/.dotfiles/neovim")
 
-    call dein#load_toml(s:toml, { 'lazy':0 } )
-    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
+    call dein#load_toml(s:base . "/dein.toml", { 'lazy':0 } )
+    call dein#load_toml(s:base . "/colorscheme.toml", { 'lazy':0} )
+    call dein#load_toml(s:base . "/dein_lazy.toml", { 'lazy':1 } )
     call dein#end()
+    call dein#save_state()
 endif
 
 if dein#check_install()
@@ -30,7 +33,6 @@ let g:returnApp = "iTerm"
 let g:unite_enable_start_insert=1
 
 
-autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
 autocmd BufRead,BufNewFile Fastfile set filetype=ruby
@@ -39,9 +41,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd FileType javascipt set dictionary=javascript.dict
-autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 autocmd BufNewFile *.html
-autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -83,7 +83,7 @@ set noundofile
 set clipboard=unnamed
 set completeopt+=noinsert
 set completeopt+=noselect
-
+colorscheme spacegray
 
 
 "" command
@@ -106,4 +106,3 @@ let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
 
-colorscheme dracula

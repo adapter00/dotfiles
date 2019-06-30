@@ -1,0 +1,7 @@
+[[pluings]]
+name = 'dracula-theme'
+repo = 'dracula/vim'
+hook = '''
+  set background=dark
+  au MyAutoCmd VimEnter * nested colorscheme dracula
+'''
