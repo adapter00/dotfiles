@@ -27,7 +27,7 @@ if type "goenv" > /dev/null; then
     export GOPATH=$GOPATH:$GOENV_PATH
     export PATH=$PATH:$GOENV_PATH/bin
 fi
-
+export GO111MODULE=on
 
 if [ -d ~/.theos_ip ]; then
      source .theos_ip

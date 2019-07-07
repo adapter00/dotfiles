@@ -194,9 +194,6 @@ on_i = 1
 [[plugins]]
 repo = 'milch/vim-fastlane'
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -231,5 +228,12 @@ repo = 'junegunn/fzf'
 repo = 'w0rp/ale'
 hook_add = '''
 source ~/.dotfiles/neovim/plugins/ale.vim
+'''
+
+[[pluings]]
+repo = 'dracula/vim'
+hook_add = '''
+set background=dark
+au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''
 
