@@ -118,8 +118,6 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
-[[plugins]]
-repo = 'zenorocha/dracula-theme'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'

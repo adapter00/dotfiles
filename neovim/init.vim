@@ -13,10 +13,13 @@ execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     let s:base = expand("$HOME/.dotfiles/neovim")
+    let s:dein = s:base . "/dein.toml"
+    let s:dein_lazy = s:base . "/dein_lazy.toml"
+    let s:color = s:base . "/color_scheme.toml"
 
-    call dein#load_toml(s:base . "/dein.toml", { 'lazy':0 } )
-    call dein#load_toml(s:base . "/colorscheme.toml", { 'lazy':0} )
-    call dein#load_toml(s:base . "/dein_lazy.toml", { 'lazy':1 } )
+    call dein#load_toml(s:dein, { 'lazy':0 } )
+    call dein#load_toml(s:color, { 'lazy':0} )
+    call dein#load_toml(s:dein_lazy, { 'lazy':1 } )
     call dein#end()
     call dein#save_state()
 endif
