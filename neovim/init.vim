@@ -106,3 +106,5 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow

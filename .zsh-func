@@ -4,6 +4,11 @@
 function mpeco {
     ls -la | peco | xargs mvim
 }
+
+function gpeco() {
+    local account=$(gcloud config configurations list | peco | awk '{ print($1) }')
+    gcloud config configurations activate $account
+}
 zle -N mpeco
 
 
@@ -11,3 +16,20 @@ function gim(){
     vim `git ls-files | peco`
 }
 zle -N gim
+
+function agf() {
+    ag $@ | peco --query "$LBUFFER"
+}
+
+function gcop() {
+    git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout
+}
+
+function peco-history-selection() {
+	BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+	CURSOR=$#BUFFER
+	zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
