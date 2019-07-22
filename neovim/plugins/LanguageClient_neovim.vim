@@ -23,3 +23,6 @@ nnoremap <C-l>lr :call LanguageClient_textDocument_rename()<CR>
 nnoremap <C-l>lf :call LanguageClient_textDocument_formatting()<CR>
 nnoremap <C-l>ll :call LanguageClient_textDocument_documentSymbol()()<CR>
 
+
+"" python保存時に
+autocmd BufWritePre *.py :call LanguageClient_textDocument_formatting()

@@ -15,6 +15,8 @@ if dein#load_state(s:dein_dir)
 
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
+    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'cd app & yarn install' })
     call dein#end()
 endif
 
@@ -106,3 +108,5 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
