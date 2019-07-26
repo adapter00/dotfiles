@@ -1,7 +1,7 @@
 set hidden
 
 let g:LanguageClient_serverCommands = {
-            \ 'go': ['bingo','--logfile','/tmp/bingo.log'],
+            \ 'go': ['bingo','--format-style','goimports', '--logfile','/tmp/bingo.log'],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls']
             \ }
