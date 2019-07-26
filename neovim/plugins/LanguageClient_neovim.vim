@@ -1,7 +1,7 @@
 set hidden
 
 let g:LanguageClient_serverCommands = {
-            \ 'go': [$DEFAULT_GOPATH.'/bin/go-langserver','-format-tool','gofmt', '-gocodecompletion','-usebinarypkgcache'],
+            \ 'go': ['bingo','--format-style','goimports', '--logfile','/tmp/bingo.log'],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls']
             \ }

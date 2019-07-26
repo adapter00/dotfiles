@@ -227,9 +227,4 @@ source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
 repo = 'junegunn/fzf'
 
 [[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
-[[plugins]]
 repo = 'tpope/vim-fugitive'
