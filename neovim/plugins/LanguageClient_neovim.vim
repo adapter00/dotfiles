@@ -4,7 +4,7 @@ let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
 let g:LanguageClient_serverCommands = {
-            \ 'go': ['gopls',"serve",'-logfile=/tmp/gopls.log',"-rpc.trace","--debug=localhost:6060"],
+            \ 'go': ['gopls','-logfile=/tmp/gopls.log'],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls'],
             \ 'javascript': ['javascript-typescript-stdio'],
@@ -39,3 +39,5 @@ endfunction
 autocmd FileType * call LC_maps()
 "" python保存時に
 autocmd BufWritePre *.py :call LanguageClient_textDocument_formatting()
+autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+

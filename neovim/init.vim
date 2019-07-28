@@ -84,7 +84,7 @@ set noundofile
 set clipboard=unnamed
 set completeopt+=noinsert
 set completeopt+=noselect
-colorscheme dracula
+colorscheme spacegray
 
 
 "" command
