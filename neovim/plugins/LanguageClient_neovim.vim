@@ -37,3 +37,5 @@ function LC_maps()
     endif
 endfunction
 autocmd FileType * call LC_maps()
+"" python保存時に
+autocmd BufWritePre *.py :call LanguageClient_textDocument_formatting()

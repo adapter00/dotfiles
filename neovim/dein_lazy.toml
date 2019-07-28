@@ -81,5 +81,8 @@ on_ft = 'php'
 hook_source=''''
 composer install && composer run-script parse-stubs
 '''
-
+[[Plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = 'markdown'
+build = 'cd app & yarn install'
 
