@@ -67,11 +67,10 @@ repo='aklt/plantuml-syntax'
 on_i= 1
 on_ft = 'uml'
 
-# [[plugins]]
-# repo = 'fatih/vim-go'
-# hook_add = '''
-#   let g:go_fmt_command = "goimports"
-#   let g:go_def_mapping_enabled = 0
-#   let g:go_doc_keywordprg_enabled = 0
-# '''
+
+
+[[Plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = 'markdown'
+build = 'cd app & yarn install'
 
