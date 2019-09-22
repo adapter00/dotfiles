@@ -46,7 +46,7 @@ repo = 'vim-scripts/The-NERD-tree'
 repo = 'vim-scripts/The-NERD-Commenter'
 
 [[plugins]]
-repo = 'vim-scripts/fugitive.vim'
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'thinca/vim-localrc'
@@ -113,9 +113,6 @@ repo = 'rickard/project.vim'
 
 [[plugins]]
 repo = 'kannokanno/previm'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
 repo = 'bpowell/vim-android'
@@ -242,3 +239,9 @@ repo = 'junegunn/fzf'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/ale.vim
+'''

@@ -15,6 +15,10 @@ if dein#load_state(s:dein_dir)
 
     call dein#load_toml(s:toml, { 'lazy':0 } )
     call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
+
+    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+                \ 'build': 'cd app & yarn install' })
+
     call dein#end()
 endif
 
@@ -57,6 +61,9 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split
 "open window by vertical split 
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+
+
+
 
 
 "no backup
