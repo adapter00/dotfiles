@@ -4,7 +4,7 @@ let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
 let g:LanguageClient_serverCommands = {
-            \'go': ['bingo','--format-style','goimports', '--logfile','/tmp/bingo.log'],
+            \ 'go': ['gopls','-logfile','/tmp/gopls.log'],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':['pyls'],
             \ 'javascript': ['javascript-typescript-stdio'],
@@ -42,6 +42,7 @@ function LC_maps()
     endif
 endfunction
 autocmd FileType * call LC_maps()
+let g:LanguageClient_diagnosticsEnable = 0
 "" formatting on save
 autocmd BufWritePre *.py :call LanguageClient_textDocument_formatting()
 autocmd BufWritePre *.go :call LanguageClient_textDocument_formatting()

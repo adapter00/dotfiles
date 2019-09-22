@@ -112,7 +112,7 @@ let g:racer_cmd = '$HOME/.cargo/bin/racer'
 let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
 set sh=zsh
-tnoremap <silent> <ESC> <C-\><C-n>
+noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'

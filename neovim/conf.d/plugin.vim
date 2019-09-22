@@ -102,7 +102,7 @@ let g:previm_open_cmd = 'open -a Safari'
 " For Rust
 set hidden
 let g:racer_cmd = "/path/to/racer/bin"
-let g:quickrun_config = {}
+" let g:quickrun_config = {}
 let g:racer_experimental_completer = 1
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
@@ -117,34 +117,6 @@ let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns['default'] = '\h\w*'
 let g:deoplete#omni#input_patterns = {}
 let deoplete#tag#cache_limit_size = 5000000
-
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-    \ }
 
 ""denite
 if has("nvim")
