@@ -3,3 +3,4 @@
 *.orig
 .vim/.netrwhist
 tags
+.go-version

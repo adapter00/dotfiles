@@ -1,5 +1,16 @@
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
+hook_source = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -35,7 +46,7 @@ repo = 'vim-scripts/The-NERD-tree'
 repo = 'vim-scripts/The-NERD-Commenter'
 
 [[plugins]]
-repo = 'vim-scripts/fugitive.vim'
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'thinca/vim-localrc'
@@ -102,12 +113,6 @@ repo = 'rickard/project.vim'
 
 [[plugins]]
 repo = 'kannokanno/previm'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-hook_add = '''
-let g:vim_markdown_folding_disabled = 1
-'''
 
 [[plugins]]
 repo = 'bpowell/vim-android'
@@ -189,6 +194,9 @@ hook_source = '''
   let g:deoplete#enable_ignore_case = 0
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#max_list = 500
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+      \ neosnippet#expandable_or_jumpable() ?
+      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
 [[plugins]]
@@ -225,7 +233,10 @@ source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
 repo = 'junegunn/fzf'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
 hook_add = '''
 source ~/.dotfiles/neovim/plugins/ale.vim
 '''

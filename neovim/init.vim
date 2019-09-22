@@ -16,8 +16,12 @@ if dein#load_state(s:dein_dir)
     let s:dein = s:base . "/dein.toml"
     let s:dein_lazy = s:base . "/dein_lazy.toml"
 
-    call dein#load_toml(s:dein, { 'lazy':0 } )
-    call dein#load_toml(s:dein_lazy, { 'lazy':1 } )
+    call dein#load_toml(s:toml, { 'lazy':0 } )
+    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
+
+    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+                \ 'build': 'cd app & yarn install' })
+
     call dein#end()
     call dein#save_state()
 endif
@@ -58,6 +62,9 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split
 "open window by vertical split 
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+
+
+
 
 
 "no backup
@@ -108,3 +115,4 @@ set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'

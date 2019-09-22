@@ -25,6 +25,10 @@ function gcop() {
     git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout
 }
 
+function ghqp() {
+    cd $(ghq list --full-path | peco)
+}
+
 function peco-history-selection() {
 	BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
 	CURSOR=$#BUFFER
