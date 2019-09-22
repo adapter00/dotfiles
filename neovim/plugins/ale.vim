@@ -6,11 +6,10 @@ let g:ale_lint_on_enter = 0
 let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 0
 let g:ale_linters = {
-            \'go':['gometalinter'],
+            \'go':['golangci-lint'],
             \}
 
 " for go
-let g:ale_go_gometalinter_options = '--fast --enable=staticcheck --enable=gosimple --enable=unused'
 
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_sign_error = '⤫'
@@ -20,4 +19,8 @@ let g:ale_sign_warning = '⚠'
 " for ruby
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
+\   'go':['gofmt'],
 \}
+
+
+let g:ale_fix_on_save=1
