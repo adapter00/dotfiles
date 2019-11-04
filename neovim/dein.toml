@@ -18,7 +18,8 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
-[[plugins]] repo = 'ujihisa/unite-locate'
+[[plugins]] 
+repo = 'ujihisa/unite-locate'
 
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
@@ -103,8 +104,6 @@ repo = 'rickard/project.vim'
 
 [[plugins]]
 repo = 'kannokanno/previm'
-
-[[plugins]]
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'

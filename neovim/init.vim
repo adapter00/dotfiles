@@ -6,7 +6,7 @@ let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
-
+let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
 execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 
@@ -16,8 +16,8 @@ if dein#load_state(s:dein_dir)
     let s:dein = s:base . "/dein.toml"
     let s:dein_lazy = s:base . "/dein_lazy.toml"
 
-    call dein#load_toml(s:toml, { 'lazy':0 } )
-    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
+    call dein#load_toml(s:dein, { 'lazy':0 } )
+    call dein#load_toml(s:dein_lazy, { 'lazy':1 } )
 
     call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
                 \ 'build': 'cd app & yarn install' })

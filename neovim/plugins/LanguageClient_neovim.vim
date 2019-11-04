@@ -1,16 +1,14 @@
 set hidden
 
-let g:LanguageClient_rootMarkers = {
-        \ 'go': ['.git', 'go.mod'],
-        \ }
+let s:pyls_path = fnamemodify(g:python_host_prog, ':h') . '/'. 'pyls'
+
 let g:LanguageClient_serverCommands = {
-            \ 'go': ['gopls','-logfile','/tmp/gopls.log'],
+            \'go': ['bingo','--format-style','goimports', '--logfile','/tmp/bingo.log'],
             \ 'ruby':['solargraph','stdio'],
-            \ 'python':['pyls'],
+            \ 'python':[expand(s:pyls_path)],
             \ 'javascript': ['javascript-typescript-stdio'],
             \ 'swift': ['sourcekit-lsp','--log-level','debug']
             \ }
-            " \ 'go': ['gopls','-rpc.trace','serve','-debug','localhost:6060', '-logfile','/tmp/gopls.log'],
 
 let g:LanguageClinet_rootMarkers = {
             \ 'go':['.git','go.mod','.hg/','.vim/'],

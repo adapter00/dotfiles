@@ -24,7 +24,6 @@ export PATH=$PATH:$GOPATH/bin
 if type "goenv" > /dev/null; then
     GOENV_VERSION=`goenv version-name`
     GOENV_PATH=$HOME/.goenv/versions/$GOENV_VERSION
-    export GOPATH=$GOPATH:$GOENV_PATH
     export PATH=$PATH:$GOENV_PATH/bin
 fi
 export GO111MODULE=on
