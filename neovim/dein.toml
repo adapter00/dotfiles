@@ -1,19 +1,11 @@
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-'''
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+repo = 'vim-scripts/The-NERD-tree'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'vim-scripts/The-NERD-Commenter'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -38,12 +30,6 @@ repo = 'vim-scripts/ZenCoding.vim'
 
 [[plugins]]
 repo = 'vim-scripts/ref.vim'
-
-[[plugins]]
-repo = 'vim-scripts/The-NERD-tree'
-
-[[plugins]]
-repo = 'vim-scripts/The-NERD-Commenter'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -79,12 +65,6 @@ repo = 'sbl/scvim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'eagletmt/ghcmod-vim'
-
-[[plugins]]
-repo = 'ujihisa/neco-ghc'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
@@ -105,8 +85,6 @@ repo = 'rickard/project.vim'
 [[plugins]]
 repo = 'kannokanno/previm'
 
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'sjl/gundo.vim'
@@ -156,19 +134,19 @@ repo = 'vim-utils/vim-man'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertCharPre'
 hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 200
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#max_list = 500
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-      \ neosnippet#expandable_or_jumpable() ?
-      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 200
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#max_list = 500
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+\ neosnippet#expandable_or_jumpable() ?
+\    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
+
 [[plugins]]
 repo = 'milch/vim-fastlane'
 
@@ -189,14 +167,6 @@ repo = 'simeji/winresizer'
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
-'''
-
-[[plugins]]
 repo = 'junegunn/fzf'
 
 [[plugins]]
@@ -207,13 +177,19 @@ repo = 'dense-analysis/ale'
 hook_add = '''
 source ~/.dotfiles/neovim/plugins/ale.vim
 '''
-
-[[pluings]]
-repo = 'dracula/vim'
-hook_add = '''
-set background=dark
-au MyAutoCmd VimEnter * nested colorscheme hybrid
-'''
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/vim-lsp.vim
+'''
+
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo ='prabirshrestha/asyncomplete-lsp.vim'
+

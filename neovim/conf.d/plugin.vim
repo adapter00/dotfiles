@@ -118,18 +118,6 @@ let g:deoplete#keyword_patterns['default'] = '\h\w*'
 let g:deoplete#omni#input_patterns = {}
 let deoplete#tag#cache_limit_size = 5000000
 
-""denite
-if has("nvim")
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts',['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#option('default', 'prompt', '>>> ')
-    call denite#custom#option('default', 'direction', 'top')
-    " call denite#custom#filter('vendor/','.git/')
-endif
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()

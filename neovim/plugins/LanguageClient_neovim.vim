@@ -3,12 +3,13 @@ set hidden
 let s:pyls_path = fnamemodify(g:python_host_prog, ':h') . '/'. 'pyls'
 
 let g:LanguageClient_serverCommands = {
-            \'go': ['bingo','--format-style','goimports', '--logfile','/tmp/bingo.log'],
+            \'go': ['gopls','-logfile','/tmp/gopls.log'],
             \ 'ruby':['solargraph','stdio'],
             \ 'python':[expand(s:pyls_path)],
             \ 'javascript': ['javascript-typescript-stdio'],
             \ 'swift': ['sourcekit-lsp','--log-level','debug']
             \ }
+            " \'go': ['bingo','--format-style','goimports', '--logfile','/tmp/bingo.log'],
 
 let g:LanguageClinet_rootMarkers = {
             \ 'go':['.git','go.mod','.hg/','.vim/'],
