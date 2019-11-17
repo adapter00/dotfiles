@@ -156,7 +156,8 @@ if has("nvim")
     call denite#custom#var('grep', 'final_opts', [])
     call denite#custom#option('default', 'prompt', '>>> ')
     call denite#custom#option('default', 'direction', 'top')
-    call denite#custom#filter('vendor/','.git/')
+    call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
+                \ ['vendor/','.git/'])
 endif
 
 " Define mappings

@@ -18,14 +18,6 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
-[[plugins]]
-repo = 'ujihisa/unite-locate'
-
-[[plugins]]
-repo = 'Shougo/vimshell.vim'
-
-[[plugins]]
-repo = 'violetyk/cake.vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -96,8 +88,6 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'kana/vim-filetype-haskell'
 
-[[plugins]]
-repo = 'osyo-manga/vim-watchdogs'
 
 [[plugins]]
 repo = 'dag/vim2hs'
@@ -167,24 +157,6 @@ repo = 'munshkr/vim-tidal'
 [[plugins]]
 repo = 'vim-utils/vim-man'
 
-[[plugins]]
-repo = 'lighttiger2505/gtags.vim'
-hook_add = '''
-    let g:Gtags_Auto_Map = 0
-    let g:Gtags_OpenQuickfixWindow = 1
-'''
-
-
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
-hook_add = '''
-" Prefix key
-nmap [denite] <Nop>
-map <C-j> [denite]
-" Keymap
-nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
-'''
-
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -234,16 +206,17 @@ hook_add = '''
 source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
 '''
 
+
 [[plugins]]
 repo = 'junegunn/fzf'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
+# [[plugins]]
+# repo = 'dense-analysis/ale'
+# hook_add = '''
+# source ~/.dotfiles/neovim/plugins/ale.vim
+# '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'

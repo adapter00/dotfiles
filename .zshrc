@@ -16,16 +16,14 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export THEOS=/opt/theos
 #go
-export PATH="$HOME/.goenv/bin:$PATH"
-eval "$(goenv init -)"
-export DEFAULT_GOPATH=$HOME/dev/go 
-export GOPATH=$DEFAULT_GOPATH
-export PATH=$PATH:$GOPATH/bin
 if type "goenv" > /dev/null; then
-    GOENV_VERSION=`goenv version-name`
-    GOENV_PATH=$HOME/.goenv/versions/$GOENV_VERSION
-    export GOPATH=$GOPATH:$GOENV_PATH
-    export PATH=$PATH:$GOENV_PATH/bin
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    export GOENV_DISABLE_GOPATH=1
+    eval "$(goenv init -)"
+    export PATH="$GOROOT/bin:$PATH"
+    export GOPATH="$HOME/dev/go"
+    export PATH="$GOPATH/bin:$PATH"
 fi
 
 
@@ -40,11 +38,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # git
 autoload -U compinit
 compinit -u
-#rbenv
+# #rbenv
 if [ -d $HOME/.rbenv ]; then
-    export RBEV_ROOT=$HOME/.rbenv
-    export PATH="$RBEV_ROOT/bin:$PATH"
-    eval "$(rbenv init - zsh)"
+	export PATH=$HOME/.rbenv/bin:$PATH
+	eval "$(rbenv init -)"
 fi
 #iOS
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
@@ -95,12 +92,33 @@ zstyle ':vcs_info:git:*' unstagedstr " ∽ "
 zstyle ':vcs_info:*' formats "(%b|%c%u)"
 zstyle ':vcs_info:*' actionformats "(%b|%a)"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
+
+#local 
+if [ -f ~/.zsh-local ]; then
+    source ~/.zsh-local
+fi
+
+gcp_info() {
+  if [ -f "$HOME/.config/gcloud/active_config" ]; then
+    gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+    gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
+    if [ ! -z ${gcp_project} ]; then
+        if [ ${gcp_project} = "dena-auto-taxifms-prod-gcp" ]; then
+            gcp="%F{red}ⓖ ${gcp_project}"
+        else 
+            gcp="%F{green}ⓖ ${gcp_project}"
+        fi
+    fi
+  fi
+}
+
  
 #コマンド実行前
 precmd(){
     vcs_info
+    gcp_info
     #端末名@ユーザー名 >カレントディレクトリ(git_status)
-    PROMPT="%F{green}%K%B%m%k%K{green}%F{green}%f%k%K%F{green}|%n%k%K|%~ %k%K|${vcs_info_msg_0_}%b%k%f
+    PROMPT="%F{green}%K%B%m%k%K{green}%F{green}%f%k%K%F{green}|%n%k%K|%~ %k%K|${gcp}%F{green}|${vcs_info_msg_0_}%b%k%f
 %F{green}-> %f"
 }
 
@@ -112,11 +130,6 @@ else
     source ~/.zsh-func
 fi
 
-
-#local 
-if [ -f ~/.zsh-local ]; then
-    source ~/.zsh-local
-fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -135,6 +148,7 @@ case "${OSTYPE}" in
         bindkey ";5D" backward-word
         ;;
 esac
+
 #supercollier
 export SCVIM_TAGFILE=~/.sctags
 function agvim () {

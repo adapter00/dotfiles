@@ -116,3 +116,17 @@ tnoremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
+
+
+augroup init_local
+  autocmd!
+  autocmd BufNewFile,BufReadPost * call s:init_local(expand('<afile>:p:h'))
+augroup END
+
+function! s:init_local(loc)
+  let files = findfile('.init.local.vim', escape(a:loc, ' ') . ';', -1)
+  for i in reverse(filter(files, 'filereadable(v:val)'))
+    source `=i`
+  endfor
+endfunction
+

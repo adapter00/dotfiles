@@ -2,11 +2,11 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
             \ 'ruby':['solargraph','stdio'],
-            \ 'go': ['bingo','-trace','--format-style','goimports', '-logfile','/tmp/bingo.log'],
+            \ 'go': ['bingo','-trace', '-logfile','/tmp/bingo.log'],
             \ 'python':['pyls']
             \ }
 
-" \ 'go': ['gopls', '--trace','--diagnostics-style','none'  '--logfile','/tmp/gopls.log'],
+            " \ 'go': ['gopls', '-logfile','/tmp/gopls.log'],
 
 
 let g:LanguageClinet_rootMarkers = {
