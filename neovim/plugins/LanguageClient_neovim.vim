@@ -16,6 +16,7 @@ let g:deoplete#enable_at_startup = 1
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_loggingFile = '/tmp/lsp.log'
 let g:LanguageClient_loggingLevel ='DEBUG'
+
 let g:LanguageClient_diagnosticsEnable=0
 
 "" Keymap
