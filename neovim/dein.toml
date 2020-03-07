@@ -10,12 +10,6 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
-[[plugins]] 
-repo = 'ujihisa/unite-locate'
-
-[[plugins]]
-repo = 'Shougo/vimshell.vim'
-
 [[plugins]]
 repo = 'violetyk/cake.vim'
 
@@ -65,7 +59,18 @@ repo = 'sbl/scvim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_add='''
+let g:quickrun_config = {
+\ '_': {
+\   'runner' : 'vimproc'
+\ },
+\}
+'''
 
 [[plugins]]
 repo = 'kana/vim-filetype-haskell'
@@ -120,9 +125,6 @@ repo = 'rust-lang/rust.vim'
 repo = 'rhysd/rust-doc.vim'
 
 [[plugins]]
-repo = 'racer-rust/vim-racer'
-
-[[plugins]]
 repo = 'Shougo/neocomplcache-rsense.vim'
 
 [[plugins]]
@@ -135,7 +137,7 @@ repo = 'vim-utils/vim-man'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 let g:deoplete#auto_complete_delay = 200
 let g:deoplete#enable_camel_case = 0
 let g:deoplete#enable_ignore_case = 0
