@@ -48,7 +48,6 @@ on_ft = ['swift']
 
 
 [[plugins]]
-[[plugins]]
 repo='aklt/plantuml-syntax'
 on_i= 1
 on_ft = 'uml'
@@ -61,3 +60,4 @@ build = 'cd app & yarn install'
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = 'go'
+

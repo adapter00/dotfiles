@@ -65,6 +65,7 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'kana/vim-filetype-haskell'
 
+[[plugins]]
 repo = 'dag/vim2hs'
 
 [[plugins]]
@@ -79,10 +80,8 @@ repo = 'rickard/project.vim'
 [[plugins]]
 repo = 'kannokanno/previm'
 
-
 [[plugins]]
 repo = 'sjl/gundo.vim'
-
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -122,6 +121,7 @@ repo = 'vim-utils/vim-man'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+hook_add = '''
 let g:deoplete#enable_at_startup = 0
 let g:deoplete#auto_complete_delay = 200
 let g:deoplete#enable_camel_case = 0
@@ -131,8 +131,10 @@ let g:deoplete#max_list = 500
 '''
 
 [[plugins]]
-repo = 'milch/vim-fastlane'
+repo = 'lighttiger2505/deoplete-vim-lsp'
 
+[[plugins]]
+repo = 'milch/vim-fastlane'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -150,31 +152,22 @@ repo = 'simeji/winresizer'
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
-repo = 'junegunn/fzf'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
 source ~/.dotfiles/neovim/plugins/ale.vim
 '''
 
 [[plugins]]
-
-[[plugins]]
 repo = 'junegunn/fzf'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
+repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
@@ -184,18 +177,14 @@ source ~/.dotfiles/neovim/plugins/vim-lsp.vim
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+merged = 0
+hook_add = '''
+let g:lsp_log_file = expand('/tmp/lsp.log')
+'''
 
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'w0rp/ale'
-hook_source = '''
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-repo = 'lighttiger2505/deoplete-vim-lsp'
 
 

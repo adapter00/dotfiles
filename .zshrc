@@ -10,12 +10,12 @@ fpath=(/usr/local/share/zsh-completions $fpath)
  export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
  export THEOS=/opt/theos 
 #go 
- if [ -d $HOME/.goenv ]; then 
-     export GOENV_ROOT="$HOME/.goenv"
-     export PATH="$GOENV_ROOT/bin:$PATH"
-     export GOENV_DISABLE_GOPATH=1
-     eval "$(goenv init -)"
- fi
+#  if [ -d $HOME/.goenv ]; then 
+#      export GOENV_ROOT="$HOME/.goenv"
+#      export PATH="$GOENV_ROOT/bin:$PATH"
+#      export GOENV_DISABLE_GOPATH=1
+#      eval "$(goenv init -)"
+#  fi
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
