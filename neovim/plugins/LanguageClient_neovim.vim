@@ -1,4 +1,4 @@
-set hidden
+" set hidden
 
 " let s:pyls_path = fnamemodify(g:python_host_prog, ':h') . '/'. 'pyls'
 "

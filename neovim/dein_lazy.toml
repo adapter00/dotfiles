@@ -46,10 +46,6 @@ repo = 'keith/swift.vim'
 on_i = 1
 on_ft = ['swift']
 
-[[plugins]]
-repo='mitsuse/autocomplete-swift'
-on_i = 1
-on_ft = ['swift']
 
 [[plugins]]
 repo = 'supercollider/scvim'

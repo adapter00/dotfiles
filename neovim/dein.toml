@@ -10,6 +10,7 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
+
 [[plugins]]
 repo = 'violetyk/cake.vim'
 
@@ -64,13 +65,6 @@ build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-hook_add='''
-let g:quickrun_config = {
-\ '_': {
-\   'runner' : 'vimproc'
-\ },
-\}
-'''
 
 [[plugins]]
 repo = 'kana/vim-filetype-haskell'
@@ -98,7 +92,6 @@ repo = 'sjl/gundo.vim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
-
 [[plugins]]
 repo = 'tpope/vim-endwise'
 
@@ -117,7 +110,6 @@ repo = 'Keithbsmiley/swift.vim'
 [[plugins]]
 repo = 'toyamarinyon/vim-swift'
 
-
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 
@@ -133,21 +125,16 @@ repo = 'munshkr/vim-tidal'
 [[plugins]]
 repo = 'vim-utils/vim-man'
 
-
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-hook_source = '''
+hook_add = '''
 let g:deoplete#enable_at_startup = 0
 let g:deoplete#auto_complete_delay = 200
 let g:deoplete#enable_camel_case = 0
 let g:deoplete#enable_ignore_case = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#max_list = 500
-inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-\ neosnippet#expandable_or_jumpable() ?
-\    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
-on_i = 1
 
 [[plugins]]
 repo = 'milch/vim-fastlane'
@@ -179,6 +166,7 @@ repo = 'dense-analysis/ale'
 hook_add = '''
 source ~/.dotfiles/neovim/plugins/ale.vim
 '''
+
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
 
@@ -188,10 +176,16 @@ hook_add = '''
 source ~/.dotfiles/neovim/plugins/vim-lsp.vim
 '''
 
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
 repo ='prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+
 

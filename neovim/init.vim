@@ -19,8 +19,7 @@ if dein#load_state(s:dein_dir)
     call dein#load_toml(s:dein, { 'lazy':0 } )
     call dein#load_toml(s:dein_lazy, { 'lazy':1 } )
 
-    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
-                \ 'build': 'cd app & yarn install' })
+    call dein#add('wsdjeg/dein-ui.vim')
 
     call dein#end()
     call dein#save_state()
@@ -151,3 +150,4 @@ call remote#host#Register('hello', 'x', function('s:Requirehello'))
 call remote#host#RegisterPlugin('hello', '0', [
     \ {'type': 'function', 'name': 'Hello', 'sync': 1, 'opts': {}},
     \ ])
+
