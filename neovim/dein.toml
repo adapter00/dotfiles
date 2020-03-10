@@ -1,23 +1,14 @@
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-'''
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+repo = 'vim-scripts/The-NERD-tree'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'vim-scripts/The-NERD-Commenter'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-
 
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -32,25 +23,13 @@ repo = 'vim-scripts/ZenCoding.vim'
 repo = 'vim-scripts/ref.vim'
 
 [[plugins]]
-repo = 'vim-scripts/The-NERD-tree'
-
-[[plugins]]
-repo = 'vim-scripts/The-NERD-Commenter'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'thinca/vim-localrc'
 
 [[plugins]]
-repo = 'motemen/hatena-vim'
-
-[[plugins]]
 repo = 'mattn/webapi-vim'
-
-[[plugins]]
-repo = 'mattn/unite-advent_calendar'
 
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
@@ -77,10 +56,8 @@ repo = 'sbl/scvim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'eagletmt/ghcmod-vim'
-
-[[plugins]]
-repo = 'ujihisa/neco-ghc'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -88,8 +65,6 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'kana/vim-filetype-haskell'
 
-
-[[plugins]]
 repo = 'dag/vim2hs'
 
 [[plugins]]
@@ -104,21 +79,13 @@ repo = 'rickard/project.vim'
 [[plugins]]
 repo = 'kannokanno/previm'
 
-[[plugins]]
-repo = 'bpowell/vim-android'
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
-[[plugins]]
-repo = 'zenorocha/dracula-theme'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -138,15 +105,11 @@ repo = 'Keithbsmiley/swift.vim'
 [[plugins]]
 repo = 'toyamarinyon/vim-swift'
 
-
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 
 [[plugins]]
 repo = 'rhysd/rust-doc.vim'
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
 
 [[plugins]]
 repo = 'Shougo/neocomplcache-rsense.vim'
@@ -157,31 +120,19 @@ repo = 'munshkr/vim-tidal'
 [[plugins]]
 repo = 'vim-utils/vim-man'
 
-
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertCharPre'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 200
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#max_list = 500
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-      \ neosnippet#expandable_or_jumpable() ?
-      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+let g:deoplete#enable_at_startup = 0
+let g:deoplete#auto_complete_delay = 200
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#max_list = 500
 '''
-on_i = 1
+
 [[plugins]]
 repo = 'milch/vim-fastlane'
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-
-[[plugins]]
-repo = 'majutsushi/tagbar'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -205,6 +156,20 @@ repo = 'junegunn/fzf'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/ale.vim
+'''
+
+[[plugins]]
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 
@@ -218,7 +183,7 @@ source ~/.dotfiles/neovim/plugins/vim-lsp.vim
 '''
 
 [[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
+repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
@@ -226,12 +191,11 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 [[plugins]]
 repo = 'w0rp/ale'
 hook_source = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
 repo = 'lighttiger2505/deoplete-vim-lsp'
+
 

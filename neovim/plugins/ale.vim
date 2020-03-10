@@ -18,7 +18,7 @@ let g:ale_go_golangci_lint_options = '--fast'
 
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
-\   'go':['gofmt'],
+\   'go':['goimports'],
 \}
 
 

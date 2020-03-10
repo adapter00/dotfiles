@@ -35,7 +35,7 @@ hook_add = '''
 let g:rspec_command = 'Dispatch rspec {spec}'
 '''
 
-# Swift 
+# Swift
 [[plugins]]
 repo = 'kballard/vim-swift'
 on_i = 1
@@ -46,17 +46,12 @@ repo = 'keith/swift.vim'
 on_i = 1
 on_ft = ['swift']
 
-[[plugins]]
-repo='mitsuse/autocomplete-swift'
-on_i = 1
-on_ft = ['swift']
 
+[[plugins]]
 [[plugins]]
 repo='aklt/plantuml-syntax'
 on_i= 1
 on_ft = 'uml'
-
-
 
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'

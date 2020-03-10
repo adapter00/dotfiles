@@ -6,6 +6,7 @@ let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
+let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
 execute 'set runtimepath^=' . s:dein_repo_dir
 
@@ -28,13 +29,12 @@ endif
 
 runtime! conf.d/*.vim
 filetype plugin indent on
-syntax enable
+syntax on
 
 let g:returnApp = "iTerm"
 let g:unite_enable_start_insert=1
 
 
-autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
 autocmd BufRead,BufNewFile Fastfile set filetype=ruby
@@ -43,14 +43,13 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd FileType javascipt set dictionary=javascript.dict
-autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 autocmd BufNewFile *.html
-autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd BufRead,BufNewFile *.swift set filetype=swift
-
+au BufEnter,BufWinEnter,BufNewFile,BufRead *.sc,*.scd set filetype=supercollider
+au Filetype supercollider packadd scvim
 autocmd BufRead,BufNewFile *.rs set filetype=rust
     "keymap for unite action
 
@@ -96,7 +95,6 @@ set completeopt+=noinsert
 set completeopt+=noselect
 
 
-
 "" command
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
@@ -119,18 +117,21 @@ endif
 
 let g:python_host_prog = $PYENV_ROOT . '/shims/python'
 set sh=zsh
-tnoremap <silent> <ESC> <C-\><C-n>
+noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
 
+source ~/.dotfiles/neovim/plugins/quickrun.vim
+
+" Load settings for each location.
 augroup vimrc-local
   autocmd!
   autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
 augroup END
 
 function! s:vimrc_local(loc)
-  let files = findfile('.local.vim', escape(a:loc, ' ') . ';', -1)
+  let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
   for i in reverse(filter(files, 'filereadable(v:val)'))
     source `=i`
   endfor
