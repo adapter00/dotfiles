@@ -199,24 +199,39 @@ repo = 'simeji/winresizer'
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim' 
-rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
-'''
-
-
-[[plugins]]
 repo = 'junegunn/fzf'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# [[plugins]]
-# repo = 'dense-analysis/ale'
-# hook_add = '''
-# source ~/.dotfiles/neovim/plugins/ale.vim
-# '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/vim-lsp.vim
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_source = '''
+source ~/.dotfiles/neovim/plugins/ale.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+

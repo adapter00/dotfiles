@@ -1,28 +1,28 @@
 set rtp+=$HOME/.dotfiles/neovim/
 "辞書ファイル"
-let s:dein_dir=expand('~/.cache/dein')
+let s:dein_dir=expand('$HOME/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
 
-execute 'set runtimepath^=' . s:dein_repo_dir 
+execute 'set runtimepath^=' . s:dein_repo_dir
+
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
-    let s:toml_lazy = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
-
-    call dein#load_toml(s:toml, { 'lazy':0 } )
-    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
-
-    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
-                \ 'build': 'cd app & yarn install' })
-
+    let s:base = expand("$HOME/.dotfiles/neovim")
+    let s:dein = s:base . "/dein.toml"
+    let s:dein_lazy = s:base . "/dein_lazy.toml"
+    call dein#load_toml(s:dein, { 'lazy': 0 } )
+    call dein#load_toml(s:dein_lazy, { 'lazy': 1 } )
     call dein#end()
+    call dein#save_state()
 endif
+colorscheme spacegray
 
-if dein#check_install()
+
+if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
@@ -63,6 +63,10 @@ au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 
 
+"make時にquickfix開く
+au QuickfixCmdPost make
+
+
 
 
 
@@ -91,7 +95,6 @@ set clipboard=unnamed
 set completeopt+=noinsert
 set completeopt+=noselect
 
-colorscheme spacegray
 
 
 "" command
@@ -109,22 +112,25 @@ endfunction
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
-let g:python3_host_prog = "/usr/local/bin/python3"
+" virtual_envでnvim用を作成
+if has('nvim') && isdirectory ( $PYENV_ROOT."/versions/nvim-python3" )
+    let g:python3_host_prog = $PYENV_ROOT.'/versions/nvim-python3/bin/python'
+endif
 
+let g:python_host_prog = $PYENV_ROOT . '/shims/python'
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
 
-
-augroup init_local
+augroup vimrc-local
   autocmd!
-  autocmd BufNewFile,BufReadPost * call s:init_local(expand('<afile>:p:h'))
+  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
 augroup END
 
-function! s:init_local(loc)
-  let files = findfile('.init.local.vim', escape(a:loc, ' ') . ';', -1)
+function! s:vimrc_local(loc)
+  let files = findfile('.local.vim', escape(a:loc, ' ') . ';', -1)
   for i in reverse(filter(files, 'filereadable(v:val)'))
     source `=i`
   endfor

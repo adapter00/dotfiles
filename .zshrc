@@ -1,37 +1,21 @@
-#supercollier
-export SCVIM_TAGFILE=~/.sctags
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-#タブでコマンド補完を行う
-autoload -U compinit
-compinit -u
-
-#ログインシェルで環境変数を設定
-export LANG=ja_JP.UTF-8
-autoload colors
-
-#PATH
-export PATH="/usr/local/bin:$PATH" 
-export PATH="$HOME/.cabal/bin:$PATH"
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export THEOS=/opt/theos
-#go
-if type "goenv" > /dev/null; then
-    export GOENV_ROOT="$HOME/.goenv"
-    export PATH="$GOENV_ROOT/bin:$PATH"
-    export GOENV_DISABLE_GOPATH=1
-    eval "$(goenv init -)"
-    export PATH="$GOROOT/bin:$PATH"
-    export GOPATH="$HOME/dev/go"
-    export PATH="$GOPATH/bin:$PATH"
-fi
-
-
-if [ -d ~/.theos_ip ]; then
-     source .theos_ip
-fi
-
-
+#supercollier 
+export SCVIM_TAGFILE=~/.sctags  
+fpath=(/usr/local/share/zsh-completions $fpath) 
+## # #ログインシェルで環境変数を設定 
+ export LANG=ja_JP.UTF-8 
+ autoload colors 
+## # #PATH 
+ export PATH="/usr/local/bin:$PATH" 
+ export PATH="$HOME/.cabal/bin:$PATH" 
+ export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
+ export THEOS=/opt/theos 
+#go 
+ if [ -d $HOME/.goenv ]; then 
+     export GOENV_ROOT="$HOME/.goenv"
+     export PATH="$GOENV_ROOT/bin:$PATH"
+     export GOENV_DISABLE_GOPATH=1
+     eval "$(goenv init -)"
+ fi
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -64,15 +48,6 @@ if [ -f ~/.zshPath ]; then
 fi
 
 
-#icon 
-case "${OSTYPE}" in 
-    darwin*)
-        ;;
-    lunux*)
-        LOGO=" 🐧  " 
-        ;;
-esac
-
 SEPARATOR=`echo '\u25B6'\\ ` 
 
 #プロンプト
@@ -99,28 +74,29 @@ if [ -f ~/.zsh-local ]; then
 fi
 
 gcp_info() {
-  if [ -f "$HOME/.config/gcloud/active_config" ]; then
-    gcp_profile=$(cat $HOME/.config/gcloud/active_config)
-    gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
-    if [ ! -z ${gcp_project} ]; then
-        if [ ${gcp_project} = "dena-auto-taxifms-prod-gcp" ]; then
-            gcp="%F{red}ⓖ ${gcp_project}"
-        else 
-            gcp="%F{green}ⓖ ${gcp_project}"
+    if [ -f "$HOME/.config/gcloud/active_config" ]; then
+        gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+        gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
+        if [ ! -z ${gcp_project} ]; then
+            if [ ${gcp_project} = "dena-auto-taxifms-prod-gcp" ]; then
+                gcp="%F{green}ⓖ ${gcp_project}"
+            else 
+                gcp="%F{green}ⓖ ${gcp_project}"
+            fi
         fi
     fi
-  fi
 }
 
- 
+
 #コマンド実行前
 precmd(){
     vcs_info
     gcp_info
-    #端末名@ユーザー名 >カレントディレクトリ(git_status)
+# 端末名@ユーザー名 >カレントディレクトリ(git_status)
     PROMPT="%F{green}%K%B%m%k%K{green}%F{green}%f%k%K%F{green}|%n%k%K|%~ %k%K|${gcp}%F{green}|${vcs_info_msg_0_}%b%k%f
 %F{green}-> %f"
 }
+
 
 #function 
 if [ -f ~/.zsh-func ]; then
@@ -135,8 +111,8 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-#set zsh-keybind
-#
+set zsh-keybind
+
 case "${OSTYPE}" in 
     darwin*)
         if [ -f ~/.zsh-env-mac ]; then

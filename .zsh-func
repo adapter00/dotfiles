@@ -2,14 +2,13 @@
 
 #open file with vim after peco
 function mpeco {
-    ls -la | peco | xargs mvim
+    vim $(ag -l | peco)
 }
 
 function gpeco() {
     local account=$(gcloud config configurations list | peco | awk '{ print($1) }')
     gcloud config configurations activate $account
 }
-zle -N mpeco
 
 
 function gim(){
@@ -37,3 +36,6 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
+zle -N mpeco
+bindkey '^V' mpeco
