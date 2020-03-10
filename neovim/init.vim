@@ -6,20 +6,23 @@ let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
+let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
-execute 'set runtimepath^=' . s:dein_repo_dir 
+execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
+
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
-    let s:toml_lazy = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
+    let s:base = expand("$HOME/.dotfiles/neovim")
+    let s:dein = s:base . "/dein.toml"
+    let s:dein_lazy = s:base . "/dein_lazy.toml"
 
-    call dein#load_toml(s:toml, { 'lazy':0 } )
-    call dein#load_toml(s:toml_lazy, { 'lazy':0 } )
+    call dein#load_toml(s:dein, { 'lazy':0 } )
+    call dein#load_toml(s:dein_lazy, { 'lazy':1 } )
 
-    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
-                \ 'build': 'cd app & yarn install' })
+    call dein#add('wsdjeg/dein-ui.vim')
 
     call dein#end()
+    call dein#save_state()
 endif
 
 if dein#check_install()
@@ -28,13 +31,12 @@ endif
 
 runtime! conf.d/*.vim
 filetype plugin indent on
-syntax enable
+syntax on
 
 let g:returnApp = "iTerm"
 let g:unite_enable_start_insert=1
 
 
-autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
 autocmd BufRead,BufNewFile Fastfile set filetype=ruby
@@ -43,14 +45,13 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd FileType javascipt set dictionary=javascript.dict
-autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 autocmd BufNewFile *.html
-autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd BufRead,BufNewFile *.swift set filetype=swift
-
+au BufEnter,BufWinEnter,BufNewFile,BufRead *.sc,*.scd set filetype=supercollider
+au Filetype supercollider packadd scvim
 autocmd BufRead,BufNewFile *.rs set filetype=rust
     "keymap for unite action
 
@@ -90,7 +91,6 @@ set noundofile
 set clipboard=unnamed
 set completeopt+=noinsert
 set completeopt+=noselect
-
 colorscheme spacegray
 
 
@@ -109,10 +109,27 @@ endfunction
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
-let g:python3_host_prog = "/usr/local/bin/python3"
+let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
+
 
 set sh=zsh
-tnoremap <silent> <ESC> <C-\><C-n>
+noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
+
+source ~/.dotfiles/neovim/plugins/quickrun.vim
+
+" Load settings for each location.
+augroup vimrc-local
+  autocmd!
+  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+augroup END
+
+function! s:vimrc_local(loc)
+  let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
+  for i in reverse(filter(files, 'filereadable(v:val)'))
+    source `=i`
+  endfor
+endfunction
+

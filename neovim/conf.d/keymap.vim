@@ -58,14 +58,6 @@ nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
 
 "denite時に使用するキーマップ
 "ESCキーでdeniteを終了
-call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
-"C-N,C-Pで上下移動
-call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-"C-J,C-Kでsplitで開く
-call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('insert', '<C-k>', '<denite:do_action:vsplit>', 'noremap')
 
 " 以下はdenite起動時に使用するキーマップ
 " バッファ一覧

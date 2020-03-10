@@ -19,7 +19,7 @@ let g:ale_sign_warning = '⚠'
 " for ruby
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
-\   'go':['gofmt'],
+\   'go':['goimports'],
 \}
 
 
