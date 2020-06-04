@@ -16,12 +16,15 @@ function gim(){
 }
 zle -N gim
 
-function agf() {
+function pecog() {
     ag $@ | peco --query "$LBUFFER"
 }
 
+function pecof() {
+    ag -g $@ | peco 
+}
 function gcop() {
-    git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout
+    git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git switch
 }
 
 function ghqp() {
@@ -34,8 +37,16 @@ function peco-history-selection() {
 	zle reset-prompt
 }
 
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+function kubeswitch() {
+    kcontext=$(kubectl config get-contexts  | peco --initial-index=1 --prompt='kubectl config use-context > ' |  sed -e 's/^\*//' | awk '{print $1}')
+    if [ -n "$kcontext" ]; then
+        kubectl config use-context $kcontext
+    fi
+}
 
 zle -N mpeco
 bindkey '^V' mpeco
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+

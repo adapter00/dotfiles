@@ -137,3 +137,7 @@ function! s:vimrc_local(loc)
   endfor
 endfunction
 
+if has('persistent_undo')
+  set undodir=~/.config/nvim/undo
+  set undofile                                                                                                                                   
+endif

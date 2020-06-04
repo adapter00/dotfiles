@@ -10,16 +10,18 @@ fpath=(/usr/local/share/zsh-completions $fpath)
  export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
  export THEOS=/opt/theos 
 #go 
-#  if [ -d $HOME/.goenv ]; then 
-#      export GOENV_ROOT="$HOME/.goenv"
-#      export PATH="$GOENV_ROOT/bin:$PATH"
-#      export GOENV_DISABLE_GOPATH=1
-#      eval "$(goenv init -)"
-#  fi
+ if [ -d $HOME/.goenv ]; then 
+     export GOENV_ROOT="$HOME/.goenv"
+     export PATH="$GOENV_ROOT/bin:$PATH"
+     export GOENV_DISABLE_GOPATH=1
+     eval "$(goenv init -)"
+ fi
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 # git
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
 autoload -U compinit
 compinit -u
 # #rbenv
@@ -67,11 +69,6 @@ zstyle ':vcs_info:git:*' unstagedstr " ∽ "
 zstyle ':vcs_info:*' formats "(%b|%c%u)"
 zstyle ':vcs_info:*' actionformats "(%b|%a)"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
-
-#local 
-if [ -f ~/.zsh-local ]; then
-    source ~/.zsh-local
-fi
 
 gcp_info() {
     if [ -f "$HOME/.config/gcloud/active_config" ]; then
@@ -130,4 +127,15 @@ export SCVIM_TAGFILE=~/.sctags
 function agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/kustomize kustomize
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+#local 
+if [ -f ~/.zsh-local ]; then
+    source ~/.zsh-local
+fi
 
