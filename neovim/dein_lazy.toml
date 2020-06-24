@@ -61,3 +61,6 @@ build = 'cd app & yarn install'
 repo = 'mattn/vim-goimports'
 on_ft = 'go'
 
+[[plugins]]
+repo = 'uarun/vim-protobuf'
+on_ft = 'proto'

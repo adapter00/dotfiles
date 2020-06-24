@@ -130,14 +130,6 @@ repo = 'vim-utils/vim-man'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#auto_complete_delay = 200
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#max_list = 500
-'''
 
 [[plugins]]
 repo = 'lighttiger2505/deoplete-vim-lsp'
