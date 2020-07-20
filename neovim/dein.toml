@@ -52,9 +52,9 @@ repo = 'pangloss/vim-javascript'
 [[plugins]]
 repo = 'tell-k/vim-browsereload-mac'
 
-[[plugins]]
-repo = 'bling/vim-airline'
-
+# [[plugins]]
+# repo = 'bling/vim-airline'
+#
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
