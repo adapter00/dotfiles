@@ -23,6 +23,7 @@ let g:lightline = {
             \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
             \ }
 
+let g:airline#extensions#lsp#enabled = 0
 " -------------------------------------------------
 " lightline func
 " -------------------------------------------------

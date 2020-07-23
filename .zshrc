@@ -139,3 +139,8 @@ if [ -f ~/.zsh-local ]; then
     source ~/.zsh-local
 fi
 
+
+if [ -f ~/.zplug ]; then
+    source ~/.zplug
+fi
+
