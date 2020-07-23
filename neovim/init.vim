@@ -1,6 +1,6 @@
 set rtp+=$HOME/.dotfiles/neovim/
 "辞書ファイル"
-let s:dein_dir=expand('~/.cache/dein')
+let s:dein_dir=expand('$HOME/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 if !isdirectory(s:dein_repo_dir)
@@ -8,24 +8,22 @@ if !isdirectory(s:dein_repo_dir)
 endif
 let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
-execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
+execute 'set runtimepath^=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     let s:base = expand("$HOME/.dotfiles/neovim")
     let s:dein = s:base . "/dein.toml"
     let s:dein_lazy = s:base . "/dein_lazy.toml"
-
-    call dein#load_toml(s:dein, { 'lazy':0 } )
-    call dein#load_toml(s:dein_lazy, { 'lazy':1 } )
-
-    call dein#add('wsdjeg/dein-ui.vim')
-
+    call dein#load_toml(s:dein, { 'lazy': 0 } )
+    call dein#load_toml(s:dein_lazy, { 'lazy': 1 } )
     call dein#end()
     call dein#save_state()
 endif
+colorscheme spacegray
 
-if dein#check_install()
+
+if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
@@ -64,6 +62,10 @@ au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 
 
+"make時にquickfix開く
+au QuickfixCmdPost make
+
+
 
 
 
@@ -91,8 +93,6 @@ set noundofile
 set clipboard=unnamed
 set completeopt+=noinsert
 set completeopt+=noselect
-colorscheme spacegray
-
 
 "" command
 command! -nargs=? Jq call s:Jq(<f-args>)
@@ -109,9 +109,12 @@ endfunction
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
-let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
+" virtual_envでnvim用を作成
+if has('nvim') && isdirectory ( $PYENV_ROOT."/versions/nvim-python3" )
+    let g:python3_host_prog = $PYENV_ROOT.'/versions/nvim-python3/bin/python'
+endif
 
-
+let g:python_host_prog = $PYENV_ROOT . '/shims/python'
 set sh=zsh
 noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -133,3 +136,50 @@ function! s:vimrc_local(loc)
   endfor
 endfunction
 
+if has('persistent_undo')
+  set undodir=~/.config/nvim/undo
+  set undofile                                                                                                                                   
+endif
+
+if &term =~ "xterm"
+    let &t_ti .= "\e[?2004h"
+    let &t_te .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+    cnoremap <special> <Esc>[200~ <nop>
+    cnoremap <special> <Esc>[201~ <nop>
+endif
+
+" カーソルが重い原因を見る関数
+function! ProfileCursorMove() abort
+  let profile_file = expand('/tmp/vim-profile.log')
+  if filereadable(profile_file)
+    call delete(profile_file)
+  endif
+
+  normal! gg
+  normal! zR
+
+  execute 'profile start ' . profile_file
+  profile func *
+  profile file *
+
+  augroup ProfileCursorMove
+    autocmd!
+    autocmd CursorHold <buffer> profile pause | qa
+  augroup END
+
+  for i in range(10000)
+    call feedkeys('j')
+  endfor
+  for i in range(10000)
+    call feedkeys('h')
+  endfor
+endfunction
