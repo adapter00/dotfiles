@@ -48,42 +48,19 @@ on_ft = ['swift']
 
 
 [[plugins]]
-repo = 'supercollider/scvim'
-on_i = 1
-on_ft = 'supercollider'
-hook_source=''''
-let g:sclangTerm="open -a iTerm"
-let g:sclangPipeApp="~/.cache/dein/repos/github.com/supercollider/scvim/bin/start_pipe"
-let g:sclangDispatcher="~/.cache/dein/repos/github.com/supercollider/scvim/bin/sc_dispatcher"
-let g:scFlash = 1
-'''
-
-
-[[plugins]]
 repo='aklt/plantuml-syntax'
 on_i= 1
 on_ft = 'uml'
 
 [[plugins]]
-repo = 'roxma/LanguageServer-php-neovim'
-on_ft = 'php'
-hook_source=''''
-composer install && composer run-script parse-stubs
-'''
-[[Plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = 'markdown'
 build = 'cd app & yarn install'
-
-[[Plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-on_i = 1
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = 'go'
 
 [[plugins]]
-repo = '~/dev/go/src/github.com/adapter00/vim-imports'
-on_ft = 'go'
+repo = 'uarun/vim-protobuf'
+on_ft = 'proto'

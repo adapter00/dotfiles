@@ -56,8 +56,6 @@ nnoremap <silent> <Space>d :<C-u>exe('Gtags '.expand('<cword>'))<CR>
 nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
 
 
-"denite時に使用するキーマップ
-"ESCキーでdeniteを終了
 
 " 以下はdenite起動時に使用するキーマップ
 " バッファ一覧

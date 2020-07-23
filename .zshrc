@@ -1,50 +1,33 @@
-#supercollier
-export SCVIM_TAGFILE=~/.sctags
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-#タブでコマンド補完を行う
-autoload -U compinit
-compinit -u
-
-#ログインシェルで環境変数を設定
-export LANG=ja_JP.UTF-8
-autoload colors
-
-#PATH
-export PATH="/usr/local/bin:$PATH" 
-export PATH="$HOME/.cabal/bin:$PATH"
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export THEOS=/opt/theos
-#go
-export PATH="$HOME/.goenv/bin:$PATH"
-eval "$(goenv init -)"
-export DEFAULT_GOPATH=$HOME/dev/go 
-export GOPATH=$DEFAULT_GOPATH
-export PATH=$PATH:$GOPATH/bin
-if type "goenv" > /dev/null; then
-    GOENV_VERSION=`goenv version-name`
-    GOENV_PATH=$HOME/.goenv/versions/$GOENV_VERSION
-    export GOENV_DISABLE_GOPATH=1
-    export PATH=$PATH:$GOENV_PATH/bin
-fi
-export GO111MODULE=on
-
-if [ -d ~/.theos_ip ]; then
-     source .theos_ip
-fi
-
-
+#supercollier 
+export SCVIM_TAGFILE=~/.sctags  
+fpath=(/usr/local/share/zsh-completions $fpath) 
+## # #ログインシェルで環境変数を設定 
+ export LANG=ja_JP.UTF-8 
+ autoload colors 
+## # #PATH 
+ export PATH="/usr/local/bin:$PATH" 
+ export PATH="$HOME/.cabal/bin:$PATH" 
+ export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
+ export THEOS=/opt/theos 
+#go 
+ if [ -d $HOME/.goenv ]; then 
+     export GOENV_ROOT="$HOME/.goenv"
+     export PATH="$GOENV_ROOT/bin:$PATH"
+     export GOENV_DISABLE_GOPATH=1
+     eval "$(goenv init -)"
+ fi
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 # git
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
 autoload -U compinit
 compinit -u
-#rbenv
+# #rbenv
 if [ -d $HOME/.rbenv ]; then
-    export RBEV_ROOT=$HOME/.rbenv
-    export PATH="$RBEV_ROOT/bin:$PATH"
-    eval "$(rbenv init - zsh)"
+	export PATH=$HOME/.rbenv/bin:$PATH
+	eval "$(rbenv init -)"
 fi
 #iOS
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
@@ -67,15 +50,6 @@ if [ -f ~/.zshPath ]; then
 fi
 
 
-#icon 
-case "${OSTYPE}" in 
-    darwin*)
-        ;;
-    lunux*)
-        LOGO=" 🐧  " 
-        ;;
-esac
-
 SEPARATOR=`echo '\u25B6'\\ ` 
 
 #プロンプト
@@ -95,14 +69,31 @@ zstyle ':vcs_info:git:*' unstagedstr " ∽ "
 zstyle ':vcs_info:*' formats "(%b|%c%u)"
 zstyle ':vcs_info:*' actionformats "(%b|%a)"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%F{1}:%F{3}%r"
- 
+
+gcp_info() {
+    if [ -f "$HOME/.config/gcloud/active_config" ]; then
+        gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+        gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
+        if [ ! -z ${gcp_project} ]; then
+            if [ ${gcp_project} = "dena-auto-taxifms-prod-gcp" ]; then
+                gcp="%F{green}ⓖ ${gcp_project}"
+            else 
+                gcp="%F{green}ⓖ ${gcp_project}"
+            fi
+        fi
+    fi
+}
+
+
 #コマンド実行前
 precmd(){
     vcs_info
-    #端末名@ユーザー名 >カレントディレクトリ(git_status)
-    PROMPT="%F{green}%K%B%m%k%K{green}%F{green}%f%k%K%F{green}|%n%k%K|%~ %k%K|${vcs_info_msg_0_}%b%k%f
+    gcp_info
+# 端末名@ユーザー名 >カレントディレクトリ(git_status)
+    PROMPT="%F{green}%K%B%m%k%K{green}%F{green}%f%k%K%F{green}|%n%k%K|%~ %k%K|${gcp}%F{green}|${vcs_info_msg_0_}%b%k%f
 %F{green}-> %f"
 }
+
 
 #function 
 if [ -f ~/.zsh-func ]; then
@@ -113,17 +104,12 @@ else
 fi
 
 
-#local 
-if [ -f ~/.zsh-local ]; then
-    source ~/.zsh-local
-fi
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-#set zsh-keybind
-#
+set zsh-keybind
+
 case "${OSTYPE}" in 
     darwin*)
         if [ -f ~/.zsh-env-mac ]; then
@@ -135,9 +121,26 @@ case "${OSTYPE}" in
         bindkey ";5D" backward-word
         ;;
 esac
+
 #supercollier
 export SCVIM_TAGFILE=~/.sctags
 function agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/kustomize kustomize
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+#local 
+if [ -f ~/.zsh-local ]; then
+    source ~/.zsh-local
+fi
+
+
+if [ -f ~/.zplug ]; then
+    source ~/.zplug
+fi
 
