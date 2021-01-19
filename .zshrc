@@ -76,7 +76,9 @@ gcp_info() {
         gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
         if [ ! -z ${gcp_project} ]; then
             if [ ${gcp_project} = "dena-auto-taxifms-prod-gcp" ]; then
-                gcp="%F{green}ⓖ ${gcp_project}"
+                gcp="%F{red}ⓖ ${gcp_project}"
+            elif [ ${gcp_project} = "dena-auto-mov-mias-prod-gcp" ]; then
+                gcp="%F{red}ⓖ ${gcp_project}"
             else 
                 gcp="%F{green}ⓖ ${gcp_project}"
             fi
@@ -144,3 +146,4 @@ if [ -f ~/.zplug ]; then
     source ~/.zplug
 fi
 
+export PATH="/usr/local/sbin:$PATH"

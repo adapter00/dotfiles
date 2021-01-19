@@ -9,15 +9,15 @@ repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-hook_add = '''
-	call denite#custom#var('grep', 'command', ['ag'])
-	call denite#custom#var('grep', 'default_opts',
-			\ ['-i', '--vimgrep'])
-	call denite#custom#var('grep', 'recursive_opts', [])
-	call denite#custom#var('grep', 'pattern_opt', [])
-	call denite#custom#var('grep', 'separator', ['--'])
-	call denite#custom#var('grep', 'final_opts', [])
-'''
+# hook_add = '''
+# # 	call denite#custom#var('grep', 'command', ['ag'])
+# # 	call denite#custom#var('grep', 'default_opts',
+# # 			\ ['-i', '--vimgrep'])
+# # 	call denite#custom#var('grep', 'recursive_opts', [])
+# # 	call denite#custom#var('grep', 'pattern_opt', [])
+# # 	call denite#custom#var('grep', 'separator', ['--'])
+# # 	call denite#custom#var('grep', 'final_opts', [])
+# '''
 
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -152,11 +152,11 @@ repo = 'simeji/winresizer'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
+# [[plugins]]
+# repo = 'dense-analysis/ale'
+# hook_add = '''
+# source ~/.dotfiles/neovim/plugins/ale.vim
+# '''
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -191,7 +191,6 @@ source ~/.dotfiles/neovim/plugins/vim-lsp.vim
 
 
 [[plugins]]
-repo = 'w0rp/ale'
-
+repo = 'ConradIrwin/vim-bracketed-paste'
 
 

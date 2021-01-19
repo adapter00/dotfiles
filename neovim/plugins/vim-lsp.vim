@@ -2,8 +2,11 @@ let g:lsp_diagnostics_enabled = 0
 let g:lsp_auto_enable = 1
 let g:lsp_preview_float = 0
 let g:lsp_async_completion=1
-let g:lsp_log_file = expand('/tmp/vim-lsp.log')
-let g:asyncomplete_log_file = expand('/tmp/vim-lsp-asyncomplete.log')
+let g:lsp_log_verbose=1
+let g:lsp_log_file = ''
+let g:asyncomplete_log_file = ''
+" let g:lsp_log_file = expand('/tmp/vim-lsp.log')
+" let g:asyncomplete_log_file = expand('/tmp/vim-lsp-asyncomplete.log')
 
 if executable('gopls')	
     au User lsp_setup call lsp#register_server({	
@@ -21,9 +24,17 @@ if executable('pyls')
                 \   'pycodestyle': {'enabled': v:false},
                 \   'jedi_definition': {'follow_imports': v:true, 'follow_builtin_imports': v:true},}}}
                 \})
-    autocmd FileType python call s:configure_lsp()
 endif
 
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
 
 function LC_maps()
     " if len(lsp#get_whitelisted_servers(&filetype))>0

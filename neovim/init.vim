@@ -142,21 +142,21 @@ if has('persistent_undo')
   set undofile                                                                                                                                   
 endif
 
-if &term =~ "xterm"
-    let &t_ti .= "\e[?2004h"
-    let &t_te .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-
-    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-    cnoremap <special> <Esc>[200~ <nop>
-    cnoremap <special> <Esc>[201~ <nop>
-endif
+" if &term =~ "xterm"
+"     let &t_ti .= "\e[?2004h"
+"     let &t_te .= "\e[?2004l"
+"     let &pastetoggle = "\e[201~"
+"
+"     function XTermPasteBegin(ret)
+"         set paste
+"         return a:ret
+"     endfunction
+"
+"     noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+"     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+"     cnoremap <special> <Esc>[200~ <nop>
+"     cnoremap <special> <Esc>[201~ <nop>
+" endif
 
 " カーソルが重い原因を見る関数
 function! ProfileCursorMove() abort
@@ -184,3 +184,11 @@ function! ProfileCursorMove() abort
     call feedkeys('h')
   endfor
 endfunction
+
+" ctl-vで死ぬ時対策
+set nocompatible
+map ^[OA ^[ka
+map ^[OB ^[ja
+map ^[OC ^[la
+map ^[OD ^[ha
+
