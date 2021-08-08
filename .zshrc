@@ -1,5 +1,7 @@
 #supercollier 
+#
 export SCVIM_TAGFILE=~/.sctags  
+
 fpath=(/usr/local/share/zsh-completions $fpath) 
 ## # #ログインシェルで環境変数を設定 
  export LANG=ja_JP.UTF-8 
@@ -15,6 +17,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
      export PATH="$GOENV_ROOT/bin:$PATH"
      export GOENV_DISABLE_GOPATH=1
      eval "$(goenv init -)"
+     export PATH="$GOROOT/bin:$PATH"
+     export PATH="$PATH:$GOPATH/bin"
  fi
 
 
@@ -74,6 +78,7 @@ export CLICOLOR=1
 alias lla='ls -la'
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias vim='/usr/local/bin/nvim'
+alias k='kubectl'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath
@@ -106,7 +111,9 @@ gcp_info() {
         gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
         if [ ! -z ${gcp_project} ]; then
             if [ ${gcp_project} = "dena-auto-taxifms-prod-gcp" ]; then
-                gcp="%F{green}ⓖ ${gcp_project}"
+                gcp="%F{red}ⓖ ${gcp_project}"
+            elif [ ${gcp_project} = "dena-auto-mov-mias-prod-gcp" ]; then
+                gcp="%F{red}ⓖ ${gcp_project}"
             else 
                 gcp="%F{green}ⓖ ${gcp_project}"
             fi
@@ -140,17 +147,20 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 set zsh-keybind
 
-case "${OSTYPE}" in 
-    darwin*)
-        if [ -f ~/.zsh-env-mac ]; then
-            source ~/.zsh-env-mac
-        fi
-        ;;
-    linux*)
-        bindkey ";5C" forward-word
-        bindkey ";5D" backward-word
-        ;;
-esac
+if [ -f ~/.zsh-env-mac ]; then
+    source ~/.zsh-env-mac
+fi
+# case "${OSTYPE}" in 
+#     darwin*)
+# if [ -f ~/.zsh-env-mac ]; then
+#     source ~/.zsh-env-mac
+# fi
+#         ;;
+#     linux*)
+#         bindkey ";5C" forward-word
+#         bindkey ";5D" backward-word
+#         ;;
+# esac
 
 #supercollier
 export SCVIM_TAGFILE=~/.sctags
@@ -174,3 +184,4 @@ if [ -f ~/.zplug ]; then
     source ~/.zplug
 fi
 
+export PATH="/usr/local/sbin:$PATH"

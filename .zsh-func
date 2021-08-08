@@ -44,9 +44,14 @@ function kubeswitch() {
     fi
 }
 
+function reload-config() {
+    source ~/.zshrc
+}
+
 zle -N mpeco
 bindkey '^V' mpeco
 
 zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+bindkey -e '^R' peco-history-selection
+
 
