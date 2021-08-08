@@ -111,8 +111,6 @@ autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo ru
 
 
 
-    call denite#custom#filter('vendor/','.git/')
-
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
