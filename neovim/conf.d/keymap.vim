@@ -82,3 +82,5 @@ autocmd FileType go nnoremap <silent> <buffer> gb :TernDef<CR>
 nmap <silent><leader>t :call RunCurrentSpecFile()<CR>
 
 
+"Delve
+autocmd FileType go nmap <silent> ;d :DlvToggleBreakpoint<CR>

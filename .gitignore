@@ -5,3 +5,8 @@
 tags
 */.go-version
 */.init.local.vim
+
+
+.local_init.vim
+.vim-lsp-settings
+

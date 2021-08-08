@@ -28,8 +28,8 @@ if has('vim_starting') && dein#check_install()
 endif
 
 runtime! conf.d/*.vim
-filetype plugin indent on
 syntax on
+filetype plugin indent on
 
 let g:returnApp = "iTerm"
 let g:unite_enable_start_insert=1
@@ -90,7 +90,7 @@ set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
 set noundofile
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set completeopt+=noinsert
 set completeopt+=noselect
 
@@ -141,22 +141,13 @@ if has('persistent_undo')
   set undodir=~/.config/nvim/undo
   set undofile                                                                                                                                   
 endif
+" ctl-vで死ぬ時対策
+set nocompatible
+map ^[OA ^[ka
+map ^[OB ^[ja
+map ^[OC ^[la
+map ^[OD ^[ha
 
-" if &term =~ "xterm"
-"     let &t_ti .= "\e[?2004h"
-"     let &t_te .= "\e[?2004l"
-"     let &pastetoggle = "\e[201~"
-"
-"     function XTermPasteBegin(ret)
-"         set paste
-"         return a:ret
-"     endfunction
-"
-"     noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-"     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-"     cnoremap <special> <Esc>[200~ <nop>
-"     cnoremap <special> <Esc>[201~ <nop>
-" endif
 
 " カーソルが重い原因を見る関数
 function! ProfileCursorMove() abort
@@ -185,10 +176,11 @@ function! ProfileCursorMove() abort
   endfor
 endfunction
 
-" ctl-vで死ぬ時対策
-set nocompatible
-map ^[OA ^[ka
-map ^[OB ^[ja
-map ^[OC ^[la
-map ^[OD ^[ha
 
+
+" project settings
+if exists("$EXTRA_VIM")
+  for path in split($EXTRA_VIM, ':')
+    exec "source ".path
+  endfor
+endif
