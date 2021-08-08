@@ -11,21 +11,26 @@ hook_source = '''
 on_i  = 1
 on_ft = ['snippet']
 depends = ['neosnippet-snippets']
+[[plugins]]
+repo = 'vim-scripts/The-NERD-tree'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'vim-scripts/The-NERD-Commenter'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-
-[[plugins]]
-repo = 'ujihisa/unite-locate'
-
-[[plugins]]
-repo = 'Shougo/vimshell.vim'
-
-[[plugins]]
-repo = 'violetyk/cake.vim'
+hook_add = '''
+	call denite#custom#var('grep', 'command', ['ag'])
+	call denite#custom#var('grep', 'default_opts',
+			\ ['-i', '--vimgrep'])
+	call denite#custom#var('grep', 'recursive_opts', [])
+	call denite#custom#var('grep', 'pattern_opt', [])
+	call denite#custom#var('grep', 'separator', ['--'])
+	call denite#custom#var('grep', 'final_opts', [])
+'''
 
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -40,10 +45,6 @@ repo = 'vim-scripts/ZenCoding.vim'
 repo = 'vim-scripts/ref.vim'
 
 [[plugins]]
-repo = 'vim-scripts/The-NERD-tree'
-
-[[plugins]]
-repo = 'vim-scripts/The-NERD-Commenter'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -52,13 +53,7 @@ repo = 'tpope/vim-fugitive'
 repo = 'thinca/vim-localrc'
 
 [[plugins]]
-repo = 'motemen/hatena-vim'
-
-[[plugins]]
 repo = 'mattn/webapi-vim'
-
-[[plugins]]
-repo = 'mattn/unite-advent_calendar'
 
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
@@ -72,9 +67,9 @@ repo = 'pangloss/vim-javascript'
 [[plugins]]
 repo = 'tell-k/vim-browsereload-mac'
 
-[[plugins]]
-repo = 'bling/vim-airline'
-
+# [[plugins]]
+# repo = 'bling/vim-airline'
+#
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
@@ -85,19 +80,14 @@ repo = 'sbl/scvim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'eagletmt/ghcmod-vim'
-
-[[plugins]]
-repo = 'ujihisa/neco-ghc'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'kana/vim-filetype-haskell'
-
-[[plugins]]
-repo = 'osyo-manga/vim-watchdogs'
 
 [[plugins]]
 repo = 'dag/vim2hs'
@@ -115,20 +105,10 @@ repo = 'rickard/project.vim'
 repo = 'kannokanno/previm'
 
 [[plugins]]
-repo = 'bpowell/vim-android'
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
 repo = 'sjl/gundo.vim'
 
 [[plugins]]
-repo = 'zenorocha/dracula-theme'
-
-[[plugins]]
 repo = 'Shougo/neomru.vim'
-
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -148,15 +128,11 @@ repo = 'Keithbsmiley/swift.vim'
 [[plugins]]
 repo = 'toyamarinyon/vim-swift'
 
-
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 
 [[plugins]]
 repo = 'rhysd/rust-doc.vim'
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
 
 [[plugins]]
 repo = 'Shougo/neocomplcache-rsense.vim'
@@ -168,48 +144,13 @@ repo = 'munshkr/vim-tidal'
 repo = 'vim-utils/vim-man'
 
 [[plugins]]
-repo = 'lighttiger2505/gtags.vim'
-hook_add = '''
-    let g:Gtags_Auto_Map = 0
-    let g:Gtags_OpenQuickfixWindow = 1
-'''
-
-
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
-hook_add = '''
-" Prefix key
-nmap [denite] <Nop>
-map <C-j> [denite]
-" Keymap
-nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
-'''
-
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertCharPre'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 200
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#max_list = 500
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-      \ neosnippet#expandable_or_jumpable() ?
-      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-'''
-on_i = 1
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+
 [[plugins]]
 repo = 'milch/vim-fastlane'
-
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-
-[[plugins]]
-repo = 'majutsushi/tagbar'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -227,11 +168,9 @@ repo = 'simeji/winresizer'
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim' 
-rev = 'next'
-build = 'bash install.sh'
+repo = 'dense-analysis/ale'
 hook_add = '''
-source ~/.dotfiles/neovim/plugins/LanguageClient_neovim.vim
+source ~/.dotfiles/neovim/plugins/ale.vim
 '''
 
 [[plugins]]
@@ -242,8 +181,35 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
+
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/vim-lsp.vim
+'''
+
+# [[plugins]]
+# repo = 'mattn/vim-lsp-settings'
+# merged = '0'
+# hook_add = '''
+# let g:lsp_log_file = expand('/tmp/lsp.log')
+# let g:asyncomplete_popup_delay = 200
+# let g:lsp_settings = {
+# \  'go': {'cmd': ['gopls','-rpc.trace','-logfile','/tmp/gopls.log']},
+# \}
+# '''
+
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+
+

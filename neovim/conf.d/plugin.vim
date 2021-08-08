@@ -23,6 +23,7 @@ let g:lightline = {
             \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
             \ }
 
+let g:airline#extensions#lsp#enabled = 0
 " -------------------------------------------------
 " lightline func
 " -------------------------------------------------
@@ -102,62 +103,15 @@ let g:previm_open_cmd = 'open -a Safari'
 " For Rust
 set hidden
 let g:racer_cmd = "/path/to/racer/bin"
-let g:quickrun_config = {}
+" let g:quickrun_config = {}
 let g:racer_experimental_completer = 1
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
 
-""" deoplete
-let g:deoplete#source#attribute#is_silent = 0
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns['default'] = '\h\w*'
-let g:deoplete#omni#input_patterns = {}
-let deoplete#tag#cache_limit_size = 5000000
 
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-    \ }
 
-""denite
-if has("nvim")
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts',['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#option('default', 'prompt', '>>> ')
-    call denite#custom#option('default', 'direction', 'top')
     call denite#custom#filter('vendor/','.git/')
-endif
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()

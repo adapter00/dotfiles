@@ -35,7 +35,7 @@ hook_add = '''
 let g:rspec_command = 'Dispatch rspec {spec}'
 '''
 
-# Swift 
+# Swift
 [[plugins]]
 repo = 'kballard/vim-swift'
 on_i = 1
@@ -46,31 +46,21 @@ repo = 'keith/swift.vim'
 on_i = 1
 on_ft = ['swift']
 
-[[plugins]]
-repo='mitsuse/autocomplete-swift'
-on_i = 1
-on_ft = ['swift']
-
-repo = 'supercollider/scvim'
-on_i = 1
-on_ft = 'sc'
-hook_source=''''
-    let g:sclangTerm="open -a iTerm"
-    let g:sclangPipeApp="~/.cache/dein/repos/github.com/supercollider/scvim/bin/start_pipe"
-    let g:sclangDispatcher="~/.cache/dein/repos/github.com/supercollider/scvim/bin/sc_dispatcher"
-    let g:scFlash = 1
-'''
-
 
 [[plugins]]
 repo='aklt/plantuml-syntax'
 on_i= 1
 on_ft = 'uml'
 
-
-
-[[Plugins]]
+[[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = 'markdown'
 build = 'cd app & yarn install'
 
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'uarun/vim-protobuf'
+on_ft = 'proto'

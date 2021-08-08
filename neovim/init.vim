@@ -1,13 +1,15 @@
 set rtp+=$HOME/.dotfiles/neovim/
 "辞書ファイル"
-let s:dein_dir=expand('~/.cache/dein')
+let s:dein_dir=expand('$HOME/.cache/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
+let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
-execute 'set runtimepath^=' . s:dein_repo_dir 
+execute 'set runtimepath^=' . s:dein_repo_dir
+
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
@@ -20,21 +22,23 @@ if dein#load_state(s:dein_dir)
                 \ 'build': 'cd app & yarn install' })
 
     call dein#end()
+    call dein#save_state()
 endif
+colorscheme spacegray
 
-if dein#check_install()
+
+if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
 runtime! conf.d/*.vim
 filetype plugin indent on
-syntax enable
+syntax on
 
 let g:returnApp = "iTerm"
 let g:unite_enable_start_insert=1
 
 
-autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
 autocmd BufRead,BufNewFile Fastfile set filetype=ruby
@@ -43,14 +47,13 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 autocmd FileType javascipt set dictionary=javascript.dict
-autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 autocmd BufNewFile *.html
-autocmd FileType php :set dictionary=~/.vim/dict/vim-dict-wordpress/*.dict
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd BufRead,BufNewFile *.swift set filetype=swift
-
+au BufEnter,BufWinEnter,BufNewFile,BufRead *.sc,*.scd set filetype=supercollider
+au Filetype supercollider packadd scvim
 autocmd BufRead,BufNewFile *.rs set filetype=rust
     "keymap for unite action
 
@@ -61,6 +64,10 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split
 "open window by vertical split 
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+
+
+"make時にquickfix開く
+au QuickfixCmdPost make
 
 
 
@@ -91,8 +98,6 @@ set clipboard=unnamed
 set completeopt+=noinsert
 set completeopt+=noselect
 
-colorscheme spacegray
-
 
 "" command
 command! -nargs=? Jq call s:Jq(<f-args>)
@@ -109,10 +114,77 @@ endfunction
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
-let g:python3_host_prog = "/usr/local/bin/python3"
+" virtual_envでnvim用を作成
+if has('nvim') && isdirectory ( $PYENV_ROOT."/versions/nvim-python3" )
+    let g:python3_host_prog = $PYENV_ROOT.'/versions/nvim-python3/bin/python'
+endif
 
+let g:python_host_prog = $PYENV_ROOT . '/shims/python'
 set sh=zsh
-tnoremap <silent> <ESC> <C-\><C-n>
+noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
+
+source ~/.dotfiles/neovim/plugins/quickrun.vim
+
+" Load settings for each location.
+augroup vimrc-local
+  autocmd!
+  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+augroup END
+
+function! s:vimrc_local(loc)
+  let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
+  for i in reverse(filter(files, 'filereadable(v:val)'))
+    source `=i`
+  endfor
+endfunction
+
+if has('persistent_undo')
+  set undodir=~/.config/nvim/undo
+  set undofile                                                                                                                                   
+endif
+
+if &term =~ "xterm"
+    let &t_ti .= "\e[?2004h"
+    let &t_te .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+    cnoremap <special> <Esc>[200~ <nop>
+    cnoremap <special> <Esc>[201~ <nop>
+endif
+
+" カーソルが重い原因を見る関数
+function! ProfileCursorMove() abort
+  let profile_file = expand('/tmp/vim-profile.log')
+  if filereadable(profile_file)
+    call delete(profile_file)
+  endif
+
+  normal! gg
+  normal! zR
+
+  execute 'profile start ' . profile_file
+  profile func *
+  profile file *
+
+  augroup ProfileCursorMove
+    autocmd!
+    autocmd CursorHold <buffer> profile pause | qa
+  augroup END
+
+  for i in range(10000)
+    call feedkeys('j')
+  endfor
+  for i in range(10000)
+    call feedkeys('h')
+  endfor
+endfunction

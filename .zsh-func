@@ -2,14 +2,13 @@
 
 #open file with vim after peco
 function mpeco {
-    ls -la | peco | xargs mvim
+    vim $(ag -l | peco)
 }
 
 function gpeco() {
     local account=$(gcloud config configurations list | peco | awk '{ print($1) }')
     gcloud config configurations activate $account
 }
-zle -N mpeco
 
 
 function gim(){
@@ -17,12 +16,19 @@ function gim(){
 }
 zle -N gim
 
-function agf() {
+function pecog() {
     ag $@ | peco --query "$LBUFFER"
 }
 
+function pecof() {
+    ag -g $@ | peco 
+}
 function gcop() {
-    git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout
+    git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git switch
+}
+
+function ghqp() {
+    cd $(ghq list --full-path | peco)
 }
 
 function ghqp() {
@@ -35,5 +41,16 @@ function peco-history-selection() {
 	zle reset-prompt
 }
 
+function kubeswitch() {
+    kcontext=$(kubectl config get-contexts  | peco --initial-index=1 --prompt='kubectl config use-context > ' |  sed -e 's/^\*//' | awk '{print $1}')
+    if [ -n "$kcontext" ]; then
+        kubectl config use-context $kcontext
+    fi
+}
+
+zle -N mpeco
+bindkey '^V' mpeco
+
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
