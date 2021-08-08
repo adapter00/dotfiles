@@ -82,8 +82,5 @@ autocmd FileType go nnoremap <silent> <buffer> gb :TernDef<CR>
 nmap <silent><leader>t :call RunCurrentSpecFile()<CR>
 
 
-"" LSP-Client
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+"Delve
+autocmd FileType go nmap <silent> ;d :DlvToggleBreakpoint<CR>
