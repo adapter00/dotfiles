@@ -1,13 +1,10 @@
 
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_auto_enable = 1
-let g:lsp_preview_float = 0
+let g:lsp_preview_float = 1
 let g:lsp_async_completion=1
 let g:lsp_log_verbose = 0
 
-" let g:lsp_log_file = expand('/tmp/vim-lsp.log')
-" let g:asyncomplete_log_file = expand('/tmp/vim-lsp-asyncomplete.log')
-let g:lsp_format_sync_timeout = 100
 function LC_maps()
     " if len(lsp#get_whitelisted_servers(&filetype))>0
        noremap <C-]> :LspDefinition<CR>

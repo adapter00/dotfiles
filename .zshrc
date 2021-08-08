@@ -22,6 +22,36 @@ fpath=(/usr/local/share/zsh-completions $fpath)
  fi
 
 
+#ログインシェルで環境変数を設定
+export LANG=ja_JP.UTF-8
+autoload colors
+
+#PATH
+export PATH="/usr/local/bin:$PATH" 
+export PATH="$HOME/.cabal/bin:$PATH"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export THEOS=/opt/theos
+#go
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(goenv init -)"
+export DEFAULT_GOPATH=$HOME/dev/go 
+export GOPATH=$DEFAULT_GOPATH
+export PATH=$PATH:$GOPATH/bin
+if type "goenv" > /dev/null; then
+    GOENV_VERSION=`goenv version-name`
+    GOENV_PATH=$HOME/.goenv/versions/$GOENV_VERSION
+    export GOENV_DISABLE_GOPATH=1
+    export PATH=$PATH:$GOENV_PATH/bin
+fi
+export GO111MODULE=on
+
+if [ -d ~/.theos_ip ]; then
+     source .theos_ip
+fi
+
+
+
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 # git
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)

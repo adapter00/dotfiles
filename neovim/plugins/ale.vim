@@ -7,6 +7,10 @@ let g:ale_keep_list_window_open = 0
 " let g:lsp_diagnostics_enabled = 0     " disable diagnostics support
 let g:lsp_signs_enabled = 1           " enable signs
 let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+let g:ale_fix_on_save=1
+let g:ale_linters = {
+            \'golangserver':['golangci-lint'],
+            \}
 
 
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -21,4 +25,3 @@ let g:ale_fixers = {
 \}
 
 
-let g:ale_fix_on_save = 0

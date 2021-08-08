@@ -93,7 +93,6 @@ set clipboard+=unnamedplus
 set completeopt+=noinsert
 set completeopt+=noselect
 
-
 "" command
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
@@ -175,11 +174,8 @@ function! ProfileCursorMove() abort
   endfor
 endfunction
 
-
-
-" project settings
-if exists("$EXTRA_VIM")
-  for path in split($EXTRA_VIM, ':')
-    exec "source ".path
-  endfor
-endif
+set nocompatible
+map ^[OA ^[ka
+map ^[OB ^[ja
+map ^[OC ^[la
+map ^[OD ^[ha

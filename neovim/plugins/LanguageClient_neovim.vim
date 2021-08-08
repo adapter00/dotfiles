@@ -39,8 +39,6 @@
 
 "" Keymap
 " function LC_maps()
-"     if has_key(g:LanguageClient_serverCommands, &filetype)
-"         nnoremap <C-l>ll :call LanguageClient_textDocument_documentSymbol()<CR>
 "         nnoremap <C-l>lc :call LanguageClient_contextMenu()<CR>
 "         "" formatting on save
 "         autocmd BufWritePre * :call LanguageClient_textDocument_formatting()

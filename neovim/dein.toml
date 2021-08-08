@@ -53,9 +53,6 @@ repo = 'pangloss/vim-javascript'
 [[plugins]]
 repo = 'tell-k/vim-browsereload-mac'
 
-# [[plugins]]
-# repo = 'bling/vim-airline'
-#
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
@@ -136,9 +133,6 @@ repo = 'Shougo/deoplete.nvim'
 repo = 'lighttiger2505/deoplete-vim-lsp'
 
 [[plugins]]
-repo = 'milch/vim-fastlane'
-
-[[plugins]]
 repo = 'roxma/nvim-yarp'
 
 [[plugins]]
@@ -154,12 +148,6 @@ repo = 'simeji/winresizer'
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
-
-[[plugins]]
 repo = 'junegunn/fzf'
 
 [[plugins]]
@@ -168,12 +156,10 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+repo = 'dense-analysis/ale'
+hook_add = '''
+source ~/.dotfiles/neovim/plugins/ale.vim
+'''
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
@@ -182,29 +168,18 @@ source ~/.dotfiles/neovim/plugins/vim-lsp.vim
 '''
 
 # [[plugins]]
-# repo = 'mattn/vim-lsp-settings'
-# merged = '0'
-# hook_add = '''
-# let g:lsp_log_file = expand('/tmp/lsp.log')
-# let g:asyncomplete_popup_delay = 200
-# let g:lsp_settings = {
-# \  'go': {'cmd': ['gopls','-rpc.trace','-logfile','/tmp/gopls.log']},
-# \}
-# '''
+# repo = 'prabirshrestha/asyncomplete.vim'
+#
+# [[plugins]]
+# repo = 'prabirshrestha/async.vim'
+#
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
-[[plugins]]
-repo = 'ConradIrwin/vim-bracketed-paste'
 
 
 [[plugins]]
-repo = 'aklt/plantuml-syntax'
-
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-source ~/.dotfiles/neovim/plugins/ale.vim
-'''
-
+repo = 'rhysd/conflict-marker.vim'
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
 
@@ -212,4 +187,7 @@ repo = 'hrsh7th/vim-vsnip'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
 
