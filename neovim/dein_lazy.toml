@@ -48,12 +48,11 @@ on_ft = ['swift']
 
 
 [[plugins]]
-
-[[plugins]]
 repo='aklt/plantuml-syntax'
 on_i= 1
 on_ft = 'uml'
 
+[[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = 'markdown'
 build = 'cd app & yarn install'

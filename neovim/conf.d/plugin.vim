@@ -2,8 +2,7 @@
 "--------------------------------------------
 "SuperCollider設定
 "--------------------------------------------
-let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" 
-let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
+" let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe" let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher" 
 "--------------------------------------------
 "Vimのpowerlineテーマ設定
 "--------------------------------------------
@@ -78,8 +77,7 @@ let g:indent_guides_color_change_percent = 30
 
 "-------------------------------------------
 " unite.vim 
-"
-
+" 
 " Rsense用の設定
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
