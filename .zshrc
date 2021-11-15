@@ -12,14 +12,19 @@ fpath=(/usr/local/share/zsh-completions $fpath)
  export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
  export THEOS=/opt/theos 
 #go 
- if [ -d $HOME/.goenv ]; then 
-     export GOENV_ROOT="$HOME/.goenv"
-     export PATH="$GOENV_ROOT/bin:$PATH"
-     export GOENV_DISABLE_GOPATH=1
-     eval "$(goenv init -)"
-     export PATH="$GOROOT/bin:$PATH"
-     export PATH="$PATH:$GOPATH/bin"
- fi
+#  if [ -d $HOME/.goenv ]; then 
+#      export GOENV_ROOT="$HOME/.goenv"
+#      export PATH="$GOENV_ROOT/bin:$PATH"
+#      export GOENV_DISABLE_GOPATH=1
+#      eval "$(goenv init -)"
+#      export PATH="$GOROOT/bin:$PATH"
+#      export PATH="$PATH:$GOPATH/bin"
+#  fi
+#
+export GOPATH="$HOME/dev/go"
+# export GOROOT="$HOME/.goenvs"
+export PATH="$GOPATH/bin:$PATH"
+export GO111MODULE=on
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -154,4 +159,4 @@ if [ -f ~/.zplug ]; then
     source ~/.zplug
 fi
 
-export PATH="/usr/local/sbin:$PATH"
+. /usr/local/opt/asdf/asdf.sh

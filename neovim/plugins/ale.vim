@@ -14,6 +14,9 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_linters = {'go': ['golint','gobuild']}
 " let g:ale_go_golangci_lint_options = '--fast'
+"
+
+let g:ale_dart_analyze_executable = '/Users/takao_maeda/.asdf/shims/dart'
 
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],

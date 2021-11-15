@@ -6,7 +6,8 @@ let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
-let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
+let g:python_host_prog = $PYENV_ROOT . '/shims/python2'
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 
 execute 'set runtimepath^=' . s:dein_repo_dir
 
@@ -47,6 +48,7 @@ autocmd FileType php set makeprg=php\ -l\ %
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd BufRead,BufNewFile *.swift set filetype=swift
+autocmd BufRead,BufNewFile *.tf set filetype=terraform
 au BufEnter,BufWinEnter,BufNewFile,BufRead *.sc,*.scd set filetype=supercollider
 au Filetype supercollider packadd scvim
 autocmd BufRead,BufNewFile *.rs set filetype=rust
@@ -114,7 +116,6 @@ if has('nvim') && isdirectory ( $PYENV_ROOT."/versions/nvim-python3" )
     let g:python3_host_prog = $PYENV_ROOT.'/versions/nvim-python3/bin/python'
 endif
 
-let g:python_host_prog = $PYENV_ROOT . '/shims/python'
 set sh=zsh
 noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow

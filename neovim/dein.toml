@@ -210,3 +210,7 @@ repo = 'hrsh7th/vim-vsnip'
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
