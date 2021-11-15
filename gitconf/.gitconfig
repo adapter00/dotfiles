@@ -1,0 +1,35 @@
+[include]
+    path = .gitconfig.local
+[gui]
+    encoding = utf-8
+[merge]
+    tool = nvimdiff
+[diff]
+    tool = nvimdiff
+[color]
+    ui = auto
+[core]
+    quotepath = false
+    editor = /usr/local/bin/nvim
+[push]
+	default = current
+[alias]
+    ck = checkout
+    st = status
+    stt = status -uno
+    difff = diff --word-diff
+    cp = cherry-pick
+[difftool "nvimdiff"]
+    cmd = "vim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvimdiff"]
+    cmd = "vim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
+    trustExistCode = false
+    keepBackup = false
+
+[url "https://e1f3fc0d6b592089b3989b589647472fece699d0:x-oauth-basic@github.com/"]
+	insteadOf = https://github.com/
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh
+[ghq]
+    root = /Users/takao_maeda/.ghq
+    root = /Users/takao_maeda/dev/go/src
