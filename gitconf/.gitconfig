@@ -10,7 +10,7 @@
     ui = auto
 [core]
     quotepath = false
-    editor = /usr/local/bin/nvim
+    editor = /opt/homebrew/bin/nvim
 [push]
 	default = current
 [alias]
@@ -26,10 +26,8 @@
     trustExistCode = false
     keepBackup = false
 
-[url "https://e1f3fc0d6b592089b3989b589647472fece699d0:x-oauth-basic@github.com/"]
-	insteadOf = https://github.com/
 [credential "https://source.developers.google.com"]
 	helper = gcloud.sh
 [ghq]
-    root = /Users/takao_maeda/.ghq
-    root = /Users/takao_maeda/dev/go/src
+    root = /Users/adapter/.ghq
+    root = /Users/adapter/dev/go/src

@@ -1,3 +1,5 @@
 [user]
     name = adapter00
 	email = 3038531+adapter00@users.noreply.github.com
+[url "https://e1f3fc0d6b592089b3989b589647472fece699d0:x-oauth-basic@github.com/"]
+	insteadOf = https://github.com/

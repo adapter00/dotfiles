@@ -1,13 +1,14 @@
 #supercollier 
 #
+#
 export SCVIM_TAGFILE=~/.sctags  
 
-fpath=(/usr/local/share/zsh-completions $fpath) 
+fpath=(/opt/hombrew/share/zsh-completions $fpath) 
 ## # #ログインシェルで環境変数を設定 
  export LANG=ja_JP.UTF-8 
  autoload colors 
 ## # #PATH 
- export PATH="/usr/local/bin:$PATH" 
+ export PATH="/opt/homebrew/bin:$PATH" 
  export PATH="$HOME/.cabal/bin:$PATH" 
  export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
  export THEOS=/opt/theos 
@@ -27,7 +28,7 @@ export PATH="$GOPATH/bin:$PATH"
 export GO111MODULE=on
 
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/opt/homebrew/share/zsh-completions $fpath)
 # git
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
@@ -52,7 +53,7 @@ export CLICOLOR=1
 #alias
 alias lla='ls -la'
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias vim='/usr/local/bin/nvim'
+alias vim='/opt/homebrew/bin/nvim'
 alias k='kubectl'
 
 if [ -f ~/.zshPath ]; then
@@ -117,7 +118,7 @@ fi
 
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/opt/hombrew/heroku/bin:$PATH"
 
 
 set zsh-keybind
@@ -144,10 +145,10 @@ function agvim () {
 }
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/kustomize kustomize
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+complete -o nospace -C /opt/hombrew/bin/kustomize kustomize
+if [ /opt/hombrew/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/opt/hombrew/opt/openssl@1.1/bin:$PATH"
 
 #local 
 if [ -f ~/.zsh-local ]; then
@@ -159,4 +160,8 @@ if [ -f ~/.zplug ]; then
     source ~/.zplug
 fi
 
-. /usr/local/opt/asdf/asdf.sh
+
+. /opt/homebrew/opt/asdf/asdf.sh
+export PATH="$PATH":"$HOME/.asdf/installs/flutter/1.22.6/.pub-cache/bin"
+
+export PATH="$PATH:/Users/adapter/.asdf/installs/flutter/1.22.6/bin/cache/dart-sdk/bin"
