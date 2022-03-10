@@ -155,3 +155,9 @@ if [ -f ~/.zplug ]; then
 fi
 
 export PATH="/usr/local/sbin:$PATH"
+
+
+export ASDF_DIR='/usr/local/opt/asdf/libexec'
+. /usr/local/opt/asdf/libexec/asdf.sh
+alias awsp="source _awsp"
+

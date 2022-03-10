@@ -64,3 +64,20 @@ on_ft = 'go'
 [[plugins]]
 repo = 'uarun/vim-protobuf'
 on_ft = 'proto'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = 'dart'
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = 'dart'
+
+[[plugins]]
+repo = 'mattn/vim-sqlfmt'
+on_ft = 'sql'
+hook_add = '''
+let g:sqlfmt_program = "sqlformat --comma_first true -r -k upper -o %s -"
+
+" マッピング設定
+nmap <buffer><leader>sf <Plug>(sqlfmt)
+'''

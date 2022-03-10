@@ -21,4 +21,3 @@ function LC_maps()
 endfunction
 
 autocmd Filetype * call LC_maps()
-
