@@ -1,0 +1,78 @@
+# code-guidelines.mdc
+
+## Code Style & Project Structure
+- Package Names: all lowercase, no underscores or mixed punctuation (e.g. userrepo, orderprocessor).
+- Type Names: exported types use PascalCase (e.g. UserService), unexported types use camelCase (e.g. userService).
+- Function/Method Names: camelCase for unexported (calculateSum), PascalCase for exported (CalculateTotal).
+- Indentation: use tabs only (run gofmt to enforce).
+- Braces: opening brace on same line (e.g. func Foo() {).
+- Formatting: eliminate unnecessary blank lines or comments; always run gofmt/goimports before commit.
+- Go Version: always specify the latest Go version, managed via the asdf golang plugin.
+
+Example layout:
+
+    myapp/
+    ├── cmd/
+    │   └── server/
+    │       └── main.go
+    ├── internal/
+    │   ├── domain/
+    │   ├── usecase/
+    │   ├── handler/
+    │   └── repository/
+    ├── pkg/
+    ├── configs/
+    ├── scripts/
+    ├── go.mod
+    └── go.sum
+
+## Functions & Methods
+- Single Responsibility: each function or method should do one thing and remain under ~50 lines.
+- Naming: start with a verb (e.g. FetchUsers, PrintReport).
+- Parameters: do not reassign parameters; if you need to mutate, copy into a local var.
+- Variadic: use sparingly (e.g. func Sum(nums ...int) int).
+- Documentation: every exported function/type must have a GoDoc comment.
+
+## Error Handling
+- Always return error; do not panic for ordinary errors.
+- Include context in error messages. Example:
+
+      return fmt.Errorf("failed to load user %d: %w", id, err)
+
+- Wrap lower‐level errors with %w and handle/classify them higher up using errors.Is / errors.As.
+- Define custom error types if callers need to distinguish error cases.
+
+## Logging & Monitoring
+- Use structured logging for all application logs.
+- Prefer Go’s built-in slog package for structured, leveled logs. Example:
+
+      var logger = slog.New(slog.NewJSONHandler(os.Stdout, nil))
+      logger.Info("user created", "userID", id, "email", email)
+
+- Export Prometheus metrics on /metrics using the official client library.
+
+## Best Practices
+- Follow DRY and KISS relentlessly.
+- Define interfaces with the minimal method set (e.g. type UserStore interface { Get(id int) (*User, error) }).
+- Use constructor functions for dependency injection; avoid package-level globals.
+- Leverage goroutines + channels or the sync package for concurrency.
+- Always defer resource.Close() (files, DB connections, etc.) to ensure cleanup.
+
+## Testing Strategy
+- Unit Tests with the testing package (*_test.go):
+  - Follow Arrange–Act–Assert.
+  - Use table-driven tests for multiple cases.
+  - Mock dependencies by hand or with minimal libraries (e.g. testify/mock).
+- Integration Tests with real dependencies in Docker containers.
+- Aim for at least 80% coverage.
+
+## Documentation
+- Write GoDoc comments for all exported symbols. Example:
+
+      // FetchUsers returns all users in the system.
+      func FetchUsers(ctx context.Context) ([]*User, error) { … }
+
+- Provide a top-level README with setup, build, run instructions and a summary of major APIs.
+
+Final Goal  
+Enable developers to build high-quality, readable, and maintainable Go web servers quickly by following a clear, consistent architecture and disciplined coding practices.  
