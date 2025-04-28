@@ -1,15 +1,17 @@
 set rtp+=$HOME/.dotfiles/neovim/
 "辞書ファイル"
-let s:dein_dir=expand('$HOME/.cache/dein')
+let s:dein_dir=expand('$HOME/.local/share/dein')
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let g:dein#install_log_filename = expand('~/.cache/dein.log')
+
 
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
-let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 
 execute 'set runtimepath^=' . s:dein_repo_dir
 
+echom "start load"
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
@@ -18,7 +20,12 @@ if dein#load_state(s:dein_dir)
     call dein#load_toml(s:toml_lazy, { 'lazy': 1 } )
     call dein#end()
     call dein#save_state()
+    echom "dein finish load"
+else 
+    echom "dein load error"
 endif
+
+let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
 colorscheme spacegray
 
 
@@ -63,35 +70,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 
 "make時にquickfix開く
 au QuickfixCmdPost make
-
-
-
-
-
-"no backup
-set encoding=utf-8
-set fenc=utf-8
-set nobackup
-set noswapfile
-set nu
-set cursorline
-set incsearch
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set autoindent
-set expandtab
-set ruler
-set smartcase
-set ignorecase
-set showmatch
-set wildmenu
-set wildmode=longest:full,full
-set laststatus=2
-set noundofile
-set clipboard+=unnamedplus
-set completeopt+=noinsert
-set completeopt+=noselect
 
 
 "" command
@@ -175,11 +153,5 @@ function! ProfileCursorMove() abort
   endfor
 endfunction
 
+luafile ~/.config/nvim/_init.lua
 
-
-" project settings
-if exists("$EXTRA_VIM")
-  for path in split($EXTRA_VIM, ':')
-    exec "source ".path
-  endfor
-endif

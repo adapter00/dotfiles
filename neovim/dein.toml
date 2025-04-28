@@ -1,12 +1,10 @@
 [[plugins]]
 repo = 'vim-scripts/The-NERD-tree'
-
 [[plugins]]
 repo = 'vim-scripts/The-NERD-Commenter'
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
-
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
@@ -100,7 +98,7 @@ repo = 'tpope/vim-endwise'
 repo = 'whatyouhide/vim-gotham'
 
 [[plugins]]
-repo = 'ackyshake/Spacegray.vim'
+repo = 'vim-scripts/Spacegray.vim'
 
 [[plugins]]
 repo = 'chase/vim-ansible-yaml'
@@ -210,3 +208,73 @@ repo = 'hrsh7th/vim-vsnip'
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 
+[[plugins]]
+repo = 'github/copilot.vim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'stevearc/dressing.nvim'
+hook_source='''
+lua require("dressing").setup({})
+lua vim.notify("dressing.nvim load", vim.log.levels.INFO)
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
+
+[[plugins]]
+repo = 'echasnovski/mini.pick'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+
+[[plugins]]
+repo = 'ibhagwan/fzf-lua'
+
+[[plugins]]
+repo = 'nvim-tree/nvim-web-devicons'
+
+[[plugins]]
+repo = 'zbirenbaum/copilot.lua'
+
+[[plugins]]
+repo = 'HakonHarnes/img-clip.nvim'
+
+[[plugins]]
+repo = 'yetone/avante.nvim'
+
+hook_post_update = 'make'
+depends = [
+  'nvim-lua/plenary.nvim',
+  'stevearc/dressing.nvim',
+  'nvim-treesitter/nvim-treesitter',
+  'MunifTanjim/nui.nvim',
+  'echasnovski/mini.pick',
+  'nvim-telescope/telescope.nvim',
+  'hrsh7th/nvim-cmp',
+  'ibhagwan/fzf-lua',
+  'nvim-tree/nvim-web-devicons',
+  'zbirenbaum/copilot.lua',
+  'HakonHarnes/img-clip.nvim'
+]
+hook_add='''
+lua vim.notify("Loading avante.nvim", vim.log.levels.INFO)
+lua dofile(vim.fn.expand("~/.dotfiles/neovim/plugins/avante.lua"))
+'''
+
+[[plugins]]
+repo = 'MeanderingProgrammer/render-markdown.nvim'
+on_ft = ['markdown', 'Avante']
+hook_add = '''
+let g:render_markdown_opts = {
+      \ 'file_types': ['markdown', 'Avante'],
+      \ }
+'''

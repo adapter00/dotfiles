@@ -47,7 +47,8 @@ export CLICOLOR=1
 #alias
 alias lla='ls -la'
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias vim='/usr/local/bin/nvim'
+alias vim='/opt/homebrew/bin/nvim'
+
 alias k='kubectl'
 
 if [ -f ~/.zshPath ]; then
@@ -155,3 +156,6 @@ if [ -f ~/.zplug ]; then
 fi
 
 export PATH="/usr/local/sbin:$PATH"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"

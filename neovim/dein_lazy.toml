@@ -56,11 +56,23 @@ on_ft = 'uml'
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = 'markdown'
 build = 'cd app & yarn install'
-
-[[plugins]]
-repo = 'mattn/vim-goimports'
-on_ft = 'go'
+rev = 'dependabot/npm_and_yarn/next-12.1.0'
+hook_add = '''
+let g:mkdp_browser = 'Safari'
+'''
 
 [[plugins]]
 repo = 'uarun/vim-protobuf'
 on_ft = 'proto'
+
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'npm install'
+on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown', 'graphql']
+
+
+[[plugins]]
+repo='hashivim/vim-terraform'
+on_ft=['terraform','tf']
+
