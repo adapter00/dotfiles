@@ -6,7 +6,7 @@ let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
-let g:python_host_prog = $PYENV_ROOT . '/shims/python3'
+let g:python_host_prog = '/Users/takao.maeda/.asdf/shims/python3'
 
 execute 'set runtimepath^=' . s:dein_repo_dir
 
@@ -14,8 +14,8 @@ if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     let s:toml = expand("$HOME/.dotfiles/neovim/dein.toml")
     let s:toml_lazy = expand("$HOME/.dotfiles/neovim/dein_lazy.toml")
-    call dein#load_toml(s:dein, { 'lazy': 0 } )
-    call dein#load_toml(s:dein_lazy, { 'lazy': 1 } )
+    call dein#load_toml(s:toml, { 'lazy': 0 } )
+    call dein#load_toml(s:toml_lazy, { 'lazy': 1 } )
     call dein#end()
     call dein#save_state()
 endif
@@ -38,6 +38,7 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.c set filetype=c
 autocmd BufRead,BufNewFile Fastfile set filetype=ruby
 autocmd BufRead,BufNewFile Podfile set filetype=ruby
+autocmd BufRead,BufNewFile *.tf set filetype=terraform
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
@@ -92,6 +93,7 @@ set noundofile
 set clipboard+=unnamedplus
 set completeopt+=noinsert
 set completeopt+=noselect
+set fixendofline 
 
 
 "" command
@@ -114,7 +116,6 @@ if has('nvim') && isdirectory ( $PYENV_ROOT."/versions/nvim-python3" )
     let g:python3_host_prog = $PYENV_ROOT.'/versions/nvim-python3/bin/python'
 endif
 
-let g:python_host_prog = $PYENV_ROOT . '/shims/python'
 set sh=zsh
 noremap <silent> <ESC> <C-\><C-n>
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -183,3 +184,4 @@ if exists("$EXTRA_VIM")
     exec "source ".path
   endfor
 endif
+let $PATH = expand('~/.local/share/vim-lsp-settings/servers/typescript-language-server/node_modules/.bin') . ':' . $PATH

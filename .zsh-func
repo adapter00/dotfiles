@@ -10,6 +10,9 @@ function gpeco() {
     gcloud config configurations activate $account
 }
 
+function gcd() {
+    cd $(git rev-parse --show-toplevel)
+}
 
 function gim(){
     vim `git ls-files | peco`
@@ -20,21 +23,25 @@ function pecog() {
     ag $@ | peco --query "$LBUFFER"
 }
 
-function pecof() {
+function agf() {
     ag -g $@ | peco 
 }
+
 function gcop() {
     git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/###' | perl -nle 'print if !$c{$_}++' | peco | xargs git switch
 }
 
-function gh() {
-    cd $(ghq list --full-path | peco)
+function ghp() {
+    local repo=$(ghq list --full-path | peco)
+    if [ -n "$repo" ]; then
+        cd $repo
+    fi
 }
 
 function peco-history-selection() {
-	BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-	CURSOR=$#BUFFER
-	zle reset-prompt
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+    CURSOR=$#BUFFER             # カーソルを文末に移動
+    zle -R -c                   # refresh
 }
 
 function kubeswitch() {
@@ -55,3 +62,63 @@ zle -N peco-history-selection
 bindkey -e '^R' peco-history-selection
 
 
+
+function awsp() {
+    local selected_profile=$(aws configure list-profiles | peco --query "$LBUFFER")
+    if [ -n "$selected_profile" ]; then
+        export AWS_PROFILE=${selected_profile}
+        echo "AWS_PROFILE=${selected_profile}"
+    fi
+}
+
+
+function infrp() {
+    local base_dir="/Users/takao.maeda/dev/go/src/github.com/MobilityTechnologies/infra"
+    local target
+    # ag で全ファイルとディレクトリを検索し peco で選択
+    target=$(ag --nocolor -g "" "$base_dir" | peco)
+
+
+  # 選択がキャンセルされた場合のチェック
+  if [[ -n "$target" ]]; then
+      if [[ -d "$target" ]]; then
+          # ディレクトリが選択された場合はそのまま移動
+          cd "$target" || echo "Failed to change directory"
+      elif [[ -f "$target" ]]; then
+          # ファイルが選択された場合はそのディレクトリへ移動
+          cd "$(dirname "$target")" || echo "Failed to change directory"
+      else
+          echo "Selected target is neither a file nor a directory."
+      fi
+  else
+      echo "No selection made or invalid target."
+  fi
+}
+
+
+function gh_search() {
+    # 検索キーワードを入力させる（pecoで空リストを表示して入力モードにする）
+    echo -n "Enter search keyword: "
+    read query
+    
+    if [ -z "$query" ]; then
+        echo "No search keyword entered. Exiting."
+        return 1
+    fi
+
+    # gh コマンドで検索を実行
+    local repo=$(gh repo list "MobilityTechnologies" --limit 100 --json nameWithOwner -q '.[].nameWithOwner' | grep "$query" | peco --prompt "Select repository: ")
+    
+    if [ -n "$repo" ]; then
+        echo "Opening repository: $repo"
+        gh repo view "$repo" --web
+    else
+        echo "No repository selected."
+    fi
+}
+
+
+alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfay='terraform apply -auto-approve'

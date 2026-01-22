@@ -1,4 +1,3 @@
-#supercollier 
 #
 export SCVIM_TAGFILE=~/.sctags  
 
@@ -11,15 +10,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
  export PATH="$HOME/.cabal/bin:$PATH" 
  export HOMEBREW_CASK_OPTS="--appdir=/Applications" 
  export THEOS=/opt/theos 
-#go 
- if [ -d $HOME/.goenv ]; then 
-     export GOENV_ROOT="$HOME/.goenv"
-     export PATH="$GOENV_ROOT/bin:$PATH"
-     export GOENV_DISABLE_GOPATH=1
-     eval "$(goenv init -)"
-     export PATH="$GOROOT/bin:$PATH"
-     export PATH="$PATH:$GOPATH/bin"
- fi
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -28,11 +18,6 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 autoload -U compinit
 compinit -u
-# #rbenv
-if [ -d $HOME/.rbenv ]; then
-	export PATH=$HOME/.rbenv/bin:$PATH
-	eval "$(rbenv init -)"
-fi
 #iOS
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
 
@@ -47,7 +32,7 @@ export CLICOLOR=1
 #alias
 alias lla='ls -la'
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias vim='/usr/local/bin/nvim'
+alias vim='/opt/homebrew/bin/nvim'
 alias k='kubectl'
 
 if [ -f ~/.zshPath ]; then
@@ -139,10 +124,10 @@ function agvim () {
 }
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/kustomize kustomize
+complete -o nospace -C /Users/takao.maeda/.asdf/shims/kustomize
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+# export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 #local 
 if [ -f ~/.zsh-local ]; then
@@ -155,3 +140,23 @@ if [ -f ~/.zplug ]; then
 fi
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+
+setopt interactivecomments
+export PATH="/opt/homebrew/opt/gradle@6/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
+
+if command -v trash &> /dev/null; then
+  alias rm=trash
+fi
+
+export EDITOR=nvim

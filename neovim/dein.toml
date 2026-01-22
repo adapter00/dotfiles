@@ -9,16 +9,6 @@ repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-hook_add = '''
-	call denite#custom#var('grep', {
-		\ 'command': ['ag'],
-		\ 'default_opts': ['-i', '--vimgrep'],
-		\ 'recursive_opts': [],
-		\ 'pattern_opt': [],
-		\ 'separator': ['--'],
-		\ 'final_opts': [],
-		\ })
-'''
 
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -130,12 +120,6 @@ repo = 'munshkr/vim-tidal'
 repo = 'vim-utils/vim-man'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-repo = 'lighttiger2505/deoplete-vim-lsp'
-
-[[plugins]]
 repo = 'milch/vim-fastlane'
 
 [[plugins]]
@@ -166,12 +150,16 @@ repo = 'junegunn/fzf'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-
-[[plugins]]
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+'''
+
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
@@ -181,16 +169,8 @@ hook_add = '''
 source ~/.dotfiles/neovim/plugins/vim-lsp.vim
 '''
 
-# [[plugins]]
-# repo = 'mattn/vim-lsp-settings'
-# merged = '0'
-# hook_add = '''
-# let g:lsp_log_file = expand('/tmp/lsp.log')
-# let g:asyncomplete_popup_delay = 200
-# let g:lsp_settings = {
-# \  'go': {'cmd': ['gopls','-rpc.trace','-logfile','/tmp/gopls.log']},
-# \}
-# '''
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'ConradIrwin/vim-bracketed-paste'
@@ -208,8 +188,18 @@ source ~/.dotfiles/neovim/plugins/ale.vim
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
 
+[[plugins]]
 repo = 'hrsh7th/vim-vsnip'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
+
+[[plugins]] 
+repo = 'github/copilot.vim'
+
+[[plugins]] 
+repo = 'dart-lang/dart-vim-plugin'
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
 

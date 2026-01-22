@@ -76,17 +76,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgray
 let g:indent_guides_color_change_percent = 30
 
-"-------------------------------------------
-" unite.vim 
-"
-
-" Rsense用の設定
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-"rsenseのインストールフォルダがデフォルトと異なるので設定
-let g:rsenseHome = expand("/Users/takao_maeda/.rbenv/rsense")
-let g:rsenseUseOmniFunc = 1
-
 "-------------------------
 "For ObjC && C & C++
 "-------------------------
@@ -131,3 +120,8 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
 endfunction
+
+let g:denite#ignore_globs = ['**/.git/**', '**/.cache/**', '**/*.log', '**/.terraform/**']
+
+
+autocmd BufWritePre *.tf TerraformFmt

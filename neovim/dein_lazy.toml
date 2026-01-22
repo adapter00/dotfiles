@@ -57,10 +57,14 @@ repo = 'iamcco/markdown-preview.nvim'
 on_ft = 'markdown'
 build = 'cd app & yarn install'
 
-[[plugins]]
-repo = 'mattn/vim-goimports'
-on_ft = 'go'
 
 [[plugins]]
 repo = 'uarun/vim-protobuf'
 on_ft = 'proto'
+
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = 'tf'
+
+
