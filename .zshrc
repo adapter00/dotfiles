@@ -46,6 +46,7 @@ alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias vim='/opt/homebrew/bin/nvim'
 
 alias k='kubectl'
+alias tf='terraform'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath
