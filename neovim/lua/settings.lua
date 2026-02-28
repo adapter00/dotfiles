@@ -26,7 +26,7 @@ o.wildmenu = true
 o.wildmode = "longest:full,full"
 o.laststatus = 2
 o.undofile = false
-o.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 o.completeopt = "menuone,noinsert,noselect"
 
 -- ウィンドウ固有の設定
