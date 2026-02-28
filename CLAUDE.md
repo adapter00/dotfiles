@@ -15,39 +15,43 @@ sh ~/.dotfiles/bootstrap  # creates symlinks
 
 The `bootstrap` script symlinks config files into place. Neovim config lives at `~/.dotfiles/neovim/` and is symlinked to `~/.config/nvim/`.
 
-## Neovim Plugin Management
-
-Plugins are managed by **dein.vim**. Run these inside Neovim (not from shell):
-
-```vim
-:call dein#install()    " install new plugins
-:call dein#update()     " update all plugins
-:call dein#recache_runtimepath()  " fix plugin not loading
+**Note:** `bootstrap` is outdated and does not manage the Neovim symlink. The symlink must be created manually:
+```sh
+ln -s ~/.dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 ```
 
-Plugin cache is at `~/.local/share/dein`. Two TOML files define plugins:
-- `neovim/dein.toml` — eager-loaded at startup
-- `neovim/dein_lazy.toml` — lazy-loaded by filetype/command
+## Neovim Plugin Management
+
+Plugins are managed by **lazy.nvim**. Run these inside Neovim:
+
+```vim
+:Lazy          " open plugin dashboard
+:Lazy sync     " install/update all plugins
+:Lazy clean    " remove unused plugins
+```
+
+Plugin cache is at `~/.local/share/nvim/lazy/`.
 
 ## Architecture
 
-### Neovim (Hybrid VimScript + Lua)
+### Neovim (Pure Lua)
 
 Load order:
-1. `neovim/init.vim` — dein setup, colorscheme, autocmds, sources `conf.d/*.vim`
-2. `neovim/init.lua` — loads `lua/settings.lua`, `lua/plugins.lua`, calls `dap-go.setup()`
-3. `~/.config/nvim/_init.lua` — machine-local overrides (not tracked in this repo)
+1. `neovim/init.lua` — lazy.nvim bootstrap, loads core modules, plugins, LSP
+2. `~/.config/nvim/_init.lua` — machine-local overrides (not tracked in this repo)
 
-Key directories:
-- `neovim/conf.d/` — VimScript configs loaded via `runtime!`; `keymap.vim` has all bindings, `plugin.vim` has per-plugin settings
-- `neovim/lua/` — Lua modules; `extra_settings.lua` loads files from `$EXTRA_VIM` (colon-separated paths) and auto-sources `.vimrc.local` files per directory
-- `neovim/plugins/` — per-plugin Lua/VimScript configs loaded via dein hooks
+Key files:
+- `neovim/lua/settings.lua` — editor options (clipboard, colorscheme, etc.)
+- `neovim/lua/keymaps.lua` — all keybindings
+- `neovim/lua/autocmds.lua` — autocommands
+- `neovim/lua/plugins.lua` — lazy.nvim plugin definitions
+- `neovim/lua/lsp.lua` — LSP config (gopls via `vim.lsp.config` API)
+- `neovim/lua/extra_settings.lua` — loads files from `$EXTRA_VIM` (colon-separated paths) and auto-sources `.vimrc.local` per directory
 - `neovim/ftplugin/` — filetype-specific settings (Go, Python, Ruby, Swift, YAML, JSON)
 
 ### AI Integration in Neovim
 
-- **Copilot**: `github/copilot.vim` + `zbirenbaum/copilot.lua`
-- **Avante.nvim**: `neovim/plugins/avante.lua` — uses Claude (`claude-sonnet-4-6` by default)
+- **Copilot**: `github/copilot.vim` のみ（copilot.lua は Node 22+ 要件のため削除）
 
 ### Shell Functions (`.zsh-func`)
 
@@ -78,13 +82,6 @@ Key conventions:
 
 Go toolchain managed via `asdf` golang plugin.
 
-## Rules Directory
-
-`rules/cursor/` contains Cursor IDE rule files:
-- `go.mdc` — comprehensive Go backend development standards
-- `code-guidelines.mdc` — Go code quality and testing strategy
-- `chat-guideline.mdc` — interaction language enforcement (Japanese)
-
 ## Homebrew
 
 `Brewfile` manages all macOS packages. After modifying:
@@ -94,7 +91,7 @@ brew bundle install --file=~/.dotfiles/Brewfile
 
 ## Language Notes
 
-- **Go**: vim-lsp (gopls) handles LSP; format + organize imports on save; DAP debugging via `nvim-dap-go` + `vim-delve`
+- **Go**: `nvim-lspconfig` + `nvim-cmp` (gopls) handles LSP; format + organize imports on save; DAP debugging via `nvim-dap-go` + `vim-delve`
 - **Python**: pyenv via asdf; interpreter configured at `$PYENV_ROOT/shims/python3`
 - **Ruby**: rbenv; Rsense for omnifunc; vim-rspec + vim-dispatch for tests
-- **Rust**: Racer completion; rustfmt on save
+- **Rust**: rustfmt on save (`rust-lang/rust.vim`)
