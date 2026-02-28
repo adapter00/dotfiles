@@ -118,40 +118,11 @@ require("lazy").setup({
   { "zbirenbaum/copilot.lua",
     config = function() require("copilot").setup({}) end
   },
-  { "yetone/avante.nvim",
-    build = "make",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "MunifTanjim/nui.nvim",
-      "echasnovski/mini.pick",
-      "nvim-telescope/telescope.nvim",
-      "hrsh7th/nvim-cmp",
-      "ibhagwan/fzf-lua",
-      "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua",
-      "HakonHarnes/img-clip.nvim",
-    },
-    config = function()
-      dofile(vim.fn.expand("~/.dotfiles/neovim/plugins/avante.lua"))
-    end
-  },
-  { "HakonHarnes/img-clip.nvim" },
-  { "stevearc/dressing.nvim",   config = function() require("dressing").setup({}) end },
-  { "MunifTanjim/nui.nvim" },
-  { "echasnovski/mini.pick" },
   { "nvim-lua/plenary.nvim" },
 
   -- ============================================================
   -- Markdown / プレビュー
   -- ============================================================
-  { "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante" },
-    config = function()
-      require("render-markdown").setup({ file_types = { "markdown", "Avante" } })
-    end
-  },
   { "kannokanno/previm" },
   { "iamcco/markdown-preview.nvim",
     ft = "markdown",
