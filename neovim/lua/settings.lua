@@ -6,6 +6,10 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 
+-- カラー / シンタックス
+vim.opt.termguicolors = true
+vim.cmd("syntax on")
+
 -- グローバル設定
 o.encoding = "utf-8"
 o.fileencoding = "utf-8"
@@ -26,7 +30,7 @@ o.wildmenu = true
 o.wildmode = "longest:full,full"
 o.laststatus = 2
 o.undofile = false
-o.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 o.completeopt = "menuone,noinsert,noselect"
 
 -- ウィンドウ固有の設定

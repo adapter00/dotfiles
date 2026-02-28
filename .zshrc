@@ -1,8 +1,6 @@
-#supercollier 
+#supercollier
 #
-export SCVIM_TAGFILE=~/.sctags  
-
-fpath=(/usr/local/share/zsh-completions $fpath) 
+fpath=(/usr/local/share/zsh-completions $fpath)
 ## # #ログインシェルで環境変数を設定 
  export LANG=ja_JP.UTF-8 
  autoload colors 
@@ -22,9 +20,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
  fi
 
 
-fpath=(/usr/local/share/zsh-completions $fpath)
 # git
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 
 autoload -U compinit
 compinit -u
@@ -42,7 +39,6 @@ case ${OSTYPE} in
         alias ls='ls --color=auto'
 esac
 export TERM=xterm-256color
-export CLICOLOR=1
 
 #alias
 alias lla='ls -la'
@@ -50,6 +46,7 @@ alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias vim='/opt/homebrew/bin/nvim'
 
 alias k='kubectl'
+alias tf='terraform'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath
@@ -116,8 +113,6 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-set zsh-keybind
-
 if [ -f ~/.zsh-env-mac ]; then
     source ~/.zsh-env-mac
 fi
@@ -141,7 +136,13 @@ function agvim () {
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/kustomize kustomize
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+if [ -f /usr/local/bin/kubectl ]; then
+  _kubectl_cache="${XDG_CACHE_HOME:-$HOME/.cache}/kubectl-completion.zsh"
+  if [ ! -f "$_kubectl_cache" ] || [ /usr/local/bin/kubectl -nt "$_kubectl_cache" ]; then
+    kubectl completion zsh > "$_kubectl_cache"
+  fi
+  source "$_kubectl_cache"
+fi
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
