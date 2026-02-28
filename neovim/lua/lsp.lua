@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- gopls
 vim.lsp.config("gopls", {
   capabilities = capabilities,
-  cmd          = { "gopls", "-rpc.trace", "-logfile", "/tmp/gopls.log" },
+  cmd          = { vim.fn.expand("~/.asdf/installs/golang/1.21.0/packages/bin/gopls"), "-rpc.trace", "-logfile", "/tmp/gopls.log" },
   filetypes    = { "go", "gomod", "gowork", "gotmpl" },
   root_markers = { "go.work", "go.mod", ".git" },
   settings     = {
