@@ -18,6 +18,9 @@ require("keymaps")
 -- Load plugins (lazy.nvim)
 require("plugins")
 
+-- Colorscheme (must be after plugins)
+vim.cmd("colorscheme spacegray")
+
 -- Load LSP
 require("lsp")
 
