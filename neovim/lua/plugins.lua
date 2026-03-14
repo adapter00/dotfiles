@@ -6,7 +6,29 @@ require("lazy").setup({
   { "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("nvim-tree").setup()
+      require("nvim-web-devicons").setup({ default = false })
+      require("nvim-tree").setup({
+        renderer = {
+          icons = {
+            webdev_colors = false,
+            show = {
+              file = false,
+              folder = false,
+              folder_arrow = false,
+              git = false,
+            },
+          },
+        },
+        on_attach = function(bufnr)
+          local api = require("nvim-tree.api")
+          -- デフォルトキーバインドをすべて適用
+          api.config.mappings.default_on_attach(bufnr)
+          -- NERDTree風に上書き: s=vsplit, i=split
+          vim.keymap.set("n", "s", api.node.open.horizontal_no_picker, { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "i", api.node.open.horizontal_no_picker, { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "v", api.node.open.vertical_no_picker,   { buffer = bufnr, nowait = true, silent = true })
+        end,
+      })
       vim.keymap.set("n", "<C-n>n", ":NvimTreeToggle<CR>", { silent = true })
     end
   },

@@ -47,6 +47,7 @@ alias vim='/opt/homebrew/bin/nvim'
 
 alias k='kubectl'
 alias tf='terraform'
+alias gcd='cd $(git rev-parse --show-toplevel)'
 
 if [ -f ~/.zshPath ]; then
     source ~/.zshPath
