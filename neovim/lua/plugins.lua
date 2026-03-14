@@ -56,7 +56,14 @@ require("lazy").setup({
   -- ファジーファインダー
   -- ============================================================
   { "junegunn/fzf",         build = "./install --bin" },
-  { "ibhagwan/fzf-lua",     dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({
+        defaults = { file_icons = false, git_icons = false, color_icons = false },
+      })
+    end
+  },
 
   -- ============================================================
   -- Treesitter
