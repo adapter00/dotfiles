@@ -57,10 +57,6 @@ require("lazy").setup({
   -- ============================================================
   { "junegunn/fzf",         build = "./install --bin" },
   { "ibhagwan/fzf-lua",     dependencies = { "nvim-tree/nvim-web-devicons" } },
-  { "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function() require("telescope").setup() end
-  },
 
   -- ============================================================
   -- Treesitter
@@ -137,8 +133,6 @@ require("lazy").setup({
   -- AI
   -- ============================================================
   { "github/copilot.vim" },
-  { "nvim-lua/plenary.nvim" },
-
   -- ============================================================
   -- Markdown / プレビュー
   -- ============================================================
