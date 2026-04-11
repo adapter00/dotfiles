@@ -30,6 +30,7 @@ require("lazy").setup({
         end,
       })
       vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>E", ":NvimTreeFindFileToggle<CR>", { silent = true })
     end
   },
   { "itchyny/lightline.vim" },
