@@ -29,7 +29,7 @@ require("lazy").setup({
           vim.keymap.set("n", "v", api.node.open.vertical_no_picker,   { buffer = bufnr, nowait = true, silent = true })
         end,
       })
-      vim.keymap.set("n", "<C-n>n", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
     end
   },
   { "itchyny/lightline.vim" },

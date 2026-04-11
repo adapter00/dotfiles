@@ -21,8 +21,8 @@ map("n", "sn", "gt", opts)
 map("n", "sp", "gT", opts)
 
 -- QuickFix ナビゲーション
-map("",  "<C-n>", ":cn<CR>", opts)
-map("",  "<C-p>", ":cp<CR>", opts)
+map("n", "]q", ":cn<CR>", opts)
+map("n", "[q", ":cp<CR>", opts)
 
 -- OmniComplete
 map("i", "<C-Space>", "<C-x><C-o>", opts)
@@ -54,6 +54,7 @@ map("n", "<C-C>", ":FzfLua files<CR>",     opts)
 map("n", "<C-N>", ":FzfLua files<CR>",     opts)
 map("n", "<C-Z>", ":FzfLua oldfiles<CR>",  opts)
 map("n", "sB",    ":FzfLua buffers<CR>",   opts)
+map("n", "<leader>f", ":FzfLua files<CR>", opts)
 map("n", "<leader><C-f>", ":FzfLua live_grep<CR>", opts)
 
 -- RSpec
