@@ -1,0 +1,6 @@
+WRN 2026-04-11T12:37:50.910 ?.87061    server_start:199: Failed to start server: operation not permitted: /var/folders/3x/cb7_bj0j7k39j97960d56b0w0000gn/T/nvim.adapter/MhQQBd/nvim.87061.0
+WRN 2026-04-11T12:37:50.910 ?.87062    server_start:199: Failed to start server: operation not permitted: /var/folders/3x/cb7_bj0j7k39j97960d56b0w0000gn/T/nvim.adapter/8zU3VX/nvim.87062.0
+WRN 2026-04-11T12:37:50.966 ?.87061    server_start:199: Failed to start server: operation not permitted: /var/folders/3x/cb7_bj0j7k39j97960d56b0w0000gn/T/nvim.adapter/MhQQBd/fzf-lua.1775878670.87061.1
+WRN 2026-04-11T12:37:50.998 ?.87062    server_start:199: Failed to start server: operation not permitted: /var/folders/3x/cb7_bj0j7k39j97960d56b0w0000gn/T/nvim.adapter/8zU3VX/fzf-lua.1775878670.87062.1
+WRN 2026-07-06T20:07:08.238 ?.34181    server_start:199: Failed to start server: operation not permitted: /var/folders/3x/cb7_bj0j7k39j97960d56b0w0000gn/T/nvim.adapter/Z0gIgs/nvim.34181.0
+WRN 2026-07-06T20:07:08.296 ?.34181    server_start:199: Failed to start server: operation not permitted: /var/folders/3x/cb7_bj0j7k39j97960d56b0w0000gn/T/nvim.adapter/Z0gIgs/fzf-lua.1783336028.34181.1

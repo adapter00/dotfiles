@@ -42,3 +42,12 @@ vim.lsp.config("gopls", {
   },
 })
 vim.lsp.enable("gopls")
+
+-- terraform-ls
+vim.lsp.config("terraform_ls", {
+  capabilities = capabilities,
+  cmd          = { "terraform-ls", "serve" },
+  filetypes    = { "terraform", "terraform-vars" },
+  root_markers = { ".terraform", ".git" },
+})
+vim.lsp.enable("terraform_ls")

@@ -24,9 +24,13 @@ require("lazy").setup({
           -- デフォルトキーバインドをすべて適用
           api.config.mappings.default_on_attach(bufnr)
           -- NERDTree風に上書き: s=vsplit, i=split
-          vim.keymap.set("n", "s", api.node.open.horizontal_no_picker, { buffer = bufnr, nowait = true, silent = true })
-          vim.keymap.set("n", "i", api.node.open.horizontal_no_picker, { buffer = bufnr, nowait = true, silent = true })
-          vim.keymap.set("n", "v", api.node.open.vertical_no_picker,   { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "s",    api.node.open.vertical_no_picker,   { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "<C-s>", api.node.open.horizontal_no_picker, { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "i",   api.node.open.horizontal_no_picker, { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "<C-v>", api.node.open.vertical_no_picker, { buffer = bufnr, nowait = true, silent = true })
+          -- Window Pickerを使わずに開く
+          vim.keymap.set("n", "<CR>", api.node.open.no_window_picker,     { buffer = bufnr, nowait = true, silent = true })
+          vim.keymap.set("n", "o",    api.node.open.no_window_picker,     { buffer = bufnr, nowait = true, silent = true })
         end,
       })
       vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })

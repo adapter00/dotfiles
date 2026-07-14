@@ -161,3 +161,4 @@ export PATH="/usr/local/sbin:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
+    export PATH="/Users/adapter/.local/bin:$PATH"
