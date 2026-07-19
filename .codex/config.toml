@@ -1,0 +1,73 @@
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+
+[projects."/Users/adapter/dev/go/src/sandbox/jellyfin_oauth_plugin"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/ansible/geekom"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/terraform/cloud"]
+trust_level = "trusted"
+
+[projects."/Users/adapter"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/k8s"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/k8s/gke-grpc-espv1-repro"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/.dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/go/src/sandbox/youtube_sound"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/pebble"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/pebble/watchface_001/pebble-watchface"]
+trust_level = "trusted"
+
+[projects."/Users/adapter/dev/obsidian/docs"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.4" = "gpt-5.5"
+
+[plugins."box@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui]
+status_line = [
+  "current-dir",
+  "git-branch",
+  "model-with-reasoning",
+  "context-used",
+  "used-tokens",
+  "total-input-tokens",
+  "total-output-tokens",
+  "five-hour-limit",
+  "weekly-limit",
+  "run-state",
+  "task-progress",
+]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[features]
+hooks = true
+
+[hooks.state]
+
+[hooks.state."/Users/adapter/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:aa7ae73aa01a1e8da2ad1b9431def2c6a01e39e8f7effdff67ff7a9ff0f7104b"
+enabled = true
