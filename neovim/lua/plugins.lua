@@ -7,6 +7,7 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup({
+        on_attach = require("nvim_tree_compat").on_attach,
         renderer = {
           icons = {
             show = {
@@ -23,6 +24,8 @@ require("lazy").setup({
         },
       })
       vim.keymap.set("n", "<C-n>n", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>E", ":NvimTreeFindFileToggle<CR>", { silent = true })
     end
   },
   { "itchyny/lightline.vim" },
