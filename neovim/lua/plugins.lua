@@ -23,8 +23,7 @@ require("lazy").setup({
           },
         },
       })
-      vim.keymap.set("n", "<C-n>n", ":NvimTreeToggle<CR>", { silent = true })
-      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
       vim.keymap.set("n", "<leader>E", ":NvimTreeFindFileToggle<CR>", { silent = true })
     end
   },
@@ -51,8 +50,6 @@ require("lazy").setup({
   -- ============================================================
   -- ファジーファインダー
   -- ============================================================
-  { "junegunn/fzf",         build = "./install --bin" },
-  { "ibhagwan/fzf-lua",     dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function() require("telescope").setup() end

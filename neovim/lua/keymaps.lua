@@ -21,8 +21,8 @@ map("n", "sn", "gt", opts)
 map("n", "sp", "gT", opts)
 
 -- QuickFix ナビゲーション
-map("",  "<C-n>", ":cn<CR>", opts)
-map("",  "<C-p>", ":cp<CR>", opts)
+map("n", "]q", ":cn<CR>", opts)
+map("n", "[q", ":cp<CR>", opts)
 
 -- OmniComplete
 map("i", "<C-Space>", "<C-x><C-o>", opts)
@@ -49,12 +49,9 @@ map("n", "<Space>d", ":<C-u>exe('Gtags '.expand('<cword>'))<CR>", opts)
 map("n", "<Space>r", ":<C-u>exe('Gtags -r '.expand('<cword>'))<CR>", opts)
 
 -- Telescope (Denite の代替)
-map("n", "<C-P>", ":Telescope buffers<CR>",   opts)
-map("n", "<C-C>", ":Telescope find_files<CR>",opts)
-map("n", "<C-N>", ":Telescope find_files<CR>",opts)
-map("n", "<C-Z>", ":Telescope oldfiles<CR>",  opts)
-map("n", "sB",    ":Telescope buffers<CR>",   opts)
-map("n", "<leader><C-f>", ":Telescope live_grep<CR>", opts)
+map("n", "<C-p>", ":Telescope find_files<CR>", opts)
+map("n", "<leader>b", ":Telescope buffers<CR>", opts)
+map("n", "<leader>g", ":Telescope live_grep<CR>", opts)
 
 -- RSpec
 map("n", "<leader>t", ":call RunCurrentSpecFile()<CR>", opts)
