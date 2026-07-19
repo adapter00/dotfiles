@@ -21,7 +21,7 @@
 Run:
 
 ```bash
-nvim --headless -i NONE "+lua local show=require('nvim-tree.config').g.renderer.icons.show; for _, name in ipairs({'file','folder','folder_arrow','git','modified','hidden','diagnostics','bookmarks'}) do assert(show[name] == false, name .. ' icon is enabled') end" +qa
+nvim --headless -i NONE --cmd "set rtp^=/Users/adapter/workspaces/nvim-tree-disable-icons/.dotfiles/neovim" -u /Users/adapter/workspaces/nvim-tree-disable-icons/.dotfiles/neovim/init.lua "+lua local show=require('nvim-tree.config').g.renderer.icons.show; for _, name in ipairs({'file','folder','folder_arrow','git','modified','hidden','diagnostics','bookmarks'}) do if show[name] ~= false then print(name .. ' icon is enabled'); vim.cmd('cquit 1'); return end end" +qa!
 ```
 
 Expected: FAIL with `file icon is enabled` because nvim-tree currently uses its default icon settings.
@@ -54,7 +54,7 @@ require("nvim-tree").setup({
 Run:
 
 ```bash
-nvim --headless -i NONE "+lua local show=require('nvim-tree.config').g.renderer.icons.show; for _, name in ipairs({'file','folder','folder_arrow','git','modified','hidden','diagnostics','bookmarks'}) do assert(show[name] == false, name .. ' icon is enabled') end; print('all nvim-tree icons disabled')" +qa
+nvim --headless -i NONE --cmd "set rtp^=/Users/adapter/workspaces/nvim-tree-disable-icons/.dotfiles/neovim" -u /Users/adapter/workspaces/nvim-tree-disable-icons/.dotfiles/neovim/init.lua "+lua local show=require('nvim-tree.config').g.renderer.icons.show; for _, name in ipairs({'file','folder','folder_arrow','git','modified','hidden','diagnostics','bookmarks'}) do if show[name] ~= false then print(name .. ' icon is enabled'); vim.cmd('cquit 1'); return end end; print('all nvim-tree icons disabled')" +qa!
 ```
 
 Expected: PASS with `all nvim-tree icons disabled` and exit code 0.
@@ -64,7 +64,7 @@ Expected: PASS with `all nvim-tree icons disabled` and exit code 0.
 Run:
 
 ```bash
-nvim --headless -i NONE "+lua print('Neovim config loaded')" +qa
+nvim --headless -i NONE --cmd "set rtp^=/Users/adapter/workspaces/nvim-tree-disable-icons/.dotfiles/neovim" -u /Users/adapter/workspaces/nvim-tree-disable-icons/.dotfiles/neovim/init.lua "+lua print('Neovim config loaded')" +qa!
 git diff --check
 ```
 
