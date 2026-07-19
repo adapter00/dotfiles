@@ -2,6 +2,12 @@ package.path = "neovim/lua/?.lua;" .. package.path
 
 local failures = {}
 
+local function load_compat()
+  local compat = dofile("neovim/lua/nvim_tree_compat.lua")
+  package.loaded.nvim_tree_compat = compat
+  return compat
+end
+
 local function test(name, fn)
   local ok, err = pcall(fn)
   if not ok then
@@ -15,44 +21,77 @@ local function eq(actual, expected, message)
   end
 end
 
-test("on_attach installs compatibility mappings", function()
+test("on_attach installs only the simplified mappings", function()
   local calls = {}
-  local default_bufnr
-  local vertical = function() end
-  local horizontal = function() end
-  local plain = function() end
+  local default_called = false
 
-  package.loaded["nvim-tree.api"] = {
-    map = { on_attach = { default = function(bufnr) default_bufnr = bufnr end } },
+  local api = {
+    map = { on_attach = { default = function() default_called = true end } },
     node = { open = {
-      vertical_no_picker = vertical,
-      horizontal_no_picker = horizontal,
-      no_window_picker = plain,
+      vertical_no_picker = function() end,
+      horizontal_no_picker = function() end,
+      no_window_picker = function() end,
+      tab = function() end,
     } },
+    tree = {
+      close = function() end,
+      reload = function() end,
+      toggle_help = function() end,
+    },
+    fs = {
+      create = function() end,
+      rename = function() end,
+      remove = function() end,
+      copy = { node = function() end },
+      cut = function() end,
+      paste = function() end,
+    },
   }
+  api.node.navigate = { parent_close = function() end }
+  package.loaded["nvim-tree.api"] = api
 
   local original_set = vim.keymap.set
   vim.keymap.set = function(mode, lhs, rhs, opts)
     calls[lhs] = { mode = mode, rhs = rhs, opts = opts }
   end
 
-  package.loaded.nvim_tree_compat = nil
-  local compat = require("nvim_tree_compat")
+  local compat = load_compat()
   compat.on_attach(17)
   vim.keymap.set = original_set
 
-  eq(default_bufnr, 17, "default mapping buffer")
-  eq(calls.s.rhs, vertical, "s mapping")
-  eq(calls.i.rhs, horizontal, "i mapping")
-  eq(calls.o.rhs, plain, "o mapping")
-  eq(calls["<CR>"].rhs, plain, "Enter mapping")
-  eq(calls["<C-e>"].rhs, compat.resize_tree, "tree resize mapping")
-  for _, lhs in ipairs({ "s", "i", "o", "<CR>", "<C-e>" }) do
+  local expected = {
+    ["<CR>"] = api.node.open.no_window_picker,
+    o = api.node.open.no_window_picker,
+    l = api.node.open.no_window_picker,
+    t = api.node.open.tab,
+    s = api.node.open.vertical_no_picker,
+    i = api.node.open.horizontal_no_picker,
+    h = api.node.navigate.parent_close,
+    a = api.fs.create,
+    r = api.fs.rename,
+    d = api.fs.remove,
+    c = api.fs.copy.node,
+    x = api.fs.cut,
+    p = api.fs.paste,
+    R = api.tree.reload,
+    q = api.tree.close,
+    ["?"] = api.tree.toggle_help,
+    ["<C-e>"] = compat.resize_tree,
+  }
+
+  eq(default_called, false, "default mappings are disabled")
+  local count = 0
+  for lhs, rhs in pairs(expected) do
+    count = count + 1
+    eq(calls[lhs].rhs, rhs, lhs .. " mapping")
     eq(calls[lhs].mode, "n", lhs .. " mode")
     eq(calls[lhs].opts.buffer, 17, lhs .. " buffer")
     eq(calls[lhs].opts.nowait, true, lhs .. " nowait")
     eq(calls[lhs].opts.silent, true, lhs .. " silent")
   end
+  local actual_count = 0
+  for _ in pairs(calls) do actual_count = actual_count + 1 end
+  eq(actual_count, count, "mapping count")
 end)
 
 local function resize_ops(overrides)

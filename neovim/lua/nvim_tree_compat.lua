@@ -61,13 +61,24 @@ end
 
 function M.on_attach(bufnr)
   local api = require("nvim-tree.api")
-  api.map.on_attach.default(bufnr)
 
   local opts = { buffer = bufnr, nowait = true, silent = true }
+  vim.keymap.set("n", "<CR>", api.node.open.no_window_picker, opts)
+  vim.keymap.set("n", "o", api.node.open.no_window_picker, opts)
+  vim.keymap.set("n", "l", api.node.open.no_window_picker, opts)
+  vim.keymap.set("n", "t", api.node.open.tab, opts)
   vim.keymap.set("n", "s", api.node.open.vertical_no_picker, opts)
   vim.keymap.set("n", "i", api.node.open.horizontal_no_picker, opts)
-  vim.keymap.set("n", "o", api.node.open.no_window_picker, opts)
-  vim.keymap.set("n", "<CR>", api.node.open.no_window_picker, opts)
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts)
+  vim.keymap.set("n", "a", api.fs.create, opts)
+  vim.keymap.set("n", "r", api.fs.rename, opts)
+  vim.keymap.set("n", "d", api.fs.remove, opts)
+  vim.keymap.set("n", "c", api.fs.copy.node, opts)
+  vim.keymap.set("n", "x", api.fs.cut, opts)
+  vim.keymap.set("n", "p", api.fs.paste, opts)
+  vim.keymap.set("n", "R", api.tree.reload, opts)
+  vim.keymap.set("n", "q", api.tree.close, opts)
+  vim.keymap.set("n", "?", api.tree.toggle_help, opts)
   vim.keymap.set("n", "<C-e>", M.resize_tree, opts)
 end
 
