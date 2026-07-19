@@ -160,3 +160,12 @@ export PATH="/usr/local/sbin:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
+
+# ghw: wrap cd subcommand to change directory in current shell
+function ghw() {
+  if [[ "$1" == "cd" ]]; then
+    builtin cd "$(command ghw cd "${@:2}")"
+  else
+    command ghw "$@"
+  fi
+}
