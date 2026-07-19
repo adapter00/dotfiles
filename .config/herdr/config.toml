@@ -11,3 +11,6 @@ focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 split_vertical = "prefix+v"
 split_horizontal = "prefix+s"
+
+[update]
+channel = "preview"
